@@ -16,7 +16,7 @@ form.addEventListener('submit', function(e) {
         password_error.innerHTML = "Mật khẩu không được để trống";
     }else if(password.value.length <= 5 ){
         e.preventDefault(); 
-        password_error.innerHTML = "Mật khẩu ít nhất 6 kí tự";
+        password_error.innerHTML = "Mật khẩu ít nhất 5 kí tự";
     }
 });
 

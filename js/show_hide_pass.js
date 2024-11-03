@@ -3,17 +3,19 @@ document.addEventListener('DOMContentLoaded', function(){
     const eyeIcon = document.querySelector('.fa-eye');
     const eyeSlashIcon = document.querySelector('.fa-eye-slash');
 
+
+
     eyeIcon.addEventListener('click', function(){
-        if(passwordInput.type ==='password'){
-            passwordInput.type = 'text';
+        if(passwordInput.type ==='text'){
+            passwordInput.type = 'password';
             eyeIcon.style.display = 'none';
             eyeSlashIcon.style.display = 'inline'; 
         }
     });
 
     eyeSlashIcon.addEventListener('click', function() {
-        if(passwordInput.type === 'text'){
-            passwordInput.type = 'password';
+        if(passwordInput.type === 'password'){
+            passwordInput.type = 'text';
             eyeSlashIcon.style.display = 'none';
             eyeIcon.style.display = 'inline';
         }

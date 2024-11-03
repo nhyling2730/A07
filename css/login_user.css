@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 /*thu*/
-img{
+.wrapper img{
     width: 120px;
     justify-content: center;
-    margin: 0 100px;
+    margin: 0 99px;
     background-image: none;
+    margin-top: -20px;
+    margin-bottom: -5px; ;
 }
 
 *{

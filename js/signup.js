@@ -66,3 +66,28 @@ form.addEventListener('submit', function(e) {
     }
 
 });
+
+function func() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var username_error = document.getElementById('username_error');
+    var password_error = document.getElementById('password_error');
+
+    // Xóa thông báo lỗi trước khi kiểm tra
+    username_error.innerHTML = "";
+    password_error.innerHTML = "";
+
+    if (username == 'nhom7' && password == '1234567') {
+        alert("Đăng nhập thành công");
+        window.location.assign("../index.html");
+    } else {
+        if (username !== 'nhom7') {
+            username_error.innerHTML = "Sai tên đăng nhập";
+        }
+
+        if (password !== '1234567') {
+            password_error.innerHTML = "Sai mật khẩu";
+        }
+    }
+}
+
