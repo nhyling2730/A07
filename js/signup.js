@@ -1,93 +1,128 @@
-const form = document.getElementById('form');
-const username = document.getElementById('username');
-const phone = document.getElementById('phone');
-const address = document.getElementById('address');
-//const email = document.getElementById('email');
-const password = document.getElementById('password');
-const passwordconfirm = document.getElementById('password-confirm');
+var username = document.querySelector('#username');
+var address = document.querySelector('#address');
+var phone = document.querySelector('#phone');
+var password = document.querySelector('#password');
+var confirmPassword = document.querySelector('#password-confirm');
+var form = document.querySelector('form');
 
-
-const username_error = document.getElementById('username_error'); 
-const address_error = document.getElementById('address_error');
-const phone_error = document.getElementById('phone_error');
-//const email_error = document.getElementById('email_error');
-const password_error = document.getElementById('password_error');
-const passwordconfirm_error = document.getElementById('password-confirm_error');
-
-form.addEventListener('submit', function(e) {
-
-    //var email_check = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
-
-    if(username.value === '' || username.value == null){
-        e.preventDefault(); 
-        username_error.innerHTML = "Tên đăng nhập không được để trống";
-    }
-
-    if(address.value === '' || address.value == null){
-        e.preventDefault(); 
-        address_error.innerHTML = "Địa chỉ không được để trống";
-    }
-
-    /*if(email.value === '' || email.value == null){
-        e.preventDefault();
-        email_error.innerHTML = "Email không được để trống";
-    } else if(!email.value.match(email_check)){
-        e.preventDefault();
-        email_error.innerHTML = "Email không hợp lệ";
-    }*/
-    
-    var phone_check = /^[0-9]{10}$/;
-
-
-    if(phone.value === '' || phone.value == null){
-            e.preventDefault(); 
-            phone_error.innerHTML = "Số điện thoại không được để trống";
-    }
-
-    if(!phone.value.match(phone_check)){
-        e.preventDefault();
-        phone_error.innerHTML = "Số điện thoại tối đa 10 số";
-    }
-    
-    if(password.value === '' || password.value == null){
-        e.preventDefault(); 
-        password_error.innerHTML = "không được để trống";
-    }else if(password.value.length <= 5 ){
-        e.preventDefault(); 
-        password_error.innerHTML = "Mật khẩu ít nhất 6 kí tự";
-    }
-
-    if(passwordconfirm.value ==='' || passwordconfirm.value == null){
-        e.preventDefault();
-        passwordconfirm_error.innerHTML ="không được để trống";
-    }
-    if(passwordconfirm.value !== password.value){
-        passwordconfirm_error.innerHTML=" Xác nhận mật khẩu không khớp";
-    }
-
-});
-
-function func() {
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
-    var username_error = document.getElementById('username_error');
-    var password_error = document.getElementById('password_error');
-
-    // Xóa thông báo lỗi trước khi kiểm tra
-    username_error.innerHTML = "";
-    password_error.innerHTML = "";
-
-    if (username == 'nhom7' && password == '1234567') {
-        alert("Đăng nhập thành công");
-        window.location.assign("../index.html");
-    } else {
-        if (username !== 'nhom7') {
-            username_error.innerHTML = "Sai tên đăng nhập";
+function checkEmptyError(listInput) {
+    let isEmptyError = false;
+    listInput.forEach(input => {
+        input.value = input.value.trim();
+        if (!input.value) {
+            isEmptyError = true;
+            showError(input, `${input.placeholder} không được để trống`);
+        } else {
+            showSuccess(input);
         }
-
-        if (password !== '1234567') {
-            password_error.innerHTML = "Sai mật khẩu";
-        }
-    }
+    });
+    return isEmptyError;
 }
 
+function showError(input, message) {
+    var formControl = input.parentElement;
+    formControl.className = 'input-box error';
+    var span = formControl.querySelector('span');
+    span.innerText = message;
+}
+
+function showSuccess(input) {
+    var formControl = input.parentElement;
+    formControl.className = 'input-box success';
+    var span = formControl.querySelector('span');
+    span.innerText = '';
+}
+
+function checkAddressError(input) {
+    const regexAddress = /[^a-z0-9A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễếệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]/u;
+    input.value = input.value.trim();
+    let isAddressError = !regexAddress.test(input.value);
+    if (!isAddressError) {
+        showSuccess(input);
+    } else {
+        showError(input, 'Địa chỉ nhập không hợp lệ!');
+    }
+    return isAddressError;
+}
+
+function checkPhoneError(input) {
+    const regexPhone = /^[0-9]{10}$/;
+    input.value = input.value.trim();
+    let isPhoneError = !regexPhone.test(input.value);
+    if (!isPhoneError) {
+        showSuccess(input);
+    } else {
+        showError(input, 'Số điện thoại nhập không hợp lệ');
+    }
+    return isPhoneError;
+}
+
+function checkLengthErrorUsername(input, min, max) {
+    input.value = input.value.trim();
+    if (input.value.length < min) {
+        showError(input, `Tên đăng nhập phải có ít nhất ${min} ký tự`);
+        return true;
+    }
+    if (input.value.length > max) {
+        showError(input, `Tên đăng nhập không được quá ${max} ký tự`);
+        return true;
+    }
+    showSuccess(input);
+    return false;
+}
+
+function checkLengthErrorPassword(input, min, max) {
+    input.value = input.value.trim();
+    if (input.value.length < min) {
+        showError(input, `Mật khẩu phải có ít nhất ${min} ký tự`);
+        return true;
+    }
+    if (input.value.length > max) {
+        showError(input, `Mật khẩu không được quá ${max} ký tự`);
+        return true;
+    }
+    showSuccess(input);
+    return false;
+}
+
+function checkMatchPasswordError(password, confirmPassword) {
+    if (password.value !== confirmPassword.value) {
+        showError(confirmPassword, 'Mật khẩu xác nhận không khớp!');
+        return true;
+    }
+    showSuccess(confirmPassword);
+    return false;
+}
+
+function saveUserData() {
+    var user = {
+        username: username.value,
+        address: address.value,
+        phone: phone.value,
+        password: password.value
+    };
+    var json = JSON.stringify(user);
+    localStorage.setItem(username.value, json);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const modalsuccess = document.querySelector('.modal-highlands');
+    modalsuccess.classList.remove('active'); // Đảm bảo modal không hiển thị khi tải trang
+}); 
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    let isMacthError = checkMatchPasswordError(password, confirmPassword);
+    let isPasswordLengthError = checkLengthErrorPassword(password, 6, 20);
+    let isUserNameLengthError = checkLengthErrorUsername(username, 5, 20);
+    let isPhoneError = checkPhoneError(phone);
+    let isAddressError = checkAddressError(address);
+    let isEmptyError = checkEmptyError([username, address, phone, password, confirmPassword]);
+
+    if (!isUserNameLengthError && !isMacthError && !isPasswordLengthError && !isPhoneError && !isAddressError && !isEmptyError) {
+        saveUserData();
+        const modalsuccess = document.querySelector('.modal-highlands');
+        modalsuccess.classList.add('active'); // Hiển thị modal
+    }
+});
