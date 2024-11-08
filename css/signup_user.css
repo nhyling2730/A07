@@ -29,7 +29,7 @@ img{
 
 .wrapper{
     width: 400px;
-    background: rgb(205, 158, 98);
+    background: rgb(225, 174, 108);
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
@@ -91,7 +91,7 @@ img{
 }
 
 .button:hover{
-    background-color: green;
+    background-color: #11be45;
 }
 
 .wrapper .signup-link{
@@ -116,7 +116,7 @@ img{
 }
 
 span{
-    color: white;
+    color:rgb(247, 11, 11);
     font-size: small;
     margin: 0 15px;
 }
@@ -136,9 +136,9 @@ span{
 .modal-inner{
     width: 80%;
     max-width: 400px;
-    height: 360px;
+    height: 350px;
     position: relative;
-    background: rgb(205, 158, 98);
+    background: rgb(233, 209, 179);
     border-radius: 10px;
     animation: modalShow 0.5s linear;
 }
@@ -153,13 +153,13 @@ span{
     padding: 10px;
     border-radius: 10px 10px 0 0; 
     border-bottom: none ;
-    background-color: rgb(205, 158, 98);
+    background-color: rgb(233, 209, 179);
 }
 
 .modal-header .icon-success {
-    font-size: 95px;
-    color: green ;
-    margin-bottom: -30px;
+    font-size: 100px;
+    color: #11be45;
+    margin-bottom: -35px;
 }
 
 .modal-body h4{
@@ -210,7 +210,7 @@ span{
 }
 
 .btn-success:hover{
-    background-color: green;
+    background-color: #11be45 ;
 }
 
 .modal-highlands.active{
