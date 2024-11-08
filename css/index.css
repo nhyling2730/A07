@@ -175,50 +175,6 @@ header .fa-bars {
     color: #ffffff;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<<<<<<< HEAD
-=======
-.col-3 {
-    display: flex;
-    margin: 40px 50px 40px 40px;
-    gap: 60px;
-}
->>>>>>> 2d6fd9c3565fee4c828e3d9ddebc8f901a09cf52
-
-
-
-
 @media (max-width:1300px) {
     html {
         font-size: 10%;
@@ -301,12 +257,12 @@ header .fa-bars {
     }
 }
 
-<<<<<<< HEAD
+
 @media (max-width:450px) {
     html {
         font-size: 45%;
     }
-=======
+
 .footer-section.members {
     display: flex;
     flex-direction: column;
@@ -367,8 +323,7 @@ header .fa-bars {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
     /* z-index: 9999; */
-}
->>>>>>> 2d6fd9c3565fee4c828e3d9ddebc8f901a09cf52
+    }
 
     header .icon {
         display: flex;
@@ -378,12 +333,10 @@ header .fa-bars {
     }
 }
 
-<<<<<<< HEAD
-=======
 #scrollToTopBtn:hover {
     background-color: #e4c0b8;
     border: 2px solid #fff;
     color: #fff;
     transform: translateY(-5px);
 }
->>>>>>> 2d6fd9c3565fee4c828e3d9ddebc8f901a09cf52
+
