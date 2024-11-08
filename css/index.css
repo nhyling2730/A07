@@ -574,8 +574,8 @@ header .logo img {
 
 .col-3 {
     display: flex;
-    margin: 40px 60px 40px 60px;
-    gap: 50px;
+    margin: 40px 50px 40px 40px;
+    gap: 60px;
 }
 
 .menu_item {
@@ -802,6 +802,7 @@ header .logo img {
     cursor: pointer;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    /* z-index: 9999; */
 }
 
 #scrollToTopBtn i {
@@ -815,5 +816,5 @@ header .logo img {
     background-color: #e4c0b8;
     border: 2px solid #fff;
     color: #fff;
-    transform: translateY(-5px); 
+    transform: translateY(-5px);
 }

@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- FONTAWESOME -->
     <link rel="stylesheet" href="./css/fontawesome-free-6.6.0-web/css/all.min.css">
-    <!-- CSS -->
     <link rel="stylesheet" href="./css/index.css">
-    <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="./bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <title>Highlands Coffee</title>
+    
 </head>
 <body>
     <header>
@@ -44,6 +42,7 @@
                 <i class="fa-solid fa-magnifying-glass search"></i>
             </div>
             <div class="searchBox">
+                <form class="search-form">
                 <ul class="search-bar">
                     <li class="dropdown-bar1">
                         <div id="drop-text" class="dropdown-text">
@@ -70,21 +69,21 @@
                             <li class="dropdown-list-item">Trên 50k</li>
                         </ul>
                     </li>
-                    <!-- <form action=""> -->
                     <li class="search-box">
                         <input type="text" id="search-input" placeholder="Tìm kiếm..." required/>
                         <button type="submit">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </li>
-                <!-- </form> -->
                 </ul>
+            </form>
             </div>
             <div class="icon-item">
                 <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
             <div class="icon-item">
-                <a href="javascript:void(0);"><i class="fa-solid fa-user"></i>
+                <a href="javascript:void(0);">
+                    <i class="fa-solid fa-user"></i>
                     <ul class="dropdown-user">
                         <li><a href="">Đăng nhập</a></li>
                         <li><a href="">Đăng ký</a></li>
@@ -270,6 +269,6 @@
     <div id="scrollToTopBtn">
         <a href="#home"><i class="fa-solid fa-chevron-up"></i></a>
     </div> 
-     <script src="./js/index.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 </html>
