@@ -1,57 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--up lai ne anh oi-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/css/signup_user.css"> 
+    <link rel="stylesheet" href="../css/signup_user.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&amp;display=swap" rel="stylesheet">
     <title>ĐĂNG KÍ</title>
 </head>
 <body>
     <div class="wrapper">
-        <form action="" onload="" class="form" id="form">
-            <img src="/image/logo.png">
+        <form action="" class="form" id="form" onsubmit="func(); return false;">
+            <img src="../image/logo.png">
             <h1>Đăng kí</h1>
 
-            <div class="input-box">
+            <div class="input-box error">
                 <input type="text" id="username" placeholder="Tên đăng nhập">
                 <i class="fa-solid fa-user"></i>
                 <span id="username_error"></span>
             </div>
 
-            <div class="input-box">
+            <div class="input-box error">
                 <input type="text" id="address" placeholder="Địa chỉ" >
                 <i class="fa-solid fa-location-dot"></i>
                 <span id="address_error"></span>
             </div>
 
-            <div class="input-box">
+            <div class="input-box error">
                 <input type="text" id="phone" placeholder="Số điện thoại" >
                 <i class="fa-solid fa-phone"></i>
                 <span id="phone_error"></span>
             </div>
 
-            <div class="input-box">
+            <div class="input-box error">
                 <input type="password" id="password" placeholder="Mật khẩu" >
                 <i class="fa-solid fa-lock"></i>
                 <span id="password_error"></span>
             </div>
 
-            <div class="input-box">
+            <div class="input-box error">
                 <input type="password" id="password-confirm" placeholder="Xác nhận mật khẩu" >
-                <span id="password-confirm_error"></span>
+                <span id="passwordconfirm_error"></span>
             </div>
             
             <button type="submit" class="button">Đăng kí</button>
             
             <div class="signup-link">
-                <p>Bạn đã ghé Highlands?<a href="/user/login_user.html"> Đăng nhập ngay</p>
+                <p>Bạn đã ghé Highlands?<a href="../user/login_user.html"> Đăng nhập ngay</a></p>
             </div>
 
         </form>
     </div>
 
-    <script src="/js/signup.js"></script>
+    <div class="modal-highlands">
+        <div class="modal-inner">
+            <div class="modal-header">
+                <div class="icon-success">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <h4>Chúc mừng</h4>
+                <p>Bạn đã đăng ký thành công</p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-success" onclick="document.querySelector('.modal-highlands').classList.remove('active');">
+					<a href="../user/login_user.html">Đăng nhập ngay</a>
+				</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/signup.js"></script>
 </body>
 </html>
