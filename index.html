@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <meta http-equiv="X-UA-compatible" content="IE=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/index.css">
+=======
+    <link rel="stylesheet" href="./css/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./bootstrap-5.0.2-dist/css/bootstrap.min.css">
+>>>>>>> 2d6fd9c3565fee4c828e3d9ddebc8f901a09cf52
     <title>Highlands Coffee</title>
+    
 </head>
 <body>
     <header>
@@ -32,6 +39,7 @@
             <a href="#"><i class="fa fa-phone"></i>LIÊN HỆ</a>
         </nav>
         <div class="icon">
+<<<<<<< HEAD
             <form action="" id="search-box" method="post">
                 <input type="text" id="search-text" placeholder="Tìm kiếm..." required>
                     <button id="search-btn">
@@ -42,5 +50,240 @@
             <a href="" class="fa-solid fa-user"></a>
         </div>
     </header>
+=======
+            <div class="searchToggle">
+                <i class="fa-solid fa-x cancel"></i>
+                <i class="fa-solid fa-magnifying-glass search"></i>
+            </div>
+            <div class="searchBox">
+                <form class="search-form">
+                <ul class="search-bar">
+                    <li class="dropdown-bar1">
+                        <div id="drop-text" class="dropdown-text">
+                            <span id="span">Tất cả</span>
+                            <i id="icon" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <ul id="list" class="dropdown-list">
+                            <li class="dropdown-list-item">Tất cả</li>
+                            <li class="dropdown-list-item">Cà phê phin</li>
+                            <li class="dropdown-list-item">Phindi</li>
+                            <li class="dropdown-list-item">Freeze</li>
+                            <li class="dropdown-list-item">Trà</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-bar2">
+                        <div id="price-drop-text" class="dropdown-text">                                
+                            <span id="price-span">Khoảng giá</span>
+                            <i id="price-icon" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <ul id="price-list" class="dropdown-list">
+                            <li class="dropdown-list-item">Khoảng giá</li>
+                            <li class="dropdown-list-item">Dưới 20k</li>
+                            <li class="dropdown-list-item">20k - 50k</li>
+                            <li class="dropdown-list-item">Trên 50k</li>
+                        </ul>
+                    </li>
+                    <li class="search-box">
+                        <input type="text" id="search-input" placeholder="Tìm kiếm..." required/>
+                        <button type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </li>
+                </ul>
+            </form>
+            </div>
+            <div class="icon-item">
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+            <div class="icon-item">
+                <a href="javascript:void(0);">
+                    <i class="fa-solid fa-user"></i>
+                    <ul class="dropdown-user">
+                        <li><a href="">Đăng nhập</a></li>
+                        <li><a href="">Đăng ký</a></li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- SLIDER -->
+    <section class="slider">
+        <div class="list">
+            <div class="item">
+                <img src="./image/poster/banner1 .png">
+            </div>
+            <div class="item">
+                <img src="./image/poster/banner2.png">
+            </div>
+            <div class="item">
+                <img src="./image/poster/poster.png">
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="prev"><i class="fa-solid fa-circle-chevron-left"></i></button>
+            <button id="next"><i class="fa-solid fa-circle-chevron-right"></i></button>
+        </div>
+        <ul class="dots">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </section>
+    <!-- ADVERTISE -->
+    <section class="section_container container" id="home">
+        <div class="content">
+            <div class="img1">
+                <img src="./image/khác/damdavicaphe.png">
+            </div>
+            <p>
+                Cà phê không chỉ là một thức uống, mà là cả một nghệ thuật và văn hóa, từ những hạt cà phê nguyên bản đến ly cà phê đậm đà trên tay. Mỗi ly cà phê là sự hòa quyện của hương thơm dịu dàng và vị đắng đậm đà, đánh thức giác quan và mang đến một trải nghiệm tuyệt vời. Hãy cùng thưởng thức và khám phá câu chuyện mà mỗi ly cà phê mang lại!
+            </p>
+            <div class="div_btn">
+                <button class="btn"><a href="">Thử ngay</a></button>
+            </div>
+        </div>
+        <div class="img2">
+            <img src="./image/khác/Slide1.PNG">
+        </div>
+    </section>
+    <!-- BESTSELLER -->
+    <section class="heading">
+        <h2>BÁN CHẠY</h2>
+        <div class="row">
+            <div class="divider"></div>
+            <hr>
+        </div>
+    </section>
+    <section>
+        <div class="col-3 product-item" id="productList">
+            <div class="menu_item">
+                <div class="menu_item_img">
+                    <a href="">
+                        <img src="./image/phin/phisuanda_nho.png" class="menu_img" alt="Phin Sữa Đá">
+                    </a>
+                </div>
+                <div class="menu_item_info">
+                    <a href="">
+                        <h3 class="menu_item_title"><strong>Phin Sữa Đá</strong></h3>
+                    </a>
+                    <p class="price_item">34.000đ</p>
+                </div>
+            </div>
+            <div class="menu_item">
+                <div class="menu_item_img">
+                    <a href="">
+                        <img src="./image/phindi/phindihanhnhan_nho.png" class="menu_img" alt="Phin Sữa Đá">
+                    </a>
+                </div>
+                <div class="menu_item_info">
+                    <a href="">
+                        <h3 class="menu_item_title"><strong>Phindi Hạnh Nhân</strong></h3>
+                    </a>
+                    <p class="price_item">34.000đ</p>
+                </div>
+            </div>
+            <div class="menu_item">
+                <div class="menu_item_img">
+                    <a href="">
+                        <img src="./image/phindi/phindikemsua_nho.png" class="menu_img" alt="Phin Sữa Đá">
+                    </a>
+                </div>
+                <div class="menu_item_info">
+                    <a href="">
+                        <h3 class="menu_item_title"><strong>Phindi Kem Sữa</strong></h3>
+                    </a>
+                    <p class="price_item">34.000đ</p>
+                </div>
+            </div>
+            <div class="menu_item">
+                <div class="menu_item_img">
+                    <a href="">
+                        <img src="./image/freeze/freezetraxanh_nho.png" class="menu_img" alt="Phin Sữa Đá">
+                    </a>
+                </div>
+                <div class="menu_item_info">
+                    <a href="">
+                        <h3 class="menu_item_title"><strong>Freeze Trà Xanh</strong></h3>
+                    </a>
+                    <p class="price_item">34.000đ</p>
+                </div>
+            </div>
+            <div class="menu_item">
+                <div class="menu_item_img">
+                    <a href="">
+                        <img src="./image/freeze/caramelphinfreeze_nho.png" class="menu_img" alt="Phin Sữa Đá">
+                    </a>
+                </div>
+                <div class="menu_item_info">
+                    <a href="">
+                        <h3 class="menu_item_title"><strong>Caramel Phin Freeze</strong></h3>
+                    </a>
+                    <p class="price_item">34,000đ</p>
+                </div>
+            </div>
+            <div class="menu_item">
+                <div class="menu_item_img">
+                    <a href="">
+                        <img src="./image/trà/trathachdao_nho.png" class="menu_img" alt="Phin Sữa Đá">
+                    </a>
+                </div>
+                <div class="menu_item_info">
+                    <a href="">
+                        <h3 class="menu_item_title"><strong>Trà Thạch Đào</strong></h3>
+                    </a>
+                    <p class="price_item">34.000đ</p>
+                </div>
+            </div>
+        </div>  
+        <ul class="listpage">
+            <li class="page1"><i class="fa-solid fa-angles-left"></i></li>
+            <li class="active">1</li>
+            <li>2</li>
+            <li class="page2"><i class="fa-solid fa-angles-right"></i></li>
+        </ul>      
+    </section>   
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Về Chúng Tôi</h2>
+                <p>Chúng tôi cung cấp các loại đồ uống chất lượng, phục vụ với sự tận tâm và chuyên nghiệp.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Liên Kết</h2>
+                <ul>
+                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="#">Thực dơn</a></li>
+                    <li><a href="#">Tin tức</a></li>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h2>Kết Nối Với Chúng Tôi</h2>
+                <a href="https://web.facebook.com/highlandscoffeevietnam" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/highlandscoffeevietnam/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+            <div class="footer-section members">
+                <h2>Thành Viên</h2>
+                <ul>
+                    <li><a href="#">Lê Thị Thủy Tiên</a></li>
+                    <li><a href="#">Võ Thị Thu Luyện</a></li>
+                    <li><a href="#">Nguyễn Thị Ngọc Tú</a></li>
+                    <li><a href="#">Trần Thị Xuân Thanh</a></li>
+                    <li><a href="#">Nguyễn Huỳnh Yến Linh</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <hr>
+            &copy; Highlands Coffee | Thiết kế bởi Nhóm A07
+        </div>
+    </footer>
+    <div id="scrollToTopBtn">
+        <a href="#home"><i class="fa-solid fa-chevron-up"></i></a>
+    </div> 
+    <script src="./js/index.js"></script>
+>>>>>>> 2d6fd9c3565fee4c828e3d9ddebc8f901a09cf52
 </body>
 </html>
