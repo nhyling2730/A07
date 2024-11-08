@@ -1,45 +1,90 @@
-const username = document.getElementById('username');
-const password = document.getElementById('password');
-const form = document.getElementById('form');
+var username =  document.querySelector('#username');
+var password =  document.querySelector('#password');
+var form =  document.querySelector('form');
 
-const username_error = document.getElementById('username_error');
-const password_error = document.getElementById('password_error');
-
-form.addEventListener('submit', function(e) {
-    if(username.value === '' || username.value == null){
-        e.preventDefault();
-        username_error.innerHTML = "Tên đăng nhập không được để trống";
-    }
-
-    if(password.value === '' || password.value == null){
-        e.preventDefault();
-        password_error.innerHTML = "Mật khẩu không được để trống";
-    }else if(password.value.length <= 5 ){
-        e.preventDefault(); 
-        password_error.innerHTML = "Mật khẩu ít nhất 5 kí tự";
-    }
-});
-
-function func() {
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
-    var username_error = document.getElementById('username_error');
-    var password_error = document.getElementById('password_error');
-
-    // Xóa thông báo lỗi trước khi kiểm tra
-    username_error.innerHTML = "";
-    password_error.innerHTML = "";
-
-    if (username == 'nhom7' && password == '1234567') {
-        alert("Đăng nhập thành công");
-        window.location.assign("../index.html");
-    } else {
-        if (username !== 'nhom7') {
-            username_error.innerHTML = "Sai tên đăng nhập";
-        }
-
-        if (password !== '1234567') {
-            password_error.innerHTML = "Sai mật khẩu";
-        }
-    }
+function showError(input, message){
+    var formControl = input.parentElement
+    formControl.className = 'input-box error'
+    var span = formControl.querySelector('span')
+    span.innerText = message
 }
+
+function showSuccess(input){
+    var formControl = input.parentElement
+    formControl.className = 'input-box success'
+    var span = formControl.querySelector('span')
+    span.innerText = ''
+}
+
+function checkEmptyError(listInput){
+    let isEmptyError = false;
+    listInput.forEach(input => {
+        input.value = input.value.trim()
+        if(!input.value){
+            isEmptyError = true;
+            showError(input, `${input.placeholder} không được để trống`)
+        }
+    });
+    return isEmptyError;
+}
+
+function checkLengthErrorUsername (input, min, max){
+    input.value = input.value.trim();
+    if(input.value.length < min){
+        showError(input, `Tên đăng nhập phải ít nhất ${min} ký tự`);
+        return true;
+    }
+    if(input.value.length > max){
+        showError(input, `Tên đăng nhập không được quá ${max} ký tự`);
+        return true;
+    }
+    showSuccess(input);
+    return false;
+}
+
+function checkLengthErrorPassword(input, min, max){
+    input.value = input.value.trim();
+    if(input.value.length < min){
+        showError(input, `Mật khẩu phải có ít nhất ${min} ký tự`);
+        return true;
+    }
+    if(input.value.length > max){
+        showError(input, `Mật khẩu phải có tối đa ${max} ký tự`);
+    }
+    showSuccess(input);
+    return false;
+}
+
+    function CheckUserData(){
+        var usernameValue = username.value;
+        var passwordValue = password.value;
+    
+        // Lấy dữ liệu từ localStorage
+        var storedUser = JSON.parse(localStorage.getItem(usernameValue));
+
+        console.log("Username:", usernameValue, "Password:", passwordValue);
+        console.log("Stored User:", storedUser);
+
+    
+        if(!storedUser){
+            const modalNoExist = document.querySelector('.modalNoExist');
+            modalNoExist.classList.add('activeNoExist'); // Hiện modal không tồn tại
+        } else if(usernameValue != storedUser.username || passwordValue != storedUser.password){
+            const modalfail = document.querySelector('.modalFail');
+            modalfail.classList.add('activefail'); // Hiện modal lỗi đăng nhập
+        } else {
+            const modalsuccess = document.querySelector('.modalSuccess');
+            modalsuccess.classList.add('active'); // Hiện modal thành công
+        }
+    }
+
+const login = document.querySelector('.form')
+login.addEventListener('submit', function(e){
+    let isPasswordLengthError = checkLengthErrorPassword(password, 6, 20);
+    let isUserNameLengthError = checkLengthErrorUsername(username, 7, 20);
+    let isEmptyError = checkEmptyError([username, password]);
+    e.preventDefault();
+    if( !isEmptyError && !isPasswordLengthError && !isUserNameLengthError){
+        CheckUserData();
+    }
+})

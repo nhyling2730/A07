@@ -102,7 +102,7 @@ function saveUserData() {
         password: password.value
     };
     var json = JSON.stringify(user);
-    localStorage.setItem(username.value, json);
+    localStorage.setItem(user.username, json);
 }
 
 document.addEventListener('DOMContentLoaded', function() {

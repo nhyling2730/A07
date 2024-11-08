@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="wrapper">
-        <form id="form" action="" onsubmit="func(); return false;">
+        <form id="form" action="" onsubmit="func(); return false;" class="form" >
             <img src="../image/logo.png">
             <h1>Đăng nhập</h1>
             <div class="input-box">
@@ -32,11 +32,78 @@
             </div>
         
             <button type="submit" class="button">Đăng nhập</button>
+            
             <div class="register-link">
-                <p>Bạn mới biết đến Highlands? <a href="../user/signup_user.html"> Đăng kí</p>
+                <p>Bạn mới biết đến Highlands? <a href="../user/signup_user.html">Đăng kí</a></p>
             </div>
+            
         </form>
     </div>
+
+    <div class="modalSuccess ">
+        <div class="modal-inner">
+            <div class="modal-header">
+                <div class="icon-success">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <h4>Chúc mừng</h4>
+                <p>Bạn đã đăng nhập thành công</p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-success" onclick="document.querySelector('.modalSuccess').classList.remove('active');">
+                    <a href="#">Khám phá nào</a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalFail">
+        <div class="modal-innerFail">
+            <div class="modal-headerFail">
+                <div class="iconFail">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+            </div>
+
+            <div class="modal-bodyFail">
+                <h4>Xin lỗi</h4>
+                <p>Bạn đã nhập sai mật khẩu</p>
+            </div>
+
+            <div class="modal-footerFail">
+                <button class="btn-fail">
+                    <a href="../user/login_user.html" onclick="document.querySelector('.modalFail').classList.remove('activefail');">Mời bạn đăng nhập lại</a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalNoExist">
+        <div class="modal-innerNoExist">
+            <div class="modal-headerNoExist">
+                <div class="iconNoExist">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+            </div>
+
+            <div class="modal-bodyNoExist">
+                <h4>Xin lỗi</h4>
+                <p>Tài khoản của bạn không tồn tại</p>
+            </div>
+
+            <div class="modal-footerNoExist">
+                <button class="btn-NoExist" onclick="document.querySelector('.modalNoExist').classList.remove('activeNoExist');">
+                    <a href="../user/signup_user.html">Đăng ký ngay</a>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
     <script src="../js/loginUser.js"></script>
     <script src="../js/show_hide_pass.js"></script>
 </body>
