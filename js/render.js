@@ -1,7 +1,7 @@
 const renderProducts = [
     {
         "productCode": "HC08",
-        "image": "../../image/freeze/caramelphinfreeze_nho.png",
+        "image": "../image/freeze/caramelphinfreeze_nho.png",
         "category": "Freeze",
         "name": "Caramel phin freeze",
         "price": "50.000 VNĐ",
@@ -10,7 +10,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC09",
-        "image": "../../image/freeze/classicphinfreeze_nho.png",
+        "image": "../image/freeze/classicphinfreeze_nho.png",
         "category": "Freeze",
         "name": "Classic phin freeze",
         "price": "50.000 VNĐ",
@@ -19,7 +19,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC10",
-        "image": "../../image/freeze/cookies&cream_nho.png",
+        "image": "../image/freeze/cookies&cream_nho.png",
         "category": "Freeze",
         "name": "Cookies & Cream",
         "price": "50.000 VNĐ",
@@ -28,7 +28,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC12",
-        "image": "../../image/freeze/freezechoco_nho.png",
+        "image": "../image/freeze/freezechoco_nho.png",
         "category": "Freeze",
         "name": "Freeze sô-cô-la",
         "price": "50.000 VNĐ",
@@ -37,7 +37,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC11",
-        "image": "../../image/freeze/freezetraxanh_nho.png",
+        "image": "../image/freeze/freezetraxanh_nho.png",
         "category": "Freeze",
         "name": "Freeze trà xanh",
         "price": "50.000 VNĐ",
@@ -46,7 +46,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC03",
-        "image": "../../image/phin/bacxiuda_nho.png",
+        "image": "../image/phin/bacxiuda_nho.png",
         "category": "Cà phê phin",
         "name": "Bạc xỉu đá",
         "price": "29.000 VNĐ",
@@ -55,7 +55,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC01",
-        "image": "../../image/phin/phisuanda_nho.png",
+        "image": "../image/phin/phisuanda_nho.png",
         "category": "Cà phê phin",
         "name": "Phin sữa đá",
         "price": "35.000 VNĐ",
@@ -64,7 +64,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC02",
-        "image": "../../image/phin/phindenda_nho.png",
+        "image": "../image/phin/phindenda_nho.png",
         "category": "Cà phê phin",
         "name": "Phin đen đá",
         "price": "32.000 VNĐ",
@@ -73,7 +73,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC07",
-        "image": "../../image/phindi/phindicassia_nho.png",
+        "image": "../image/phindi/phindicassia_nho.png",
         "category": "Phindi",
         "name": "Phindi cassia",
         "price": "55.000 VNĐ",
@@ -82,7 +82,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC06",
-        "image": "../../image/phindi/phindichoco_nho.png",
+        "image": "../image/phindi/phindichoco_nho.png",
         "category": "Phindi",
         "name": "Phindi choco",
         "price": "55.000 VNĐ",
@@ -91,7 +91,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC04",
-        "image": "../../image/phindi/phindihanhnhan_nho.png",
+        "image": "../image/phindi/phindihanhnhan_nho.png",
         "category": "Phindi",
         "name": "Phindi hạnh nhân",
         "price": "55.000 VNĐ",
@@ -100,7 +100,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC05",
-        "image": "../../image/phindi/phindikemsua_nho.png",
+        "image": "../image/phindi/phindikemsua_nho.png",
         "category": "Phindi",
         "name": "Phindi kem sữa",
         "price": "55.000 VNĐ",
@@ -109,7 +109,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC16",
-        "image": "../../image/trà/trasenvang(cunang)_nho.png",
+        "image": "../image/trà/trasenvang(cunang)_nho.png",
         "category": "Trà",
         "name": "Trà sen vàng (củ năng)",
         "price": "45.000 VNĐ",
@@ -118,7 +118,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC15",
-        "image": "../../image/trà/trasenvang(sen)_nho.png",
+        "image": "../image/trà/trasenvang(sen)_nho.png",
         "category": "Trà",
         "name": "Trà sen vàng (sen)",
         "price": "45.000 VNĐ",
@@ -127,7 +127,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC18",
-        "image": "../../image/trà/trathachdao_nho.png",
+        "image": "../image/trà/trathachdao_nho.png",
         "category": "Trà",
         "name": "Trà thạch đào",
         "price": "45.000 VNĐ",
@@ -136,7 +136,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC17",
-        "image": "../../image/trà/trathanhdao_nho.png",
+        "image": "../image/trà/trathanhdao_nho.png",
         "category": "Trà",
         "name": "Trà thanh đào",
         "price": "45.000 VNĐ",
@@ -145,7 +145,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC14",
-        "image": "../../image/trà/trathachvai_nho.png",
+        "image": "../image/trà/trathachvai_nho.png",
         "category": "Trà",
         "name": "Trà thạch Vải",
         "price": "45.000 VNĐ",
@@ -154,7 +154,7 @@ const renderProducts = [
     },
     {
         "productCode": "HC13",
-        "image": "../../image/trà/traxanhdaudo_nho.png",
+        "image": "../image/trà/traxanhdaudo_nho.png",
         "category": "Trà",
         "name": "Trà xanh đậu đỏ",
         "price": "45.000 VNĐ",

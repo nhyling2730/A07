@@ -5,46 +5,51 @@ document.querySelector('.toggle').addEventListener('click', function() {
   const faXmark = document.querySelector('.fa-xmark');
 
   navMenu.classList.toggle('show');
-  this.classList.toggle('active'); 
 
-  if (this.classList.contains('active')) {
-      faBars.style.opacity = '0'; 
-      faXmark.style.opacity = '1'; 
-  } else {
-      faBars.style.opacity = '1'; 
-      faXmark.style.opacity = '0'; 
-  }
+  faBars.classList.toggle('active');
+  faXmark.classList.toggle('active');
 });
 
-function setActiveMenu(menuItem) {
-  document.querySelectorAll('.nav-menu li').forEach(item => {
-      item.classList.remove('active');
+function toggleSubMenu(subMenuId) {
+  const allSubMenus = document.querySelectorAll('.sub-menu');
+  allSubMenus.forEach(menu => {
+      if (menu.id !== subMenuId) {
+          menu.style.display = 'none';
+      }
   });
-  menuItem.classList.add('active');
+  
+  const subMenu = document.getElementById(subMenuId);
+  if (subMenu.style.display === 'flex') {
+      subMenu.style.display = 'none'; 
+  } else {
+      subMenu.style.display = 'flex'; 
+  }
 }
 
 document.querySelectorAll('.nav-menu .dropdown > a').forEach(item => {
   item.addEventListener('click', function(event) {
-      event.preventDefault();
-      const subMenuId = item.nextElementSibling.id;
-      toggleSubMenu(subMenuId);
+      event.preventDefault(); 
+      const subMenuId = item.nextElementSibling.id; 
+      toggleSubMenu(subMenuId); 
   });
 });
 
-document.querySelectorAll('.nav-menu li a').forEach(item => {
-  item.addEventListener('click', function() {
-      setActiveMenu(item.parentElement);
-  });
-});
-
-/* Tìm kiếm */
-document.addEventListener("DOMContentLoaded", function() {
+/* tìm kiếm */
+document.addEventListener("DOMContentLoaded", function () {
   const searchToggle = document.querySelector(".searchToggle");
   const searchBox = document.querySelector(".search-bar");
   const searchInput = document.getElementById("search-input");
   const searchBoxButton = document.querySelector(".search-box button");
   const dropdownItems1 = document.querySelectorAll("#list .dropdown-list-item");
-  const dropdownItems2 = document.querySelectorAll("#price-list .dropdown-list-item");
+  const dropdownItems2 = document.querySelectorAll(
+    "#price-list .dropdown-list-item"
+  );
+
+  let searchParams =   new URLSearchParams(window.location.search).get("openHistory");
+  if(searchParams == "true") {
+    showOrderHistory();
+  }
+
   const dropdownList1 = document.getElementById("list");
   const dropdownList2 = document.getElementById("price-list");
   const span1 = document.getElementById("span");
@@ -54,75 +59,74 @@ document.addEventListener("DOMContentLoaded", function() {
   let selectedText2 = "Khoảng giá";
 
   searchToggle.addEventListener("click", () => {
-      searchToggle.classList.toggle("active");
-      const isActive = searchToggle.classList.contains("active");
-      searchBox.style.display = isActive ? "flex" : "none";
+    searchToggle.classList.toggle("active");
+    const isActive = searchToggle.classList.contains("active");
+    searchBox.style.display = isActive ? "flex" : "none";
   });
 
-  function performSearch(e) {
-      const query = searchInput.value.trim();
+  searchBoxButton.addEventListener("click", function (e) {
+    const query = searchInput.value.trim();
 
-      if (query === "") {
-          return;
-      }
-
-      searchToggle.classList.remove("active");
-      searchBox.style.display = "none";
-
+    if (query === "") {
+      e.preventDefault(); 
+    } else {
       span1.innerText = selectedText1;
       span2.innerText = selectedText2;
-
-      console.log(`Tìm kiếm với từ khóa: ${query}`);
-  }
-
-  searchBoxButton.addEventListener("click", performSearch);
+    }
+  });
 
   searchInput.addEventListener("keyup", (e) => {
-      if (e.key === "Enter") {
-          performSearch(e);
+    if (e.key === "Enter") {
+      const query = searchInput.value.trim();
+      if (query === "") {
+        e.preventDefault(); 
+      } else {
+        span1.innerText = selectedText1;
+        span2.innerText = selectedText2;
       }
+    }
   });
 
   document.querySelector(".dropdown-bar1").addEventListener("click", (e) => {
-      e.stopPropagation();
-      dropdownList1.classList.toggle("show");
-      dropdownList2.classList.remove("show");
+    e.stopPropagation();
+    dropdownList1.classList.toggle("show");
+    dropdownList2.classList.remove("show");
   });
 
   document.querySelector(".dropdown-bar2").addEventListener("click", (e) => {
-      e.stopPropagation();
-      dropdownList2.classList.toggle("show");
-      dropdownList1.classList.remove("show");
+    e.stopPropagation();
+    dropdownList2.classList.toggle("show");
+    dropdownList1.classList.remove("show");
   });
 
   dropdownItems1.forEach((item) => {
-      item.addEventListener("click", (e) => {
-          selectedText1 = e.target.innerText;
-          span1.innerText = selectedText1;
-          updatePlaceholder();
-          dropdownList1.classList.remove("show");
-      });
+    item.addEventListener("click", (e) => {
+      selectedText1 = e.target.innerText;
+      span1.innerText = selectedText1;
+      updatePlaceholder();
+      dropdownList1.classList.remove("show");
+    });
   });
 
   dropdownItems2.forEach((item) => {
-      item.addEventListener("click", (e) => {
-          selectedText2 = e.target.innerText;
-          span2.innerText = selectedText2;
-          updatePlaceholder();
-          dropdownList2.classList.remove("show");
-      });
+    item.addEventListener("click", (e) => {
+      selectedText2 = e.target.innerText;
+      span2.innerText = selectedText2;
+      updatePlaceholder();
+      dropdownList2.classList.remove("show");
+    });
   });
 
   document.addEventListener("click", () => {
-      dropdownList1.classList.remove("show");
-      dropdownList2.classList.remove("show");
+    dropdownList1.classList.remove("show");
+    dropdownList2.classList.remove("show");
   });
 
   dropdownList1.addEventListener("click", (e) => e.stopPropagation());
   dropdownList2.addEventListener("click", (e) => e.stopPropagation());
 
   function updatePlaceholder() {
-      searchInput.placeholder = `Tìm kiếm ${selectedText1}, ${selectedText2}`;
+    searchInput.placeholder = `Tìm kiếm ${selectedText1}, ${selectedText2}`;
   }
 });
 

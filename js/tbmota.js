@@ -1,3 +1,4 @@
+
 const renderProducts = [
   {
     productCode: "HC08",
@@ -288,9 +289,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const addToCartButton = document.querySelector(".btn-add-to-cart");
   addToCartButton.addEventListener("click", (event) => {
       event.preventDefault();
-      orderModal.style.display = "flex"; // Hiển thị modal thông báo khi thêm vào giỏ hàng
+      orderModal.style.display = "flex"; 
   });
-
   // Các sự kiện khác và phần render sản phẩm không thay đổi
   const breadcumCategory = document.querySelector("#breadcum-category");
   breadcumCategory.textContent = productData.category;
@@ -369,17 +369,6 @@ document.addEventListener("DOMContentLoaded", () => {
               orderModal.style.display = "flex"; // Hiển thị modal thông báo
           });
       });
-
-      if (!productData.availability) {
-        addToCartButton.style.pointerEvents = "none";
-        addToCartButton.style.opacity = "0.5";
-        addToCartButton.style.cursor = "not-allowed";
-      } else {
-        addToCartButton.addEventListener("click", (event) => {
-          event.preventDefault();
-          orderModal.style.display = "flex";
-        });
-      }
   }
 
   // Function to render pagination controls
@@ -451,16 +440,20 @@ document.addEventListener("DOMContentLoaded", function () {
   let basePrice = parseInt(
     priceElement.textContent.replace("VNĐ", "").replace(/\./g, "")
   );
+
   // Hàm để cập nhật giá
   function updatePrice(size) {
-    let newPrice = basePrice; 
+    let newPrice = basePrice;
     if (size === "M") {
-      newPrice += 5000; 
+      newPrice += 5000;
     } else if (size === "L") {
-      newPrice += 10000; 
+      newPrice += 10000;
     }
 
-    priceElement.textContent = newPrice.toLocaleString() + " VNĐ";
+    // Sử dụng locales để đổi dấu phân cách
+    priceElement.textContent =
+      newPrice.toLocaleString("vi-VN", { useGrouping: true }).replace(/,/g, ".") +
+      " VNĐ";
   }
 
   sizeButtons.forEach(function (button) {
