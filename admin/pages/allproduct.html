@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/allproduct.css">
+        <link rel="stylesheet" href="../../css/fontawesome-free-6.6.0-web/css/all.min.css">
+        <link rel="stylesheet" href="../../bootstrap-5.0.2-dist/js/bootstrap.min.js">
+        <title>Admin Highlands</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <a href="#">
+                        <img src="../../image/logo.png">
+                        <h3>Admin Highlands</h3>
+                    </a>
+                </div>
+                <ul class="list-unstyled-component">
+                    <li>
+                        <a href="../admin.html"><i class="fa-regular fa-hourglass-half"></i><span> Bảng tin</span></a>
+                    </li>
+                    <li id="new">
+                        <a href="#" onclick="toggleSubMenu('productSubMenu')">
+                            <i class="fa-solid fa-box"></i><span> Sản phẩm</span><i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <div class="submenu" id="productSubMenu">
+                            <ul>
+                                <li><a href="allproduct.html">Tất cả sản phẩm</a></li>
+                                <li><a href="addproduct.html">Thêm sản phẩm</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="order.html">
+                            <i class="fa-solid fa-cart-shopping"></i><span> Quản lý đơn hàng</span>
+                        </a>
+                    </li>
+                    <li><a href="user.html"><i class="fa-solid fa-users"></i><span> Quản lý người dùng</span></a></li>
+                    <li><a href="thongke.html"><i class="fa-solid fa-chart-line"></i><span> Thống kê</span></a></li>
+                    <li><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i><span> Đăng xuất</span></a></li>
+                </ul>
+            </nav>
+            <nav class="main">
+                <div class="top-bar">
+                    <div class="search">
+                        <input type="text" id="searchInput" placeholder="Tìm kiếm tại đây">
+                        <label for="Tìm kiếm" id="searchButton"><i class="fas fa-search"></i></label>
+                    </div>
+                    <div class="bell-icon ">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">5</span>
+                        <div class="notification">
+                            <div class="new-notification">
+                                <div class="notification-row" id="new-feedback">
+                                    <span>5 phản hồi mới</span>
+                                    <span>1 ngày trước</span>
+                                </div>
+                                <div class="view-all" id="view-all">
+                                    <a href="#">Xem tất cả thông báo</a>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>  
+                    <div class="user">
+                        <img src="../../image/logo1.png" alt="">
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>Danh sách sản phẩm</h3>
+                </div>
+                <div class="selects">
+                    <div class="select add">
+                        <a href="addproduct.html"><i class="fa-solid fa-plus"></i>Thêm sản phẩm</a>
+                    </div>
+                    <div class="select delete">
+                        <a href="#"><i class="fa-solid fa-xmark"></i>Xoá sản phẩm</a>
+                    </div>
+                    <div class="select download">
+                        <a href="#"><i class="fa-solid fa-download"></i>Tải từ file</a>
+                    </div>
+                    <div class="select print">
+                        <a href="#"><i class="fa-solid fa-print"></i>In dữ liệu</a>
+                    </div>
+                    <div class="select copy">
+                        <a href="#"><i class="fa-solid fa-copy"></i>Sao chép</a>
+                    </div>
+                    <div class="select excel">
+                        <a href="#"><i class="fa-solid fa-file-excel"></i>Xuất excel</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="chill">
+                        <span>Hiện</span>
+                        <select class="form-select" aria-label="Default select">
+                            <option selected>10</option>
+                            <option value="1">15</option>
+                            <option value="2">20</option>
+                            <option value="3">25</option>
+                        </select>
+                        <span>sản phẩm</span>
+                    </div>
+                    <div class="fill">
+                        <span>Tìm kiếm:</span>
+                        <input type="search" placeholder="">
+                    </div>
+                </div>
+                <div class="tables-container">
+                    <table class="tables" id="sampleTable">
+                        <thead>
+                            <tr>
+                                <th>Mã sản phẩm</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Ảnh</th>
+                                <th>Tình trạng</th>
+                                <th>Giá tiền</th>
+                                <th>Danh mục</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productTableBody">
+                            <tr class="product-item">
+                                <td>HC01</td>
+                                <td>Phin sữa đá</td>
+                                <td><img src="../../image/phin/phisuanda_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a in-stock">Còn hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 35.000 VNĐ</li>
+                                        <li>M: 40.000 VNĐ</li>
+                                        <li>L: 45.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Cà phê phin</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC02</td>
+                                <td>Phin đen đá</td>
+                                <td><img src="../../image/phin/phindenda_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a in-stock">Còn hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 32.000 VNĐ</li>
+                                        <li>M: 37.000 VNĐ</li>
+                                        <li>L: 42.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Cà phê phin</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC03</td>
+                                <td>Bạc xỉu đá</td>
+                                <td><img src="../../image/phin/bacxiuda_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a in-stock">Còn hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 29.000 VNĐ</li>
+                                        <li>M: 34.000 VNĐ</li>
+                                        <li>L: 39.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Cà phê phin</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC04</td>
+                                <td>Phindi hạnh nhân</td>
+                                <td><img src="../../image/phindi/phindihanhnhan_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a in-stock">Còn hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 55.000 VNĐ</li>
+                                        <li>M: 60.000 VNĐ</li>
+                                        <li>L: 65.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Phindi</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC05</td>
+                                <td>Phindi kem sữa</td>
+                                <td><img src="../../image/phindi/phindikemsua_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a in-stock">Còn hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 55.000 VNĐ</li>
+                                        <li>M: 60.000 VNĐ</li>
+                                        <li>L: 65.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Phindi</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC06</td>
+                                <td>Phindi choco</td>
+                                <td><img src="../../image/phindi/phindichoco_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a in-stock">Còn hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 55.000 VNĐ</li>
+                                        <li>M: 60.000 VNĐ</li>
+                                        <li>L: 65.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Phindi</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC07</td>
+                                <td>Phindi cassia</td>
+                                <td><img src="../../image/phindi/phindicassia_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a out-of-stock">Hết hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 55.000 VNĐ</li>
+                                        <li>M: 60.000 VNĐ</li>
+                                        <li>L: 65.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Phindi</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC08</td>
+                                <td>Classic phin freeze</td>
+                                <td><img src="../../image/freeze/classicphinfreeze_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a in-stock">Còn hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 55.000 VNĐ</li>
+                                        <li>M: 60.000 VNĐ</li>
+                                        <li>L: 65.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Freeze</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC09</td>
+                                <td>Caramel phin freeze</td>
+                                <td><img src="../../image/freeze/caramelphinfreeze_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a in-stock">Còn hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 50.000 VNĐ</li>
+                                        <li>M: 55.000 VNĐ</li>
+                                        <li>L: 60.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Freeze</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC10</td>
+                                <td>Cookies & Cream</td>
+                                <td><img src="../../image/freeze/cookies&cream_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a in-stock">Còn hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 50.000 VNĐ</li>
+                                        <li>M: 55.000 VNĐ</li>
+                                        <li>L: 60.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Freeze</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC11</td>
+                                <td>Freeze trà xanh</td>
+                                <td><img src="../../image/freeze/freezetraxanh_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a in-stock">Còn hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 50.000 VNĐ</li>
+                                        <li>M: 55.000 VNĐ</li>
+                                        <li>L: 60.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Freeze</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC12</td>
+                                <td>Freeze sô-cô-la</td>
+                                <td><img src="../../image/freeze/freezechoco_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a in-stock">Còn hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 50.000 VNĐ</li>
+                                        <li>M: 55.000 VNĐ</li>
+                                        <li>L: 60.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Freeze</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC13</td>
+                                <td>Trà xanh đậu đỏ</td>
+                                <td><img src="../../image/trà/traxanhdaudo_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a in-stock">Còn hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 45.000 VNĐ</li>
+                                        <li>M: 50.000 VNĐ</li>
+                                        <li>L: 55.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Trà</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC14</td>
+                                <td>Trà Thạch Vải</td>
+                                <td><img src="../../image/trà/trathachvai_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a in-stock">Còn hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 45.000 VNĐ</li>
+                                        <li>M: 50.000 VNĐ</li>
+                                        <li>L: 55.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Trà</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC15</td>
+                                <td>Trà Sen Vàng (Sen)</td>
+                                <td><img src="../../image/trà/trasenvang(sen)_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a in-stock">Còn hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 45.000 VNĐ</li>
+                                        <li>M: 50.000 VNĐ</li>
+                                        <li>L: 55.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Trà</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC16</td>
+                                <td>Trà Sen Vàng (Củ Năng)</td>
+                                <td><img src="../../image/trà/trasenvang(cunang)_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a out-of-stock">Hết hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 45.000 VNĐ</li>
+                                        <li>M: 50.000 VNĐ</li>
+                                        <li>L: 55.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Trà</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC17</td>
+                                <td>Trà Thanh Đào</td>
+                                <td><img src="../../image/trà/trathanhdao_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a out-of-stock">Hết hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 45.000 VNĐ</li>
+                                        <li>M: 50.000 VNĐ</li>
+                                        <li>L: 55.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Trà</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="product-item">
+                                <td>HC18</td>
+                                <td>Trà Thạch Đào</td>
+                                <td><img src="../../image/trà/trathachdao_nho.png" alt="" class="product-img"></td>
+                                <td><a class="status-a in-stock">Còn hàng</a></td>
+                                <td>
+                                    <ul>
+                                        <li>S: 45.000 VNĐ</li>
+                                        <li>M: 50.000 VNĐ</li>
+                                        <li>L: 55.000 VNĐ</li>
+                                    </ul>
+                                </td>
+                                <td>Trà</td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" data-bs-toggle="modal" data-bs-target="#ModalUP">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <button id="prevPage" class="pagination-btn">&lt;&lt;</button>
+                        <button id="page1" class="pagination-btn active">1</button>
+                        <button id="page2" class="pagination-btn">2</button>
+                        <button id="nextPage" class="pagination-btn">&gt;&gt;</button>
+                    </div>
+                    
+                </div>
+                <!-- Modal Xác nhận Xóa -->
+                <div class="modal" id="ModalRM"> 
+                    <div class="modal-content"> 
+                        <div class="modal-header"> 
+                            <h3 class="modal-title">Cảnh báo</h3> 
+                            <span class="close">&times;</span> 
+                        </div> 
+                        <hr>
+                        <div class="modal-body"> Bạn có chắc chắn muốn xóa sản phẩm này không? </div>
+                        <hr> 
+                        <div class="modal-footer"> 
+                            <button type="button" class="btn btn-secondary" id="cancelButton">Hủy bỏ</button> 
+                            <button type="button" id="confirmDeleteButton" class="btn btn-danger">Đồng ý</button> 
+                        </div> 
+                    </div> 
+                </div>
+                <div class="custom-modal" id="ModalUP">
+                    <div class="custom-modal-content">
+                        <div class="custom-modal-header">
+                            <h3>Chỉnh sửa sản phẩm</h3>
+                            <span class="custom-modal-close" id="closeModalUP">&times;</span>
+                        </div>
+                        <div class="custom-modal-body">
+                            <form id="editProductForm">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="editProductID">Mã sản phẩm</label>
+                                        <input type="text" id="editProductID" readonly>
+                                    </div>
+                                    <div class="col">
+                                        <label for="editProductName">Tên sản phẩm</label>
+                                        <input type="text" id="editProductName">
+                                    </div>
+                                </div>
+                        
+                                <div>
+                                    <label for="editProductImage">Hình ảnh sản phẩm</label>
+                                    <div class="image-container">
+                                        <img id="editProductImagePreview" src="" alt="Ảnh sản phẩm" />
+                                        <button type="button" id="deleteImage" class="delete-image">Xóa ảnh</button>
+                                    </div>
+                                    <input type="file" id="editProductImage" accept="image/*">
+                                </div>
+                        
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="editProductStatus">Tình trạng</label>
+                                        <select id="editProductStatus">
+                                            <option value="Còn hàng">Còn hàng</option>
+                                            <option value="Hết hàng">Hết hàng</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <label for="editProductCategory">Danh mục</label>
+                                        <select id="editProductCategory">
+                                            <option value="Cà phê phin">Cà phê phin</option>
+                                            <option value="Trà">Trà</option>
+                                            <option value="Freeze">Freeze</option>
+                                            <option value="Phindi">Phindi</option>
+                                        </select>
+                                    </div>
+                                </div>
+                        
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="editPriceS">Giá size S</label>
+                                        <input type="text" id="editPriceS">
+                                    </div>
+                                    <div class="col">
+                                        <label for="editPriceM">Giá size M</label>
+                                        <input type="text" id="editPriceM">
+                                    </div>
+                                    <div class="col">
+                                        <label for="editPriceL">Giá size L</label>
+                                        <input type="text" id="editPriceL">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="custom-modal-footer">
+                            <button id="closeModalFooter">Huỷ thay đổi</button>
+                            <button id="saveProductChanges">Lưu thay đổi</button>
+                        </div>
+                    </div>
+                </div>
+                <footer class="footer">
+                    <hr>
+                    <p>Copyright © 2024 <a href="#">Admin HighlandsCoffee</a></p>
+                    <p>Thiết kế bởi A07</p>
+                </div>
+                <a href="#" class="scroll-up"><i class="fas fa-arrow-up"></i></a>
+                </footer>
+            </nav>
+        </div>
+        <script src="../js/product.js"></script>
+    </body>
+</html>

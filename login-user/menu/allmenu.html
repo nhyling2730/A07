@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tất cả</title>
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="../../css/fontawesome-free-6.6.0-web/css/all.min.css">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="../../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link rel="stylesheet" href="../../css/tatca.css" />
+</head>
+<body>
+    <header>
+        <div class="toggle">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <a href="../index_user.html" class="logo">
+            <img src="../../image/logo.png">
+        </a>
+        <nav class="nav-menu" id="home">
+            <ul style="line-height: 1.8;">
+                <li><a href="../index_user.html"><i class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
+                <li class="dropdown active">
+                    <a href="#" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
+                    <ul class="sub-menu">
+                        <li><a href="../menu/phin-menu.html"><span>Cà phê phin</span></a></li>
+                        <li><a href="../menu/phindi-menu.html"><span>Phindi</span></a></li>
+                        <li><a href="../menu/freeze-menu.html"><span>Freeze</span></a></li>
+                        <li><a href="../menu/tra-menu.html"><span>Trà</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="../news.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                <li><a href="../introduce.html"><i class="fa-solid fa-users-line"></i>Giới thiệu</a></li>
+                <li><a href="../contact.html"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
+            </ul>
+        </nav>
+        <!-- SEARCH -->
+        <div class="icon">
+            <div class="searchToggle">
+                <i class="fa-solid fa-x cancel"></i>
+                <i class="fa-solid fa-magnifying-glass search"></i>
+            </div>
+            <div class="searchBox">
+                <form class="search-form" action="../search.html" method="get">
+                    <ul class="search-bar">
+                        <li class="dropdown-bar1">
+                            <div id="drop-text" class="dropdown-text">
+                                <span id="span">Tất cả</span>
+                                <i id="icon" class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <ul id="list" class="dropdown-list">
+                                <li class="dropdown-list-item">Tất cả</li>
+                                <li class="dropdown-list-item">Cà phê phin</li>
+                                <li class="dropdown-list-item">Phindi</li>
+                                <li class="dropdown-list-item">Freeze</li>
+                                <li class="dropdown-list-item">Trà</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-bar2">
+                            <div id="price-drop-text" class="dropdown-text">
+                                <span id="price-span">Khoảng giá</span>
+                                <i id="price-icon" class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <ul id="price-list" class="dropdown-list">
+                                <li class="dropdown-list-item">Khoảng giá</li>
+                                <li class="dropdown-list-item">Dưới 40.000 VNĐ</li>
+                                <li class="dropdown-list-item">40.000 - 50.000 VNĐ</li>
+                                <li class="dropdown-list-item">Trên 50.000 VNĐ</li>
+                            </ul>
+                        </li>
+                        <li class="search-box">
+                            <input type="text" id="search-input" placeholder="Tìm kiếm..." required />
+                            <button type="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="icon-item">
+                <a href="../cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </div>
+            <div class="icon-item">
+                <a href="javascript:void(0);">
+                    <img src="../../image/khác/user.png">
+                    <ul class="dropdown-user1">
+                        <li><a href="../profile.html">Thông tin cá nhân</a></li>
+                        <li><a href="../profile.html?openHistory=true">Đơn đã mua</a></li>
+                        <li><a href="../../index.html">Đăng xuất</a></li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="poster">
+        <img href="../../index.html" src="../../image/poster/banner3.png" alt="">
+    </div>
+    <!-- BREADCRUMB -->
+    <section id="all-menu-section" class="breadcrumb_section container">
+        <nav aria-label="custom-breadcrumb">
+            <ol class="custom-breadcrumb">
+                <li class="custom-breadcrumb-item"><a href="../../index.html">Trang chủ</a></li>
+                <li class="custom-breadcrumb-item"><a href="./allmenu.html">Thực đơn</a></li>
+                <li class="custom-breadcrumb-item active" aria-current="page">Tất cả</li>
+            </ol>
+        </nav>
+    </section>
+    <div class="custom-product_tags">
+        <a class="btn btn-outline-secondary " role="button" href="./allmenu.html" type="Tất cả">Tất cả</a>
+        <a class="btn btn-outline-secondary" role="button" href="./phin-menu.html#phin-menu-section" type="Phin">Cà phê
+            phin</a>
+        <a class="btn btn-outline-secondary" role="button" href="./phindi-menu.html#phindi-menu-section"
+            type="Phindi">Phindi</a>
+        <a class="btn btn-outline-secondary " role="button" href="./freeze-menu.html#freeze-menu-section"
+            type="Freeze">Freeze</a>
+        <a class="btn btn-outline-secondary" role="button" href="./tra-menu.html#tra-menu-section" type="Trà">Trà</a>
+    </div>
+    <div class="product__filter mb-2 text-end">
+        <div class="filter--sort ">
+            <p>Sắp xếp theo:</p>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Mặc định</option>
+                <option value="1">Bán chạy</option>
+                <option value="2">Giá tăng dần</option>
+                <option value="3">Giá giảm dần</option>
+                <option value="4">Từ A-Z</option>
+                <option value="5">Từ Z-A</option>
+            </select>
+        </div>
+    </div>
+    <div id="custom-wrapper">
+        <ul class="custom-products">
+        </ul>
+        <!-- ... -->
+        <ul class=" pagination" style="justify-content: center;">
+            <li class="page1"><i class="fa-solid fa-angles-left"></i></li>
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li class="page2"><i class="fa-solid fa-angles-right"></i></li>
+        </ul>
+        <!-- Modal Thông báo Đặt mua -->
+        <div class="custom-modal" id="custom-order-modal">
+            <div class="custom-modal-content">
+                <span class="custom-close-btn" id="custom-close-order-modal">&times;</span>
+                <h3><b>Thông báo</b></h3>
+                <p>Đã thêm sản phẩm vào giỏ hàng!</p>
+                <div class="custom-modal-actions">
+                    <button class="custom-modal-btn" id="custom-continue-shopping-btn">Tiếp tục lựa chọn</button>
+                    <button class="custom-modal-btn" id="custom-go-to-cart-btn">Đi đến giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Về Chúng Tôi</h2>
+                <p>Chúng tôi cung cấp các loại đồ uống chất lượng, phục vụ với sự tận tâm và chuyên nghiệp.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Liên Kết</h2>
+                <ul>
+                    <li><a href="../index_user.html">Trang chủ</a></li>
+                    <li><a href="../menu/allmenu.html">Thực đơn</a></li>
+                    <li><a href="../news.html">Tin tức</a></li>
+                    <li><a href="../introduce.html">Giới thiệu</a></li>
+                    <li><a href="../contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h2>Kết Nối Với Chúng Tôi</h2>
+                <a href="https://web.facebook.com/highlandscoffeevietnam" target="_blank"><i
+                        class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/highlandscoffeevietnam/" target="_blank"><i
+                        class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <div class="footer-section members">
+                <h2>Thành Viên</h2>
+                <ul>
+                    <li><a href="#">Lê Thị Thủy Tiên</a></li>
+                    <li><a href="#">Võ Thị Thu Luyện</a></li>
+                    <li><a href="#">Nguyễn Thị Ngọc Tú</a></li>
+                    <li><a href="#">Trần Thị Xuân Thanh</a></li>
+                    <li><a href="#">Nguyễn Huỳnh Yến Linh</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <hr>
+            &copy; Highlands Coffee | Thiết kế bởi Nhóm A07
+        </div>
+    </footer>
+    <!-- TOP -->
+    <div id="scrollToTopBtn">
+        <a href="#home"><i class="fas fa-arrow-up"></i></a>
+    </div>
+    <script src="../../js/phantrangmenu.js"></script>
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/thongbao.js"></script>
+    <!-- BOOSTRAP JS  -->
+    <script src="../../bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.onload = function () {
+            if (window.location.hash === "#all-menu-section") {
+                setTimeout(function () {
+                    var section = document.getElementById("all-menu-section");
+                    if (section) {
+                        window.scrollTo({
+                            top: section.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 100);
+            }
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const renderProducts = [{
+                "productCode": "HC08",
+                "image": "../../image/freeze/caramelphinfreeze_nho.png",
+                "category": "Freeze",
+                "name": "Caramel phin freeze",
+                "price": "50.000 VNĐ",
+                "description": "Thơm ngon khó cưỡng! Được kết hợp từ cà phê truyền thống chỉ có tại Highlands Coffee, cùng với caramel, thạch cà phê và đá xay mát lạnh. Trên cùng là lớp kem tươi thơm béo và caramel ngọt ngào. Món nước phù hợp trong những cuộc gặp gỡ bạn bè, bởi sự ngọt ngào thường mang mọi người xích lại gần nhau.",
+                "availability": true
+            },
+            {
+                "productCode": "HC09",
+                "image": "../../image/freeze/classicphinfreeze_nho.png",
+                "category": "Freeze",
+                "name": "Classic phin freeze",
+                "price": "50.000 VNĐ",
+                "description": "Thơm ngon đậm đà! Được kết hợp từ cà phê pha Phin truyền thống chỉ có tại Highlands Coffee, cùng với thạch cà phê và đá xay mát lạnh. Trên cùng là lớp kem tươi thơm béo và bột ca cao đậm đà. Món nước hoàn hảo để khởi đầu câu chuyện cùng bạn bè.",
+                "availability": true
+            },
+            {
+                "productCode": "HC10",
+                "image": "../../image/freeze/cookies&cream_nho.png",
+                "category": "Freeze",
+                "name": "Cookies & Cream",
+                "price": "50.000 VNĐ",
+                "description": "Một thức uống ngon lạ miệng bởi sự kết hợp hoàn hảo giữa cookies sô cô la giòn xốp cùng hỗn hợp sữa tươi cùng sữa đặc đem say với đá viên, và cuối cùng không thể thiếu được chính là lớp kem whip mềm mịn cùng cookies sô cô la say nhuyễn.",
+                "availability": true
+            },
+            {
+                "productCode": "HC12",
+                "image": "../../image/freeze/freezechoco_nho.png",
+                "category": "Freeze",
+                "name": "Freeze sô-cô-la",
+                "price": "50.000 VNĐ",
+                "description": "Thiên đường đá xay sô cô la! Từ những thanh sô cô la Việt Nam chất lượng được đem xay với đá cho đến khi mềm mịn, sau đó thêm vào thạch sô cô la dai giòn, ở trên được phủ một lớp kem whip beo béo và sốt sô cô la ngọt ngào. Tạo thành Freeze Sô-cô-la ngon mê mẩn chinh phục bất kì ai!",
+                "availability": true
+            },
+            {
+                "productCode": "HC11",
+                "image": "../../image/freeze/freezetraxanh_nho.png",
+                "category": "Freeze",
+                "name": "Freeze trà xanh",
+                "price": "50.000 VNĐ",
+                "description": "Thức uống rất được ưa chuộng! Trà xanh thượng hạng từ cao nguyên Việt Nam, kết hợp cùng đá xay, thạch trà dai dai, thơm ngon và một lớp kem dày phủ lên trên vô cùng hấp dẫn. Freeze Trà Xanh thơm ngon, mát lạnh, chinh phục bất cứ ai!",
+                "availability": true
+            },
+            {
+                "productCode": "HC03",
+                "image": "../../image/phin/bacxiuda_nho.png",
+                "category": "Phin cà phê",
+                "name": "Bạc xỉu đá",
+                "price": "29.000 VNĐ",
+                "description": "Nếu Phin Sữa Đá dành cho các bạn đam mê vị đậm đà, thì Bạc Xỉu Đá là một sự lựa chọn nhẹ “đô\" cà phê nhưng vẫn thơm ngon, chất lừ không kém!",
+                "availability": true
+            },
+            {
+                "productCode": "HC01",
+                "image": "../../image/phin/phisuanda_nho.png",
+                "category": "Phin cà phê",
+                "name": "Phin sữa đá",
+                "price": "35.000 VNĐ",
+                "description": "Hương vị cà phê Việt Nam đích thực! Từng hạt cà phê hảo hạng được chọn bằng tay, phối trộn độc đáo giữa hạt Robusta từ cao nguyên Việt Nam, thêm Arabica thơm lừng. Cà phê được pha từ Phin truyền thống, hoà cùng sữa đặc sánh và thêm vào chút đá tạo nên ly Phin Sữa Đá – Đậm Đà Chất Phin.",
+                "availability": true
+            },
+            {
+                "productCode": "HC02",
+                "image": "../../image/phin/phindenda_nho.png",
+                "category": "Phin cà phê",
+                "name": "Phin đen đá",
+                "price": "32.000 VNĐ",
+                "description": "Dành cho những tín đồ cà phê đích thực! Hương vị cà phê truyền thống được phối trộn độc đáo tại Highlands. Cà phê đậm đà pha hoàn toàn từ Phin, cho thêm 1 thìa đường, một ít đá viên mát lạnh, tạo nên Phin Đen Đá mang vị cà phê đậm đà chất Phin.",
+                "availability": true
+            },
+            {
+                "productCode": "HC07",
+                "image": "../../image/phindi/phindicassia_nho.png",
+                "category": "Phindi",
+                "name": "Phindi cassia",
+                "price": "55.000 VNĐ",
+                "description": "Với chất phin êm ái, hương vị cà phê Việt Nam hiện đại kết hợp cùng hương quế nhẹ nhàng và thạch cà phê hấp dẫn.",
+                "availability": false
+            },
+            {
+                "productCode": "HC06",
+                "image": "../../image/phindi/phindichoco_nho.png",
+                "category": "Phindi",
+                "name": "Phindi choco",
+                "price": "55.000 VNĐ",
+                "description": "PhinDi Choco - Cà phê Phin thế hệ mới với chất Phin êm hơn, kết hợp cùng Choco ngọt tan mang đến hương vị mới lạ, không thể hấp dẫn hơn!",
+                "availability": true
+            },
+            {
+                "productCode": "HC04",
+                "image": "../../image/phindi/phindihanhnhan_nho.png",
+                "category": "Phindi",
+                "name": "Phindi hạnh nhân",
+                "price": "55.000 VNĐ",
+                "description": "PhinDi Hạnh Nhân - Cà phê Phin thế hệ mới với chất Phin êm hơn, kết hợp cùng Hạnh nhân thơm bùi mang đến hương vị mới lạ, không thể hấp dẫn hơn!",
+                "availability": true
+            },
+            {
+                "productCode": "HC05",
+                "image": "../../image/phindi/phindikemsua_nho.png",
+                "category": "Phindi",
+                "name": "Phindi kem sữa",
+                "price": "55.000 VNĐ",
+                "description": "PhinDi Kem Sữa - Cà phê Phin thế hệ mới với chất Phin êm hơn, kết hợp cùng Kem Sữa béo ngậy mang đến hương vị mới lạ, không thể hấp dẫn hơn!",
+                "availability": true
+            },
+            {
+                "productCode": "HC16",
+                "image": "../../image/trà/trasenvang(cunang)_nho.png",
+                "category": "Trà",
+                "name": "Trà sen vang (củ năng)",
+                "price": "45.000 VNĐ",
+                "description": "Thức uống chinh phục những thực khách khó tính! Sự kết hợp độc đáo giữa trà Ô long, hạt sen thơm bùi và củ năng giòn tan. Thêm vào chút sữa sẽ để vị thêm ngọt ngào.",
+                "availability": true
+            },
+            {
+                "productCode": "HC15",
+                "image": "../../image/trà/trasenvang(sen)_nho.png",
+                "category": "Trà",
+                "name": "Trà sen vàng (sen)",
+                "price": "45.000 VNĐ",
+                "description": "Trà sen vàng (sen) với kết hợp giữa Trà Ô long với hương sen thanh mát, thêm đậm vị sen bằng hạt sen dẻo thơm và lớp kem mềm mại. Đặt Highlands Coffee giao ngay.",
+                "availability": true
+            },
+            {
+                "productCode": "HC18",
+                "image": "../../image/trà/trathachdao_nho.png",
+                "category": "Trà",
+                "name": "Trà thạch đào",
+                "price": "45.000 VNĐ",
+                "description": "Vị trà đậm đà kết hợp cùng những miếng đào thơm ngon mọng nước cùng thạch đào giòn dai. Thêm vào ít sữa để gia tăng vị béo.",
+                "availability": true
+            },
+            {
+                "productCode": "HC17",
+                "image": "../../image/trà/trathanhdao_nho.png",
+                "category": "Trà",
+                "name": "Trà thanh đào",
+                "price": "45.000 VNĐ",
+                "description": "Một trải nghiệm thú vị khác! Sự hài hòa giữa vị trà cao cấp, vị sả thanh mát và những miếng đào thơm ngon mọng nước sẽ mang đến cho bạn một thức uống tuyệt vời.",
+                "availability": false
+            },
+            {
+                "productCode": "HC14",
+                "image": "../../image/trà/trathachvai_nho.png",
+                "category": "Trà",
+                "name": "Trà thạch Vải",
+                "price": "45.000 VNĐ",
+                "description": "Một sự kết hợp thú vị giữa trà đen, những quả vải thơm ngon và thạch giòn khó cưỡng, mang đến thức uống tuyệt hảo!",
+                "availability": true
+            },
+            {
+                "productCode": "HC13",
+                "image": "../../image/trà/traxanhdaudo_nho.png",
+                "category": "Trà",
+                "name": "Trà xanh đậu đỏ",
+                "price": "45.000 VNĐ",
+                "description": "Một sự kết hợp độc đáo giữa trà xanh thượng hạng từ cao nguyên Việt Nam và đậu đỏ bùi bùi thơm ngon. Thức uống thanh mát, mang lại cảm giác sảng khoái.",
+                "availability": true
+            },
+            ]
+
+            document.addEventListener("DOMContentLoaded", function () {
+                // Lấy dữ liệu giỏ hàng từ localStorage
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+                // Hàm chuẩn hóa giỏ hàng
+                function normalizeCart(cart) {
+                    return cart.map(item => ({
+                        productCode: item.productCode || "",
+                        name: item.name,
+                        size: item.size || "S", // Kích thước mặc định nếu không có
+                        price: typeof item.price === "string"
+                            ? parseInt(item.price.replace(/\D/g, "")) // Chuyển giá thành số
+                            : item.price,
+                        image: item.image || "",
+                        quantity: item.quantity || 1
+                    }));
+                }
+
+                // Chuẩn hóa dữ liệu
+                cart = normalizeCart(cart);
+                localStorage.setItem("cart", JSON.stringify(cart));
+
+                // Hàm cập nhật biểu tượng giỏ hàng
+                function updateCartIcon() {
+                    const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0); // Tính tổng số lượng
+                    document.getElementById("cartQuantity").textContent = totalQuantity; // Hiển thị tổng số lượng
+                }
+
+                // Hàm thêm sản phẩm vào giỏ hàng
+                function addToCart(product) {
+                    const existingProduct = cart.find(item => item.productCode === product.productCode);
+                    if (existingProduct) {
+                        existingProduct.quantity += 1; // Nếu đã tồn tại, tăng số lượng
+                    } else {
+                        cart.push(product); // Thêm sản phẩm mới
+                    }
+
+                    // Lưu giỏ hàng vào localStorage
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    updateCartIcon(); // Cập nhật biểu tượng giỏ hàng
+                }
+
+                // Gắn sự kiện "Đặt mua" cho các nút sản phẩm
+                document.querySelectorAll(".buy-now").forEach(button => {
+                    button.addEventListener("click", function () {
+                        const productItem = this.closest(".custom-product-item");
+                        const product = {
+                            productCode: productItem.dataset.productCode,
+                            name: productItem.querySelector(".custom-product-name").textContent,
+                            price: parseInt(productItem.querySelector(".custom-product-price").textContent.replace(/\D/g, "")), // Lấy giá
+                            image: productItem.querySelector(".custom-product-thumb img").src,
+                            quantity: 1
+                        };
+
+                        addToCart(product); // Thêm sản phẩm vào giỏ hàng
+                    });
+                });
+
+                // Cập nhật biểu tượng giỏ hàng khi tải trang
+                updateCartIcon();
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

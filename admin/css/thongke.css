@@ -1,0 +1,569 @@
+.top-bar {
+    background-color: #fff;
+}
+
+/* Thống kê */
+.statistics-container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.date-filter {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.date-filter > * {
+    flex-grow: 1;
+}
+
+/* Danh mục */
+.product-type {
+    display: flex;
+    margin-right: 15%;
+    white-space: nowrap;
+    align-items: center;
+}
+
+.product-type label {
+    font-size: 1.1rem;
+    margin-right: 3%;
+}
+
+#product-type {
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 170px;
+}
+
+/* Chọn thời gian */
+.date-range {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 55%;
+}
+
+.date-range input {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.date-range i {
+    margin-left: 10px;
+    color: #888;
+}
+
+/* Khoảng thời gian */
+.time {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.time label {
+    margin-right: 3%;
+}
+
+.time .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 75%;
+}
+
+.dropdown-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu ul li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-menu ul li:hover,
+.dropdown-menu ul li.selected {
+    background-color: #009900;
+    color: #fff;
+}
+
+/* Day */
+.custom-date {
+    display: none;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.custom-date label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.custom-date input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.custom-date button {
+    width: 100%;
+    padding: 10px;
+    background-color: #009900;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.custom-date button:hover {
+    background-color: #009900ad;
+}
+
+#filter-btn {
+    padding: 10px 14px;
+    background-color: #87986A;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#filter-btn:hover {
+    background-color: #889a68;
+}
+
+table {
+    margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table thead {
+    background-color: #87986A;
+    color: white;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.view-invoices-btn {
+    padding: 5px 10px;
+    background-color: #47c0d2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.view-invoices-btn:hover {
+    background-color: #138496;
+}
+
+#invoiceModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+#invoiceModal.show {
+    display: flex;
+}
+
+/* Hóa đơn SP */
+.custom-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 70%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.custom-modal-content #productName{
+    font-size: 1.5rem;
+}
+
+.custom-close-btn {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+.custom-invoice-detail {
+    margin-bottom: 10px;
+}
+
+.custom-invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.custom-invoice-table th,
+.custom-invoice-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.custom-invoice-table th {
+    background: #87986A;
+    font-weight: bold;
+}
+
+/* Tổng doanh thu và in doanh thu */
+.dollars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5%;
+    width: 100%;
+}
+
+.dollars p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.total-revenue {
+    border: 1px solid #009900;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.print-button {
+    border: 1px solid #009900;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.dollars i {
+    background: #009900;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* In */
+.modal-thongke {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    margin: 0 auto;
+    top: 15%;
+    width: 80%;
+    height: 100%;
+}
+
+.modal-content-thongke {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.modal-content-thongke .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#totalRevenueText {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #333;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+    margin: 10px auto;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Bán chạy, ế */
+.best-worst-container {
+    display: flex;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.top-products {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.top-products h5 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.product-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.product-item:last-child {
+    border-bottom: none;
+}
+
+.product-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-name {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.product-id {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.product-sales {
+    text-align: right;
+}
+
+.revenue {
+    color: #28a745;
+    font-weight: bold;
+    display: block;
+}
+
+.percentage {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.worst .revenue {
+    color: #dc3545;
+}
+
+.product-sales .percentage {
+    color: #888;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.best .percentage i {
+    color: #28a745;
+}
+
+.worst .percentage i {
+    color: #dc3545;
+}
+
+/* hóa đơn KH */
+.invoice-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+}
+
+.invoice-modal-content {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 80%; 
+    max-width: 90%;
+    position: relative;
+    overflow-y: auto;
+    max-height: 70vh;
+    text-align: center;
+}
+
+.close-invoice-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+#customerInvoiceTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: auto;
+}
+
+#customerInvoiceTable th, #customerInvoiceTable td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word; 
+    white-space: normal;
+}
+
+#customerInvoiceTable td {
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#customerInvoiceTable th {
+    background-color: #009900;
+}
+
+
+
+@media (max-width: 768px) {
+    .date-filter {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .date-filter .product-type,
+    .date-filter .time {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .date-filter .time {
+        align-items: flex-start;
+    }
+    
+    .date-filter button {
+        width: 10%; 
+    }
+
+    .date-filter .date-range input {
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        width: 100%;
+    }
+
+    .custom-date input {
+        width: 100%;
+    }
+
+    .modal-content {
+        padding: 10px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+
+    #totalRevenueText {
+        font-size: 1rem;
+    }
+}

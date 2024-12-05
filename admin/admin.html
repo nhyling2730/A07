@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/admin.css">
+        <link rel="stylesheet" href="../css/fontawesome-free-6.6.0-web/css/all.min.css">
+        <title>Admin Highlands</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <a href="#">
+                        <img src="../image/logo.png">
+                        <h3>Admin Highlands</h3>
+                    </a>
+                </div>
+                <ul class="list-unstyled-component">
+                    <li id="new">
+                        <a href="admin.html"><i class="fa-regular fa-hourglass-half"></i><span> Bảng tin</span></a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="toggleSubMenu('productSubMenu')">
+                            <i class="fa-solid fa-box"></i><span> Sản phẩm</span><i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <div class="submenu" id="productSubMenu">
+                            <ul>
+                                <li><a href="./pages/allproduct.html">Tất cả sản phẩm</a></li>
+                                <li><a href="./pages/addproduct.html">Thêm sản phẩm</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="./pages/order.html">
+                            <i class="fa-solid fa-cart-shopping"></i><span> Quản lý đơn hàng</span>
+                        </a>
+                    </li>
+                    <li><a href="./pages/user.html"><i class="fa-solid fa-users"></i><span> Quản lý người dùng</span></a></li>
+                    <li><a href="./pages/thongke.html"><i class="fa-solid fa-chart-line"></i><span> Thống kê</span></a></li>
+                    <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i><span> Đăng xuất</span></a></li>
+                </ul>
+            </nav>
+            <nav class="main">
+                <div class="top-bar">
+                    <div class="search">
+                        <input type="text" id="searchInput" placeholder="Tìm kiếm tại đây">
+                        <label for="Tìm kiếm" id="searchButton"><i class="fas fa-search"></i></label>
+                    </div>
+                    <div class="bell-icon ">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">5</span>
+                        <div class="notification">
+                            <div class="new-notification">
+                                <div class="notification-row" id="new-feedback">
+                                    <span>5 phản hồi mới</span>
+                                    <span>1 ngày trước</span>
+                                </div>
+                                <div class="view-all" id="view-all">
+                                    <a href="#">Xem tất cả thông báo</a>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>  
+                    <div class="user">
+                        <img src="../image/logo1.png" alt="">
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>Bảng tin</h3>
+                </div>
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number">18</div>
+                         <div class="card-name">Sản phẩm</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fa-solid fa-mug-saucer"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number">15</div>
+                         <div class="card-name">Đơn hàng</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number">6</div>
+                         <div class="card-name">Người dùng</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="number">9.999</div>
+                         <div class="card-name">Doanh thu</div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fa-solid fa-money-bill-1-wave"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="charts">
+                    <div class="chart-order">
+                        <h2>Tỉ lệ đơn hàng trong tuần</h2>
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    
+                    <!-- Thêm Canvas cho biểu đồ lượt khách truy cập trong tuần -->
+                    <div class="chart-container">
+                        <h2>Lượt khách truy cập trong tuần</h2>
+                        <canvas id="trafficChart"></canvas>
+                    </div>
+                </div>
+                <div class="tables">
+                    <div class="donhang">
+                        <div class="heading">
+                            <h2>Tình trạng đơn hàng</h2>
+                        </div>
+                        <table class="appointments">
+                            <thead>
+                                <td>Mã đơn hàng</td>
+                                <td>Tên khách hàng</td>
+                                <td>Tổng tiền</td>
+                                <td>Trạng thái</td>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>A00</td>
+                                    <td>Lê Thị Thuỷ Tiên</td>
+                                    <td>350.000 VNĐ</td>
+                                    <td class="status pending"><a>Chưa xử lý</a></td>
+                                </tr>
+                                <tr>
+                                    <td>A01</td>
+                                    <td>Võ Thị Thu Luyện</td>
+                                    <td>160.000 VNĐ</td>
+                                    <td class="status cancelled"><a>Đã huỷ</a></td>
+                                </tr>
+                                <tr>
+                                    <td>A02</td>
+                                    <td>Nguyễn Thị Ngọc Tú</td>
+                                    <td>100.000 VNĐ</td>
+                                    <td class="status completed"><a>Đã giao</a></td>
+                                </tr>
+                                <tr>
+                                    <td>A03</td>
+                                    <td>Trần Thị Xuân Thanh</td>
+                                    <td>160.000 VNĐ</td>
+                                    <td class="status transport"><a>Đang giao</a></td>
+                                </tr>
+                                <tr>
+                                    <td>A04</td>
+                                    <td>Nguyễn Huỳnh Yến Linh</td>
+                                    <td>200.000 VNĐ</td>
+                                    <td class="status pending"><a>Chưa xử lý</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="sanpham">
+                        <div class="heading">
+                            <h2>Sản phẩm</h2>
+                        </div>
+                        <table class="produce">
+                            <thead>
+                                <td>Sản phẩm</td>
+                                <!-- <td>Giá</td> -->
+                                <td>Doanh thu</td>
+                                <td>Tỉ lệ</td>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Phin sữa đá</td>
+                                    <!-- <td>50.000 VNĐ</td> -->
+                                    <td>100 đã bán</td>
+                                    <td>95%</td>
+                                </tr>
+                                <tr>
+                                    <td>Phin đen đá</td>
+                                    <!-- <td>50.000 VNĐ</td> -->
+                                    <td>99 đã bán</td>
+                                    <td>95%</td>
+                                </tr>
+                                <tr>
+                                    <td>Freeze trà xanh</td>
+                                    <!-- <td>50.000 VNĐ</td> -->
+                                    <td>89 đã bán</td>
+                                    <td>95%</td>
+                                </tr>
+                                <tr>
+                                    <td>Trà sen vàng</td>
+                                    <!-- <td>50.000 VNĐ</td> -->
+                                    <td>79 đã bán</td>
+                                    <td>95%</td>
+                                </tr>
+                                <tr>
+                                    <td>Phindi kem sữa</td>
+                                    <!-- <td>50.000 VNĐ</td> -->
+                                    <td>200 đã bán</td>
+                                    <td>95%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>    
+                </div>
+                <footer class="footer">
+                    <hr>
+                    <p>Copyright © 2024 <a href="#">Admin HighlandsCoffee</a></p>
+                    <p>Thiết kế bởi A07</p>
+                </div>
+                <a href="#" class="scroll-up"><i class="fas fa-arrow-up"></i></a>
+                </footer>
+            </nav>
+        </div>
+        <script src="./js/Chart.min.js"></script>
+        <script src="js/admin.js"></script>
+        
+        
+         
+    </body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/addproduct.css">
+        <link rel="stylesheet" href="../../css/fontawesome-free-6.6.0-web/css/all.min.css">
+        <title>Admin Highlands</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <a href="#">
+                        <img src="../../image/logo.png">
+                        <h3>Admin Highlands</h3>
+                    </a>
+                </div>
+                <ul class="list-unstyled-component">
+                    <li>
+                        <a href="../admin.html"><i class="fa-regular fa-hourglass-half"></i><span> Bảng tin</span></a>
+                    </li>
+                    <li id="new">
+                        <a href="#" onclick="toggleSubMenu('productSubMenu')">
+                            <i class="fa-solid fa-box"></i><span> Sản phẩm</span><i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <div class="submenu" id="productSubMenu">
+                            <ul>
+                                <li><a href="allproduct.html">Tất cả sản phẩm</a></li>
+                                <li><a href="addproduct.html">Thêm sản phẩm</a></li>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="order.html">
+                            <i class="fa-solid fa-cart-shopping"></i><span> Quản lý đơn hàng</span>
+                        </a>
+                    </li>
+                    <li><a href="user.html"><i class="fa-solid fa-users"></i><span> Quản lý người dùng</span></a></li>
+                    <li><a href="thongke.html"><i class="fa-solid fa-chart-line"></i><span> Thống kê</span></a></li>
+                    <li><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i><span> Đăng xuất</span></a></li>
+                </ul>
+            </nav>
+            <nav class="main">
+                <div class="top-bar">
+                    <div class="search">
+                        <input type="text" id="searchInput" placeholder="Tìm kiếm tại đây">
+                        <label for="Tìm kiếm" id="searchButton"><i class="fas fa-search"></i></label>
+                    </div>
+                    <div class="bell-icon ">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">5</span>
+                        <div class="notification">
+                            <div class="new-notification">
+                                <div class="notification-row" id="new-feedback">
+                                    <span>5 phản hồi mới</span>
+                                    <span>1 ngày trước</span>
+                                </div>
+                                <div class="view-all" id="view-all">
+                                    <a href="#">Xem tất cả thông báo</a>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>  
+                    <div class="user">
+                        <img src="../../image/logo1.png" alt="">
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="content-title">
+                        <h3>Thêm sản phẩm</h3>
+                        <hr>
+                        <div class="content-title-body">
+                            <div class="row-button">
+                                <div class="row1">
+                                    <a href="#" onclick="openModal('addSupplier')"><i class="fa-solid fa-plus"></i>Thêm nhà cung cấp</a>
+                                </div>
+                                <div class="row1">
+                                    <a href="#" onclick="openModal('addCategory')"><i class="fa-solid fa-plus"></i>Thêm danh mục</a>
+                                </div>
+                                <div class="row1">
+                                    <a href="#" onclick="openModal('addStatus')"><i class="fa-solid fa-plus"></i>Thêm tình trạng</a>
+                                </div>
+                            </div>
+                            <form class="hmm">
+                                <div class="hmm-row">
+                                    <div class="half-row">
+                                        <label class="control-label">Mã sản phẩm </label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                    <div class="half-row">
+                                        <label class="control-label">Tên sản phẩm</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="hmm-row">
+                                    <div class="half-row">
+                                        <label for="productStatus" class="control-label">Tình trạng</label>
+                                        <select class="form-control" id="productStatus">
+                                            <option>-- Chọn tình trạng --</option>
+                                            <option>Còn hàng</option>
+                                            <option>Hết hàng</option>
+                                        </select>
+                                    </div>
+                                    <div class="half-row">
+                                        <label for="productCategory" class="control-label">Danh mục</label>
+                                        <select class="form-control" id="productCategory">
+                                            <option>-- Danh mục --</option>
+                                            <option>Trà</option>
+                                            <option>Cà phê phin</option>
+                                            <option>Freeze</option>
+                                            <option>Phindi</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="hmm-row">
+                                    <div class="half-row">
+                                        <label class="control-label">Giá bán</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                    <div class="half-row">
+                                        <label for="productType" class="control-label">Phân loại</label>
+                                        <select class="form-control" id="productType">
+                                            <option>-- Phân loại --</option>
+                                            <option>Size S</option>
+                                            <option>Size M</option>
+                                            <option>Size L</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="hmm-row">
+                                    <div class="half-row">
+                                        <label class="control-label">Ảnh sản phẩm</label>
+                                        <input type="file" id="editProductImage1" accept="image/*">
+                                    </div>
+                                </div>
+                                <div class="hmm-row1">
+                                    <label for="productDescription">Mô tả sản phẩm</label>
+                                    <textarea id="productDescription" name="productDescription" placeholder="Nhập mô tả sản phẩm"></textarea>
+                                </div>
+                                <div class="half-row1">
+                                    <button type="submit" class="btn-save">Lưu lại</button>
+                                    <button type="button" class="btn-cancel">Hủy bỏ</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal: Thêm nhà cung cấp -->
+<div id="addSupplier" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('addSupplier')">&times;</span>
+        <h2>Thêm nhà cung cấp</h2>
+        <!-- Nội dung form Thêm nhà cung cấp -->
+        <form>
+            <label for="supplierName">Tên nhà cung cấp:</label>
+            <input type="text" id="supplierName" name="supplierName">
+            <button type="submit">Lưu</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal: Thêm danh mục -->
+<div id="addCategory" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('addCategory')">&times;</span>
+        <h2>Thêm danh mục</h2>
+        <!-- Nội dung form Thêm danh mục -->
+        <form>
+            <label for="categoryName">Tên danh mục:</label>
+            <input type="text" id="categoryName" name="categoryName">
+            <button type="submit">Lưu</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal: Thêm tình trạng -->
+<div id="addStatus" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('addStatus')">&times;</span>
+        <h2>Thêm tình trạng</h2>
+        <!-- Nội dung form Thêm tình trạng -->
+        <form>
+            <label for="statusName">Tên tình trạng:</label>
+            <input type="text" id="statusName" name="statusName">
+            <button type="submit">Lưu</button>
+        </form>
+    </div>
+</div>
+                
+                    
+               
+                
+                <footer class="footer">
+                    <hr>
+                    <p>Copyright © 2024 <a href="#">Admin HighlandsCoffee</a></p>
+                    <p>Thiết kế bởi A07</p>
+                </div>
+                <a href="#" class="scroll-up"><i class="fas fa-arrow-up"></i></a>
+                </footer>
+            </nav>
+        </div>
+        <script src="../js/product.js"></script>
+        
+        
+        
+    </body>
+</html>

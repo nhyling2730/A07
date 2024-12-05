@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/order.css">
+        <link rel="stylesheet" href="../../css/fontawesome-free-6.6.0-web/css/all.min.css">
+        <title>Admin Highlands</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <a href="#">
+                        <img src="../../image/logo.png">
+                        <h3>Admin Highlands</h3>
+                    </a>
+                </div>
+                <ul class="list-unstyled-component">
+                    <li>
+                        <a href="../admin.html"><i class="fa-regular fa-hourglass-half"></i><span> Bảng tin</span></a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="toggleSubMenu('productSubMenu')">
+                            <i class="fa-solid fa-box"></i><span> Sản phẩm</span><i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <div class="submenu" id="productSubMenu">
+                            <ul>
+                                <li><a href="allproduct.html">Tất cả sản phẩm</a></li>
+                                <li><a href="addproduct.html">Thêm sản phẩm</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li id="new">
+                        <a href="order.html">
+                            <i class="fa-solid fa-cart-shopping"></i><span> Quản lý đơn hàng</span>
+                        </a>
+                    </li>
+                    <li><a href="user.html"><i class="fa-solid fa-users"></i><span> Quản lý người dùng</span></a></li>
+                    <li><a href="thongke.html"><i class="fa-solid fa-chart-line"></i><span> Thống kê</span></a></li>
+                    <li><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i><span> Đăng xuất</span></a></li>
+                </ul>
+            </nav>
+            <nav class="main">
+                <div class="top-bar">
+                    <div class="search">
+                        <input type="text" id="searchInput" placeholder="Tìm kiếm tại đây">
+                        <label for="Tìm kiếm" id="searchButton"><i class="fas fa-search"></i></label>
+                    </div>
+                    <div class="bell-icon ">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">5</span>
+                        <div class="notification">
+                            <div class="new-notification">
+                                <div class="notification-row" id="new-feedback">
+                                    <span>5 phản hồi mới</span>
+                                    <span>1 ngày trước</span>
+                                </div>
+                                <div class="view-all" id="view-all">
+                                    <a href="#">Xem tất cả thông báo</a>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>  
+                    <div class="user">
+                        <img src="../../image/logo1.png" alt="">
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>Danh sách đơn hàng</h3>
+                </div>
+                <div class="selects">
+                    <div class="select download">
+                        <a href="#"><i class="fa-solid fa-download"></i>Tải từ file</a>
+                    </div>
+                    <div class="select print">
+                        <a href="#"><i class="fa-solid fa-print"></i>In dữ liệu</a>
+                    </div>
+                    <div class="select copy">
+                        <a href="#"><i class="fa-solid fa-copy"></i>Sao chép</a>
+                    </div>
+                    <div class="select excel">
+                        <a href="#"><i class="fa-solid fa-file-excel"></i>Xuất excel</a>
+                    </div>
+                </div>
+                
+                  
+                <div class="filter-dropdown">
+                    <div id="filterButton" class="filter-btn" onclick="toggleDropdownMenu()">Lọc</div>
+                    <div id="dropdownMenu" class="filter-content">
+                        <div class="filter-option" onclick="handleOptionClick('order-tables-status')">
+                            <div>Tình trạng</div>
+                        </div>
+                        <div class="filter-option" onclick="showTimeFilter()">
+                            <div>Thời gian</div>
+                        </div>
+                    </div>
+                </div>
+                  
+                  <!-- Giao diện chọn thời gian -->
+                <div id="time-filter" style="display:none;">
+                    <div class="time">
+                        <label for="dateRange">Thời gian:</label>
+                        <div class="date-range">
+                            <input type="text" id="dateRange" placeholder="Chọn khoảng thời gian" readonly>
+                            <i class="fa-solid fa-calendar"></i>
+                        </div>
+                        <ul>
+                            <li onclick="selectPresetDate('today')">Hôm nay</li>
+                            <li onclick="selectPresetDate('yesterday')">Hôm qua</li>
+                            <li onclick="selectPresetDate('thisWeek')">Tuần này</li>
+                            <li onclick="selectPresetDate('lastWeek')">Tuần trước</li>
+                            <li onclick="selectPresetDate('thisMonth')">Tháng này</li>
+                            <li onclick="selectPresetDate('lastMonth')">Tháng trước</li>
+                            <li onclick="showCustomDate()">Tùy chọn</li>
+                        </ul>
+                        <div class="custom-date" id="customDate" style="display:none;">
+                            <label>Từ ngày:</label>
+                            <input type="date" id="startDate">
+                            <label>Đến ngày:</label>
+                            <input type="date" id="endDate">
+                            <button onclick="applyCustomDate()">Áp dụng</button>
+                        </div>
+                    </div>
+                </div>
+                  
+                  
+
+                <div class="order-tables" id="order-tables-time">
+                    <h3>Thống kê theo thời gian</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã đơn hàng</th>
+                                <th>Khách hàng</th>
+                                <th>Ngày đặt</th>
+                                <th>Đơn hàng</th>
+                                <th>Tổng tiền</th>
+                                <th>Tình trạng</th>
+                                <th>Tính năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>A00</td>
+                                <td>Lê Thị Thuỷ Tiên</td>
+                                <td>09:15 14/11/2024</td>
+                                <td>Phin sữa đá, Freeze trà xanh, Trà sen vàng (củ năng)</td>
+                                <td>855.000 VNĐ</td>
+                                <td><span class="bg-primary">Đã xác nhận</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A00" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A04</td>
+                                <td>Võ Thị Thu Luyện</td>
+                                <td>10:28 14/11/2024</td>
+                                <td>Phin đen đá, Phindi choco, Trà sen vàng (củ năng)</td>
+                                <td>582.000 VNĐ</td>
+                                <td><span class="bg-warning">Chưa xử lý</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A04" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A02</td>
+                                <td>Trần Thị Xuân Thanh</td>
+                                <td>13:56 14/11/2024</td>
+                                <td>Trà sen vàng (sen), Phin đen đá, Trà xanh đậu đỏ</td>
+                                <td>167.000 VNĐ</td>
+                                <td><span class="bg-success">Đã giao</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A02" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A09</td>
+                                <td>Nguyễn Huỳnh Yến Linh</td>
+                                <td>19:46 14/11/2024</td>
+                                <td>Freeze sô-cô-la, Phindi choco</td>
+                                <td>480.000 VNĐ</td>
+                                <td><span class="bg-primary">Đã xác nhận</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A09" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A10</td>
+                                <td>Nguyễn Thị Ngọc Tú</td>
+                                <td>22:00 14/11/2024</td>
+                                <td>Freeze sô-cô-la, Phindi choco</td>
+                                <td>110.000 VNĐ</td>
+                                <td><span class="bg-danger">Đã huỷ</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A10" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A28</td>
+                                <td>Trần Thị Xuân Thanh</td>
+                                <td>09:35 15/11/2024</td>
+                                <td>Freeze trà xanh, Phindi cassia</td>
+                                <td>465.000 VNĐ</td>
+                                <td><span class="bg-warning">Chưa xử lý</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A28" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A26</td>
+                                <td>Võ Thị Thu Luyện</td>
+                                <td>10:50 15/11/2024</td>
+                                <td>Trà thanh đào, Phin sữa đá, Trà xanh đậu đỏ</td>
+                                <td>535.000 VNĐ</td>
+                                <td><span class="bg-primary">Đã xác nhận</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A26" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A34</td>
+                                <td>Nguyễn Thị Ngọc Tú</td>
+                                <td>15:36 15/11/2024</td>
+                                <td>Phindi kem sữa, Trà sen vàng (sen), Freeze sô-cô-la</td>
+                                <td>555.000 VNĐ</td>
+                                <td><span class="bg-success">Đã giao</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A34" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A15</td>
+                                <td>Lê Thị Thuỷ Tiên</td>
+                                <td>20:48 15/11/2024</td>
+                                <td>Phin đen đá, Phindi hạnh nhân, Trà thạch đào</td>
+                                <td>730.000 VNĐ</td>
+                                <td><span class="bg-warning">Chưa xử lý</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A15" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A67</td>
+                                <td>Nguyễn Huỳnh Yến Linh</td>
+                                <td>20:35 15/11/2024</td>
+                                <td>Phin đen đá, Phindi kem sữa, Cookies & cream</td>
+                                <td>352.000 VNĐ</td>
+                                <td><span class="bg-success">Đã giao</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A67" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A05</td>
+                                <td>Võ Thị Thu Luyện</td>
+                                <td>14:30 16/11/2024</td>
+                                <td>Phindi kem sữa, Trà thạch vải, Cookies & Cream</td>
+                                <td>570.000 VNĐ</td>
+                                <td><span class="bg-primary">Đã xác nhận</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A05" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A06</td>
+                                <td>Nguyễn Thị Ngọc Tú</td>
+                                <td>08:45 16/11/2024</td>
+                                <td>Bạc xỉu đá, Phindi cassia, Classic phin freeze</td>
+                                <td>455.000 VNĐ</td>
+                                <td><span class="bg-success">Đã giao</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A06" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A13</td>
+                                <td>Nguyễn Huỳnh Yến Linh</td>
+                                <td>12:35 16/11/2024</td>
+                                <td>Phin đen đá, Trà xanh đậu đỏ</td>
+                                <td>92.000 VNĐ</td>
+                                <td><span class="bg-danger">Đã huỷ</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A13" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A11</td>
+                                <td>Trần Thị Xuân Thanh</td>
+                                <td>16:24 16/11/2024</td>
+                                <td>Phin sữa đá, Phin đen đá, Phindi hạnh nhân</td>
+                                <td>291.000 VNĐ</td>
+                                <td><span class="bg-warning">Chưa xử lý</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A11" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A16</td>
+                                <td>Lê Thị Thuỷ Tiên</td>
+                                <td>10:55 16/11/2024</td>
+                                <td>Phin sữa đá, Freeze trà xanh, Trà sen vàng (củ năng)</td>
+                                <td>855.000 VNĐ</td>
+                                <td><span class="bg-success">Đã giao</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A16" title="Sửa">
+
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                
+                <!-- Phần thống kê theo tình trạng -->
+                <div class="order-tables" id="order-tables-status">
+                    <h3>Thống kê theo tình trạng</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã đơn hàng</th>
+                                <th>Khách hàng</th>
+                                <th>Địa điểm</th>
+                                <th>Đơn hàng</th>
+                                <th>Tổng tiền</th>
+                                <th>Tình trạng</th>
+                                <th>Tính năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>A04</td>
+                                <td>Võ Thị Thu Luyện</td>
+                                <td>Quận 1, TP. HCM</td>
+                                <td>Phin đen đá, Phindi choco, Trà sen vàng (củ năng)</td>
+                                <td>582.000 VNĐ</td>
+                                <td><span class="bg-warning">Chưa xử lý</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A04" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A15</td>
+                                <td>Lê Thị Thuỷ Tiên</td>
+                                <td>Quận 7, TP. HCM</td>
+                                <td>Phin đen đá, Phindi hạnh nhân, Trà thạch đào</td>
+                                <td>730.000 VNĐ</td>
+                                <td><span class="bg-warning">Chưa xử lý</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A15" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A28</td>
+                                <td>Trần Thị Xuân Thanh</td>
+                                <td>Quận 8, TP. HCM</td>
+                                <td>Freeze trà xanh, Phindi cassia</td>
+                                <td>465.000 VNĐ</td>
+                                <td><span class="bg-warning">Chưa xử lý</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A28" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A11</td>
+                                <td>Trần Thị Xuân Thanh</td>
+                                <td>Quận 8, TP. HCM</td>
+                                <td>Phin sữa đá, Phin đen đá, Phindi hạnh nhân</td>
+                                <td>291.000 VNĐ</td>
+                                <td><span class="bg-warning">Chưa xử lý</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A11" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A26</td>
+                                <td>Võ Thị Thu Luyện</td>
+                                <td>Quận 1, TP. HCM</td>
+                                <td>Trà thanh đào, Phin sữa đá, Trà xanh đậu đỏ</td>
+                                <td>535.000 VNĐ</td>
+                                <td><span class="bg-primary">Đã xác nhận</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A26" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A05</td>
+                                <td>Võ Thị Thu Luyện</td>
+                                <td>Quận 1, TP. HCM</td>
+                                <td>Phindi kem sữa, Trà thạch vải, Cookies & Cream</td>
+                                <td>570.000 VNĐ</td>
+                                <td><span class="bg-primary">Đã xác nhận</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A05" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A09</td>
+                                <td>Nguyễn Huỳnh Yến Linh</td>
+                                <td>Quận 5, TP. HCM</td>
+                                <td>Freeze sô-cô-la, Phindi choco</td>
+                                <td>480.000 VNĐ</td>
+                                <td><span class="bg-primary">Đã xác nhận</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A09" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A00</td>
+                                <td>Lê Thị Thuỷ Tiên</td>
+                                <td>Quận 7, TP. HCM</td>
+                                <td>Phin sữa đá, Freeze trà xanh, Trà sen vàng (củ năng)</td>
+                                <td>855.000 VNĐ</td>
+                                <td><span class="bg-primary">Đã xác nhận</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A00" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A67</td>
+                                <td>Nguyễn Huỳnh Yến Linh</td>
+                                <td>Quận 5, TP. HCM</td>
+                                <td>Phin đen đá, Phindi kem sữa, Cookies & cream</td>
+                                <td>352.000 VNĐ</td>
+                                <td><span class="bg-success">Đã giao</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A67" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A34</td>
+                                <td>Nguyễn Thị Ngọc Tú</td>
+                                <td>Quận 6, TP. HCM</td>
+                                <td>Phindi kem sữa, Trà sen vàng (sen), Freeze sô-cô-la</td>
+                                <td>555.000 VNĐ</td>
+                                <td><span class="bg-success">Đã giao</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A34" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>A06</td>
+                                <td>Nguyễn Thị Ngọc Tú</td>
+                                <td>Quận 6, TP. HCM</td>
+                                <td>Bạc xỉu đá, Phindi cassia, Classic phin freeze</td>
+                                <td>455.000 VNĐ</td>
+                                <td><span class="bg-success">Đã giao</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A06" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A16</td>
+                                <td>Lê Thị Thuỷ Tiên</td>
+                                <td>Quận 7, TP. HCM</td>
+                                <td>Phin sữa đá, Freeze trà xanh, Trà sen vàng (củ năng)</td>
+                                <td>855.000 VNĐ</td>
+                                <td><span class="bg-success">Đã giao</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A16" title="Sửa">
+
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A02</td>
+                                <td>Trần Thị Xuân Thanh</td>
+                                <td>Quận 8, TP. HCM</td>
+                                <td>Trà sen vàng (sen), Phin đen đá, Trà xanh đậu đỏ</td>
+                                <td>167.000 VNĐ</td>
+                                <td><span class="bg-success">Đã giao</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A02" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A13</td>
+                                <td>Nguyễn Huỳnh Yến Linh</td>
+                                <td>Quận 5, TP. HCM</td>
+                                <td>Phin đen đá, Trà xanh đậu đỏ</td>
+                                <td>92.000 VNĐ</td>
+                                <td><span class="bg-danger">Đã huỷ</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A13" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A10</td>
+                                <td>Nguyễn Thị Ngọc Tú</td>
+                                <td>Quận 6, TP. HCM</td>
+                                <td>Freeze sô-cô-la, Phindi choco</td>
+                                <td>110.000 VNĐ</td>
+                                <td><span class="bg-danger">Đã huỷ</span></td>
+                                <td>
+                                    <button class="xoa" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" data-order-id="A10" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Modal Xác nhận Xóa -->
+                <div class="modal" id="ModalRM"> 
+                    <div class="modal-content"> 
+                        <div class="modal-header"> 
+                            <h3 class="modal-title">Cảnh báo</h3> 
+                            <span class="close">&times;</span> 
+                        </div> 
+                        <hr>
+                        <div class="modal-body"> Bạn có chắc chắn muốn xóa đơn hàng này không? </div>
+                        <hr> 
+                        <div class="modal-footer"> 
+                            <button type="button" class="btn btn-secondary" id="cancelButton">Hủy bỏ</button> 
+                            <button type="button" id="confirmDeleteButton" class="btn btn-danger">Đồng ý</button> 
+                        </div> 
+                    </div> 
+                </div>
+                <!-- Modal Chi tiết đơn hàng -->
+                <div id="orderDetailModal" class="modal1">
+                    <div class="modal-content1">
+                        <span class="close">&times;</span>
+                        <h3>Chi tiết đơn hàng</h3>
+                        <form id="orderDetailForm">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="orderId">Mã đơn hàng</label>
+                                    <input type="text" id="orderId" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="customerName">Tên khách hàng</label>
+                                    <input type="text" id="customerName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="customerPhone">Số điện thoại</label>
+                                    <input type="text" id="customerPhone">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="customerAddress">Địa chỉ khách hàng</label>
+                                    <input type="text" id="customerAddress">
+                                </div>
+                                <div class="form-group">
+                                    <label for="orderDate">Ngày làm đơn hàng</label>
+                                    <input type="date" id="orderDate">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="productNames">Tên sản phẩm</label>
+                                    <input type="text" id="productNames" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="productQuantities">Số lượng</label>
+                                    <input type="text" id="productQuantities">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="productMoney">Tổng tiền</label>
+                                    <input type="text" id="productMoney">
+                                </div>
+                                <div class="form-group">
+                                    <label for="orderStatus">Tình trạng</label>
+                                    <select id="orderStatus">
+                                        <option value="pending">Chưa xử lý</option>
+                                        <option value="confirmed">Đã xác nhận</option>
+                                        <option value="delivered">Đã giao</option>
+                                        <option value="cancelled">Đã hủy</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="orderNotes">Ghi chú đơn hàng</label>
+                                    <textarea id="orderNotes" rows="4"></textarea>
+                                </div>
+                            </div>   
+                            <div class="modal-footer">
+                                <button type="button" id="saveBtn">Lưu lại</button>
+                                <button type="button" id="cancelBtn">Hủy bỏ</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <footer class="footer">
+                    <hr>
+                    <p>Copyright © 2024 <a href="#">Admin HighlandsCoffee</a></p>
+                    <p>Thiết kế bởi A07</p>
+                </div>
+                <a href="#" class="scroll-up"><i class="fas fa-arrow-up"></i></a>
+                </footer>
+            </nav>
+        </div>
+        
+        
+        
+        
+        
+    <script src="../js/order.js"></script>
+    </body>
+</html>

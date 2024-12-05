@@ -1,0 +1,1283 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* outline: 1px dashed red; */
+}
+.custom-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .custom-modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  .custom-modal-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .custom-modal-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .btn-cancel {
+    background-color: #ccc;
+  }
+  .btn-confirm {
+    background-color: #e63946;
+    color: white;
+  }
+main {
+    margin-top: 55px;
+    /* Điều chỉnh dựa trên chiều cao header */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    /* max-width: 100vw; */
+    top: 0;
+    min-height: 55px;
+    background: rgb(70, 31, 31);
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle {
+    position: relative;
+    margin-top: 10px;
+    height: 32px;
+    padding: 15px 19px;
+    border: .1rem solid #FFFFFF;
+    border-radius: .5rem;
+    display: none;
+}
+
+.fa-bars,
+.fa-xmark {
+    color: #fff;
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    inset: 0;
+    margin: auto;
+    font-size: 20px;
+    cursor: pointer;
+    transition: opacity .1s, transform .4s;
+}
+
+.fa-xmark {
+    opacity: 0;
+    margin-left: 30%;
+}
+
+header .logo img {
+    text-decoration: none;
+    width: 75px;
+    height: 60px;
+}
+
+.nav-menu ul {
+    position: relative;
+}
+
+.nav-menu ul li {
+    position: relative;
+    list-style: none;
+    float: left;
+    margin-left: 10px;
+}
+
+.nav-menu ul li a {
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-menu .active a {
+    color: #e4c0b8;
+}
+
+.nav-menu ul li a:hover {
+    color: #e4c0b8;
+}
+
+.fa-solid {
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.nav-menu ul li ul {
+    position: absolute;
+    left: 0;
+    width: 120px;
+    background: #fadabc;
+    display: none;
+}
+
+.nav-menu ul li:hover ul {
+    display: block;
+}
+
+.nav-menu ul li ul li {
+    position: relative;
+    width: 100%;
+}
+
+.nav-menu .sub-menu {
+    position: absolute;
+    width: 400%;
+    padding: 10px 10px;
+    background-color: rgb(70, 31, 31);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.nav-menu .sub-menu li {
+    align-items: center;
+    width: 120px;
+}
+
+.nav-menu .sub-menu a {
+    padding: 10px 15px;
+    white-space: nowrap;
+}
+
+.nav-menu .sub-menu span {
+    background-image: linear-gradient(hsl(0, 63%, 79%), hsl(0, 0%, 100%));
+    background-size: 0 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.5s ease;
+}
+
+.nav-menu ul li:hover .sub-menu {
+    display: flex;
+}
+
+.sub-menu li:hover>a>span {
+    background-size: 100% 1px;
+}
+
+.sub-menu li a:hover {
+    color: #e4c0b8;
+}
+
+.searchToggle {
+    position: relative;
+    cursor: pointer;
+}
+
+.searchToggle i {
+    position: absolute;
+    top: -13px;
+    left: -10px;
+    color: #fff;
+    font-size: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.searchToggle i:hover {
+    color: #e4c0b8;
+}
+
+.searchToggle i.cancel {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchToggle.active i.cancel {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.searchToggle i.search {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.searchToggle.active i.search {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.search-bar {
+    display: none;
+    position: absolute;
+    width: 550px;
+    /* width: 80%; */
+    height: 50px;
+    background: #fff;
+    align-items: center;
+    border-radius: 50px;
+    min-width: 100px;
+    margin-top: 27px;
+    right: 150px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.searchToggle.active+.search-bar {
+    display: flex;
+}
+
+.search-bar li {
+    list-style: none;
+}
+
+.dropdown-bar1,
+.dropdown-bar2 {
+    position: relative;
+    height: 50px;
+    border-radius: 50px;
+    background: rgb(70, 31, 31);
+    border: 1px solid #fff;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 15px;
+    left: -40px;
+}
+
+.dropdown-text i {
+    margin-left: 15px;
+}
+
+.dropdown-list {
+    list-style: none;
+    position: absolute;
+    top: 3.5rem;
+    left: 0;
+    width: 100%;
+    border-radius: 15px;
+    max-height: 0;
+    overflow: hidden;
+    background: #fff;
+    color: rgb(70, 31, 31);
+    z-index: 10000;
+    transition: max-height 0.5s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-list.show {
+    max-height: 300px;
+}
+
+.dropdown-list-item {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 0px;
+    margin-left: -20px;
+    cursor: pointer;
+    transition: margin-left 0.1s ease;
+}
+
+.dropdown-list-item:hover {
+    margin-left: -10px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    padding-right: 1rem;
+    width: 100%;
+    color: rgb(70, 31, 31);
+    font-size: 15px;
+}
+
+.search-box input {
+    margin-left: -25px;
+    width: 100%;
+    font-weight: 500;
+    border: none;
+    outline: none;
+}
+
+.search-box button {
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    color: rgb(70, 31, 31);
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+.search-box input::placeholder {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(70, 31, 31);
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 28px;
+    margin-top: 5px;
+}
+
+.icon a {
+    font-size: 2rem;
+    margin-left: 5px;
+}
+
+.fa-cart-shopping {
+    font-size: 20px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.fa-cart-shopping:hover,
+.fa-user:hover {
+    cursor: pointer;
+    color: #e4c0b8;
+}
+
+.fa-user {
+    font-size: 20px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.icon-item {
+    position: relative;
+}
+
+.icon-item a {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.icon-item img {
+    width: 40px;
+    height: 40px;
+}
+
+.totalQuantity {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 10px;
+    background-color: rgb(255, 0, 51);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(3px);
+}
+
+.dropdown-user {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    width: 150px;
+    top: 41px;
+    right: -16px;
+    background-color: #fff;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    padding: 0 10px 10px;
+    gap: 10px;
+}
+
+.dropdown-user::before {
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    right: 25px;
+    top: -8px;
+    background: #ffffff;
+    transform: rotate(45deg);
+}
+
+.dropdown-user li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    text-align: center;
+    background: rgb(70, 31, 31);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    z-index: 99;
+}
+
+.dropdown-user li a {
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+}
+
+.dropdown-user li:hover {
+    background-color: rgba(70, 31, 31, 0.623);
+}
+
+.dropdown-user li a:hover {
+    color: #fff;
+}
+
+.icon-item {
+    position: relative;
+}
+
+.dropdown-user1 {
+    display: none;
+}
+
+.icon-item:hover .dropdown-user1 {
+    display: flex;
+}
+
+.dropdown-user1 {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    width: 200px;
+    top: 41px;
+    right: -16px;
+    background-color: #fff;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    padding: 0 10px 10px;
+    gap: 10px;
+}
+
+.dropdown-user1::before {
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    right: 26px;
+    top: -4px;
+    background: #ffffff;
+    transform: rotate(45deg);
+}
+
+.dropdown-user1 li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    text-align: center;
+    background: rgb(70, 31, 31);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    z-index: 99;
+}
+
+.dropdown-user1 li a {
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+}
+
+.dropdown-user1 li:hover {
+    background-color: rgba(70, 31, 31, 0.623);
+}
+
+.dropdown-user1 li a:hover {
+    color: #fff;
+}
+
+.icon-item:hover {
+    display: flex;
+}
+
+/* BREADCRUMD */
+
+.breadcrumb_section .breadcrumb {
+    margin-top: 40px;
+    padding: 10px 0;
+    position: relative; top: 10px;
+}
+
+.breadcrumb_section .breadcrumb .breadcrumb-item a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    position: relative; top: 10px;
+}
+
+.breadcrumb_section .breadcrumb .breadcrumb-item.active {
+    color: #B87333;
+    position: relative; top: 10px;
+}
+
+/* CART  */
+
+.highlands__cart .highlands__cart--orders h2 {
+
+    font-weight: 700;
+    color: #333f48;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.highlands__cart .highlands__cart--orders .orders--items {
+    margin: 0 0 15px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.highlands__cart .orders--items>div {
+    padding: 0;
+    margin: 0;
+}
+
+.highlands__cart .orders--items .orders--items-left img {
+    width: 100%;
+    max-height: 150px;
+    border-radius: 2px;
+}
+
+.highlands__cart .orders--items .orders--items-right {
+    padding-left: 10px;
+    position: relative;
+}
+
+.highlands__cart .orders--items-right .items--name a {
+    text-decoration: none;
+    color: #000000dd;
+    display: block;
+    text-transform: capitalize;
+    width: auto;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+.highlands__cart .orders--items-right .items--price {
+    font-size: 16px;
+    line-height: 1.25;
+    color: #333;
+    margin: 12px 0;
+}
+
+.highlands__cart .orders--items-right .items--size {
+    font-size: 16px;
+    line-height: 1.25;
+    color: #333;
+    margin: 12px 0;
+}
+
+.highlands__cart .orders--items .orders--items-right .items--total {
+    font-size: 16px;
+    line-height: 1.25;
+    color: #333;
+}
+
+.highlands__cart .orders--items .orders--items-right .items--total span {
+    position: absolute;
+    bottom: 0;
+    font-size: 20px;
+    color: #B87333;
+    font-weight: 700;
+    line-height: normal;
+    display: block;
+}
+
+.highlands__cart .orders--items .items--remove {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #0a0a0a;
+    font-size: 1em;
+    font-weight: 400;
+    border: none;
+    background-color: transparent;
+}
+
+.highlands__cart .orders--items .items--remove:hover {
+    font-weight: 900;
+}
+
+.noproduct {
+    text-align: center;
+    padding: 85px 0 0;
+}
+
+.noproduct i {
+    font-size: 180px;
+    color: #ccc;
+}
+
+.noproduct p {
+    font-size: 1rem;
+    color: gray;
+    margin: 20px;
+}
+
+.noproduct button {
+    background-color: #B87333;
+    padding: 8px;
+}
+
+.noproduct button:hover {
+    background-color: #B87333;
+}
+
+.noproduct button a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* CART--QTY */
+
+.product_qty {
+    margin-top: 12px;
+}
+
+.product_qty button {
+    width: 1.5em;
+    height: 1.5em;
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+    font-size: 18px;
+    padding: 0;
+    font-weight: 700;
+    border-radius: 0;
+    line-height: 0px;
+}
+
+
+.qtyminus i,
+.qtyplus i {
+    font-size: 8px;
+}
+
+
+.product_qty input {
+    width: 80px;
+    height: 27px;
+    border-top: #e6e6e6 solid 1px;
+    border-bottom: #e6e6e6 solid 1px;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 1rem;
+    min-height: unset;
+    border-left: none;
+    border-right: none;
+}
+
+.product_qty button:hover {
+    background-color: #B87333;
+    color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+}
+/* Tăng kích thước checkbox */
+.select-item {
+    width: 20px;
+    height: 20px;
+    transform: scale(1.0); /* Phóng to checkbox */
+    accent-color: rgb(70, 31, 31); /* Màu sắc cho checkbox (nếu trình duyệt hỗ trợ) */
+    cursor: pointer;
+    margin-right: 10px; /* Khoảng cách với nội dung bên cạnh */
+    position: absolute;
+    right: 0;
+
+    font-weight: 400;
+    border: none;
+}
+
+.item-select{
+    transform: scale(1.25);
+    accent-color: rgb(70, 31, 31); /* Màu sắc cho checkbox (nếu trình duyệt hỗ trợ) */
+    cursor: pointer;
+}
+
+
+/* Đặt màu nền và khung tổng thể */
+.highlands__cart--contact {
+    background-color: #f9f9f9; /* Màu nền */
+    border: 1px solid #e0e0e0; /* Viền nhẹ */
+    border-radius: 5px; /* Bo góc */
+    padding: 20px; /* Khoảng cách bên trong */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
+}
+
+/* Tiêu đề */
+.highlands__cart--contact h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Block thông tin dịch vụ */
+.highlands__cart--contact .user--sevice,
+.highlands__cart--contact .user--payment {
+    width: 100%; /* Tối đa khung */
+    padding: 15px; /* Khoảng cách nội dung */
+    background-color: #fff;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px dashed #ddd; /* Đường viền gạch */
+    font-size: 14px; /* Kích thước chữ nhỏ */
+    line-height: 1.6; /* Khoảng cách dòng thoáng hơn */
+}
+
+/* Tiêu đề phụ */
+.highlands__cart--contact .user--sevice h3,
+.highlands__cart--contact .user--payment h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+/* Nội dung thông tin */
+.highlands__cart--contact .user--sevice p,
+.highlands__cart--contact .user--payment p {
+    color: #555;
+    margin: 8px 0; /* Khoảng cách trên dưới */
+    font-size: 14px;
+}
+
+/* Link trong thông tin dịch vụ */
+.highlands__cart--contact .user--sevice a {
+    font-weight: 600;
+    color: #9b9b9b; /* Màu chữ xám */
+    transition: all 0.2s;
+    margin-top: 10px;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.highlands__cart--contact .user--sevice a:hover {
+    color: #28a745; /* Chuyển sang màu xanh khi hover */
+}
+
+/* Nút thanh toán */
+.total--pay {
+    width: 100%;
+    background-color: #28a745; /* Màu xanh đậm */
+    color: #fff;
+    border: none;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px; /* Bo góc nhẹ */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px; /* Khoảng cách phía trên */
+}
+
+.total--pay:hover {
+    background-color: #218838; /* Màu xanh đậm hơn khi hover */
+}
+
+.total--pay:active {
+    background-color: #1e7e34; /* Màu xanh khi nhấn */
+}
+
+.total--pay a {
+    color: #fff;
+    text-decoration: none; /* Bỏ gạch chân */
+    display: block;
+    width: 100%; /* Link phủ toàn bộ nút */
+}
+
+.total--pay a:hover{
+    color: #fff;
+}
+
+/* Tổng tiền */
+.into--money {
+    font-size: 20px;
+    font-weight: bold;
+    color: #d9534f; /* Màu đỏ đậm */
+    text-transform: uppercase; /* Chữ in hoa */
+    display: flex;
+    align-items: center; /* Căn giữa dòng */
+    gap: 10px; /* Khoảng cách giữa "Thành tiền" và số tiền */
+    margin-top: 10px;
+}
+
+.into--money span {
+    font-size: 24px; /* Kích thước số tiền */
+    color: #d9534f; /* Màu đỏ */
+    font-weight: bolder;
+}
+
+.orders__submit--total.col-6 {
+    width: 100%;
+}
+
+.footer {
+    margin-top: 30px;
+    padding: 20px 0;
+    color: #fff;
+    background-color: rgb(70, 31, 31);
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+    padding: 20px 0px 20px 50px;
+    text-align: center;
+    max-width: 100%;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-right: 50px;
+}
+
+.footer-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section a {
+    font-size: 13px;
+    color: #fff;
+    position: relative;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section a {
+    color: #ffffffe8;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.footer-section a:hover {
+    color: #e4c0b8;
+}
+
+.footer-section.social a {
+    margin-right: 20px;
+    font-size: 20px;
+    color: #ffffffe8;
+}
+
+.footer-section.social a:hover {
+    color: #e4c0b8;
+}
+
+.footer-section.social {
+    color: #ffffffe8;
+}
+
+.footer-section.social h2 {
+    color: #fff;
+}
+
+.footer-section.social a {
+    color: #ffffffe8;
+    text-decoration: none;
+    padding-bottom: 0;
+    margin-right: 20px;
+}
+
+.footer-section.social a:hover {
+    color: #e4c0b8;
+    text-decoration: none;
+}
+
+.footer-section.members {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Căn giữa các phần tử con theo chiều ngang */
+    text-align: center;
+    /* Căn giữa nội dung của tất cả các phần tử bên trong */
+}
+
+.footer-section.members ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.footer-section.members ul li {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    /* Căn giữa các phần tử con của <li> nếu cần */
+}
+
+.footer-section.members a {
+    display: block;
+    color: #ffffffe8;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    /* Căn giữa chữ trong <a> */
+}
+
+.footer-section.members a:hover {
+    color: #e4c0b8;
+}
+
+.footer-bottom {
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    color: #e4c0b8b3;
+    font-size: 13px;
+    position: relative;
+}
+
+.footer-bottom hr {
+    width: 90%;
+    border: 1px solid #ffffffba;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+#scrollToTopBtn {
+    position: fixed;
+    display: none;
+    bottom: 40px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(70, 31, 31);
+    border: 2px solid #ffffffc9;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+#scrollToTopBtn i {
+    font-size: 24px;
+    padding-top: 8px;
+    padding-left: 11px;
+    color: #ffffffc9;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #e4c0b8;
+    border: 2px solid #fff;
+    color: #fff;
+    transform: translateY(-5px);
+}
+@media (max-width: 1200px)
+{
+    .img2 {
+        margin-left: -40px;
+    }
+
+    .content p {
+        width: 650px;
+    }
+
+    #productList {
+        margin-left: 1%;
+    }
+}
+
+@media (max-width: 1180px)
+{
+    .menu_item_img img {
+        width: 200px;
+        height: 200px;
+        box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+        margin-bottom: 8px;
+        border-radius: 8px;
+    }
+
+    #productList {
+        
+    }
+}
+
+/* Hiển thị nút toggle khi màn hình nhỏ */
+@media (max-width: 1100px) {    
+    .toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        background-color: rgb(70, 31, 31);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 10;
+        padding: 10px;
+    }
+
+    .nav-menu ul {
+        width: 100%;
+        margin-left: -15px;
+        padding-right: 20px;
+    }
+
+    .nav-menu ul li {
+        width: 100%;
+        text-align: left;
+        position: relative; /* Đảm bảo các phần tử không bị đẩy */
+    }
+
+    .nav-menu ul li a {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .nav-menu .active a{
+        background-color: #8f5b51;
+    }
+
+    .nav-menu ul li a:hover {
+        background-color: #8f5b51;
+    }
+
+    .nav-menu ul li .sub-menu {
+        display: none;
+        flex-direction: column;
+        background-color: #a17066;
+        width: 100%; /* Đảm bảo sub-menu có cùng chiều rộng với menu chính */
+        position: relative; /* Đặt sub-menu dưới li cha mà không gây đẩy các phần tử khác */
+        margin-left: 0;
+        z-index: 1;
+        padding: 0;
+    }
+
+    .nav-menu ul li .sub-menu li {
+        display: block;
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
+
+    }
+    /* Áp dụng hover cho toàn bộ li chứa a trong sub-menu */
+    .nav-menu ul li .sub-menu li a:hover {
+        background: #c5988f;
+    }
+
+    .nav-menu ul li .sub-menu li a {
+        display: block; /* Đảm bảo a chiếm toàn bộ diện tích li */
+        width: 100%; /* Đảm bảo a chiếm hết chiều rộng của li */
+        padding: 10px 15px; /* Đảm bảo padding để text không bị dính vào viền */
+    }
+
+    /* Hiển thị sub-menu khi hover vào dropdown */
+    .nav-menu ul li.dropdown:hover .sub-menu {
+        display: flex;
+    }
+
+    /* Không gây đẩy các mục khác xuống dưới */
+    .nav-menu ul li.dropdown:hover + li,
+    .nav-menu ul li.dropdown:hover + li + li,
+    .nav-menu ul li.dropdown:hover + li + li + li {
+        margin-top: 0; /* Loại bỏ việc đẩy các mục dưới khi sub-menu hiển thị */
+    }
+
+    .fa-bars {
+        opacity: 1;
+        transform: rotate(0);
+    }
+
+    .fa-xmark {
+        opacity: 0;
+        transform: rotate(-90deg);
+    }
+
+    .toggle.active .fa-bars {
+        opacity: 0;
+        transform: rotate(90deg);
+    }
+
+    .toggle.active .fa-xmark {
+        opacity: 1;
+        transform: rotate(0);
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .search-bar {
+        margin: 35px -18%;
+    }
+
+    .list img {
+        height: 500px;
+    }
+
+    .dots {
+        margin: 50px 0%;
+    }
+
+    .img1 img{
+        width: 400px;
+        height: 200px;
+        margin-top: 60px;
+    }
+
+    .img2 img {
+
+    }
+
+    .content p {
+        width: 500px;
+    }
+
+    .product-item {
+        flex: 1 1 33.33%;
+        margin: 5% 6%;
+    }
+
+    #productList {
+        grid-template-columns: repeat(3, 1fr);
+        margin-left: 15%;
+    }
+}
+
+@media(max-width: 875px)
+{
+    #productList {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 570px)
+{
+    #productList {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* Người dùng. Đặt mua */
+.custom-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.custom-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+.custom-close-btn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+}
+
+.custom-modal-actions button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    width: 70%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-modal-actions #custom-no {
+    background-color: #e1e0e0;
+}
+
+.custom-modal-actions #custom-yes {
+    background-color: #009900;
+    color: white;
+}

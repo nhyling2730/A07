@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phindi</title>
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="../../css/fontawesome-free-6.6.0-web/css/all.min.css">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="../../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/index.css"/>
+    <link rel="stylesheet" href="../../css/phindi.css"/>
+</head>
+<body>
+    <header>
+        <div class="toggle">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <a href="../index_user.html" class="logo">
+            <img src="../../image/logo.png">
+        </a>
+        <nav class="nav-menu" id="home">
+            <ul>
+                <li><a href="../index_user.html"><i class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
+                <li class="dropdown active">
+                    <a href="../menu/allmenu.html" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
+                    <ul class="sub-menu">
+                        <li><a href="../menu/phin-menu.html"><span>Cà phê phin</span></a></li>
+                        <li><a href="#"><span>Phindi</span></a></li>
+                        <li><a href="../menu/freeze-menu.html"><span>Freeze</span></a></li>
+                        <li><a href="../menu/tra-menu.html"><span>Trà</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="../news.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                <li><a href="../introduce.html"><i class="fa-solid fa-users-line"></i>Giới thiệu</a></li>
+                <li><a href="../contact.html"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
+            </ul>
+        </nav>
+        <!-- SEARCH -->
+        <div class="icon">
+            <div class="searchToggle">
+                <i class="fa-solid fa-x cancel"></i>
+                <i class="fa-solid fa-magnifying-glass search"></i>
+            </div>
+            <div class="searchBox">
+                <form class="search-form" action="../search.html" method="get">
+                    <ul class="search-bar">
+                        <li class="dropdown-bar1">
+                            <div id="drop-text" class="dropdown-text">
+                                <span id="span">Tất cả</span>
+                                <i id="icon" class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <ul id="list" class="dropdown-list">
+                                <li class="dropdown-list-item">Tất cả</li>
+                                <li class="dropdown-list-item">Cà phê phin</li>
+                                <li class="dropdown-list-item">Phindi</li>
+                                <li class="dropdown-list-item">Freeze</li>
+                                <li class="dropdown-list-item">Trà</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-bar2">
+                            <div id="price-drop-text" class="dropdown-text">                                
+                                <span id="price-span">Khoảng giá</span>
+                                <i id="price-icon" class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <ul id="price-list" class="dropdown-list">
+                                <li class="dropdown-list-item">Khoảng giá</li>
+                                <li class="dropdown-list-item">Dưới 40.000 VNĐ</li>
+                                <li class="dropdown-list-item">40.000 - 50.000 VNĐ</li>
+                                <li class="dropdown-list-item">Trên 50.000 VNĐ</li>
+                            </ul>
+                        </li>
+                        <li class="search-box">
+                            <input type="text" id="search-input" placeholder="Tìm kiếm..." required/>
+                            <button type="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="icon-item">
+                <a href="../cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </div>
+            <div class="icon-item">
+                <a href="javascript:void(0);">
+                    <img src="../../image/khác/user.png">
+                    <ul class="dropdown-user1">
+                        <li><a href="../profile.html">Thông tin cá nhân</a></li>
+                        <li><a href="../profile.html?openHistory=true">Đơn đã mua</a></li>
+                        <li><a href="../../index.html">Đăng xuất</a></li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="poster">
+        <img href="../../index.html" src="../../image/poster/banner3.png" alt="">
+    </div>
+    <!-- BREADCRUMB -->
+    <section id ="phindi-menu-section"class="breadcrumb_section container">
+        <nav aria-label="custom-breadcrumb">
+            <ol class="custom-breadcrumb">
+                <li class="custom-breadcrumb-item"><a href="../../index.html">Trang chủ</a></li>
+                <li class="custom-breadcrumb-item"><a href="./allmenu.html">Thực đơn</a></li>
+                <li class="custom-breadcrumb-item active" aria-current="page">Phindi</li>
+            </ol>
+        </nav>
+    </section>
+    <div class="custom-product_tags">
+        <a class="btn btn-outline-secondary " role="button" href="./allmenu.html#all-menu-section" type="Tất cả">Tất cả</a>
+        <a class="btn btn-outline-secondary" role="button" href="./phin-menu.html#phin-menu-section" type="Phin">Cà phê phin</a>
+        <a class="btn btn-outline-secondary" role="button" href="./phindi-menu.html" type="Phindi">Phindi</a>
+        <a class="btn btn-outline-secondary " role="button" href="./freeze-menu.html#freeze-menu-section" type="Freeze">Freeze</a>
+        <a class="btn btn-outline-secondary" role="button" href="./tra-menu.html#tra-menu-section" type="Trà">Trà</a>
+    </div>
+    <div class="product__filter mb-2 text-end">
+        <div class="filter--sort ">
+            <p>Sắp xếp theo:</p>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Mặc định</option>
+                <option value="1">Bán chạy</option>
+                <option value="2">Giá tăng dần</option>
+                <option value="3">Giá giảm dần</option>
+                <option value="4">Từ A-Z</option>
+                <option value="5">Từ Z-A</option>
+              </select>
+        </div>
+    </div>
+    <div id="custom-wrapper">
+        <ul class="custom-products" data-category="Phindi">
+            <li>
+                <div class="custom-product-item">
+                    <div class="custom-product-top">
+                        <a href="../product/mota.html" class="custom-product-thumb">
+                            <img src="../../image/phindi/phindicassia_nho.png" alt="">                        
+                        </a>
+                    </div>
+                    <div class="custom-product-info">
+                        <a href="" class="custom-product-cat">Phindi</a>
+                        <a href="../product/mota.html" class="custom-product-name">Phindi cassia</a>
+                        <div class="custom-product-price">55.000 VNĐ</div>
+                        <button class="buy-now" style="background-color: #999 !important; color: #fff !important; cursor: not-allowed;">
+                            Hết hàng
+                        </button>
+                        
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="custom-product-item">
+                    <div class="custom-product-top">
+                        <a href="../product/mota.html" class="custom-product-thumb">
+                            <img src="../../image/phindi/phindichoco_nho.png" alt="">                        
+                        </a>
+                    </div>
+                    <div class="custom-product-info">
+                        <a href="" class="custom-product-cat">Phindi</a>
+                        <a href="../product/mota.html" class="custom-product-name">Phindi choco</a>
+                        <div class="custom-product-price">55.000 VNĐ</div>
+                        <button class="buy-now">Đặt mua</button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="custom-product-item">
+                    <div class="custom-product-top">
+                        <a href="../product/mota.html" class="custom-product-thumb">
+                            <img src="../../image/phindi/phindihanhnhan_nho.png" alt="">                        
+                        </a>
+                    </div>
+                    <div class="custom-product-info">
+                        <a href="" class="custom-product-cat">Phindi</a>
+                        <a href="../product/mota.html" class="custom-product-name">Phindi hạnh nhân</a>
+                        <div class="custom-product-price">55.000 VNĐ</div>
+                        <button class="buy-now">Đặt mua</button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="custom-product-item">
+                    <div class="custom-product-top">
+                        <a href="../product/mota.html" class="custom-product-thumb">
+                            <img src="../../image/phindi/phindikemsua_nho.png" alt="">                        
+                        </a>
+                    </div>
+                    <div class="custom-product-info">
+                        <a href="" class="custom-product-cat">Phindi</a>
+                        <a href="../product/mota.html" class="custom-product-name">Phindi kem sữa</a>
+                        <div class="custom-product-price">55.000 VNĐ</div>
+                        <button class="buy-now">Đặt mua</button>
+                    </div>
+                </div>
+            </li>
+            <li>
+        </ul>
+        <!-- ... -->
+        <ul class="listpage pagination" style="justify-content: center;">
+            <li class="page1"><i class="fa-solid fa-angles-left"></i></li>
+            <li class="active">1</li>
+            <li>2</li>
+            <li class="page2"><i class="fa-solid fa-angles-right"></i></li>
+        </ul>
+        <!-- Modal Thông báo Đặt mua -->
+        <div class="custom-modal" id="custom-order-modal">
+            <div class="custom-modal-content">
+                <span class="custom-close-btn" id="custom-close-order-modal">&times;</span>
+                <h3><b>Thông báo</b></h3>
+                <p>Đã thêm sản phẩm vào giỏ hàng!</p>
+                <div class="custom-modal-actions">
+                    <button class="custom-modal-btn" id="custom-continue-shopping-btn">Tiếp tục lựa chọn</button>
+                    <button class="custom-modal-btn" id="custom-go-to-cart-btn">Đi đến giỏ hàng</button>
+                </div>
+            </div>
+        </div>   
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Về Chúng Tôi</h2>
+                <p>Chúng tôi cung cấp các loại đồ uống chất lượng, phục vụ với sự tận tâm và chuyên nghiệp.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Liên Kết</h2>
+                <ul>
+                    <li><a href="../index_user.html">Trang chủ</a></li>
+                    <li><a href="../menu/allmenu.html">Thực đơn</a></li>
+                    <li><a href="../news.html">Tin tức</a></li>
+                    <li><a href="../introduce.html">Giới thiệu</a></li>
+                    <li><a href="../contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h2>Kết Nối Với Chúng Tôi</h2>
+                <a href="https://web.facebook.com/highlandscoffeevietnam" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/highlandscoffeevietnam/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <div class="footer-section members">
+                <h2>Thành Viên</h2>
+                <ul>
+                    <li><a href="#">Lê Thị Thủy Tiên</a></li>
+                    <li><a href="#">Võ Thị Thu Luyện</a></li>
+                    <li><a href="#">Nguyễn Thị Ngọc Tú</a></li>
+                    <li><a href="#">Trần Thị Xuân Thanh</a></li>
+                    <li><a href="#">Nguyễn Huỳnh Yến Linh</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <hr>
+            &copy; Highlands Coffee | Thiết kế bởi Nhóm A07
+        </div>
+    </footer>
+    <!-- TOP -->
+    <div id="scrollToTopBtn">
+        <a href="#home"><i class="fas fa-arrow-up"></i></a>
+    </div>
+    <script src="../../js/phantrangfr.js"></script>
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/thongbao.js"></script>
+    <!-- BOOSTRAP JS  -->
+    <script src="../../bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.onload = function() {
+            if(window.location.hash === "#phindi-menu-section") {
+                setTimeout(function() {
+                    var section = document.getElementById("phindi-menu-section");
+                    if(section) {
+                        window.scrollTo({
+                            top: section.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 100);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/login_user.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>Đăng Nhập</title>
+</head>
+<body>
+    <header>
+        <div class="toggle">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <a href="../index.html" class="logo">
+            <img src="../image/logo.png">
+        </a>
+        <nav class="nav-menu" id="home">
+            <ul>
+                <li><a href="../index.html"><i class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="../user/menu/allmenu.html" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
+                    <ul class="sub-menu">
+                        <li><a href="../user/menu/phin-menu.html"><span>Cà phê phin</span></a></li>
+                        <li><a href="../user/menu/phindi-menu.html"><span>Phindi</span></a></li>
+                        <li><a href="../user/menu/freeze-menu.html"><span>Freeze</span></a></li>
+                        <li><a href="../user/menu/tra-menu.html"><span>Trà</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="../user/news.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                <li><a href="../user/introduce.html"><i class="fa-solid fa-users-line"></i>Giới thiệu</a></li>
+                <li><a href="../user/contact.html"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
+            </ul>
+        </nav>
+        <!-- SEARCH -->
+        <div class="icon">
+            <div class="searchToggle">
+                <i class="fa-solid fa-x cancel"></i>
+                <i class="fa-solid fa-magnifying-glass search"></i>
+            </div>
+            <div class="searchBox">
+                <form class="search-form" action="./search.html" method="get">
+                <ul class="search-bar">
+                    <li class="dropdown-bar1">
+                        <div id="drop-text" class="dropdown-text">
+                            <span id="span">Tất cả</span>
+                            <i id="icon" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <ul id="list" class="dropdown-list">
+                            <li class="dropdown-list-item">Tất cả</li>
+                            <li class="dropdown-list-item">Cà phê phin</li>
+                            <li class="dropdown-list-item">Phindi</li>
+                            <li class="dropdown-list-item">Freeze</li>
+                            <li class="dropdown-list-item">Trà</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-bar2">
+                        <div id="price-drop-text" class="dropdown-text">                                
+                            <span id="price-span">Khoảng giá</span>
+                            <i id="price-icon" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <ul id="price-list" class="dropdown-list">
+                            <li class="dropdown-list-item">Khoảng giá</li>
+                            <li class="dropdown-list-item">Dưới 40.000 VNĐ</li>
+                            <li class="dropdown-list-item">40.000 - 50.000 VNĐ</li>
+                            <li class="dropdown-list-item">Trên 50.000 VNĐ</li>
+                        </ul>
+                    </li>
+                    <li class="search-box">
+                        <input type="text" id="search-input" placeholder="Tìm kiếm..." required/>
+                        <button type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </li>
+                </ul>
+            </form>
+            </div>
+            <div class="icon-item">
+                <a href="#" id="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>            
+            <div class="modal" id="login-modal">
+                <div class="modal-content">
+                    <span class="close-btn" id="close-modal">&times;</span>
+                    <h3><b>Bạn chưa đăng nhập</b></h3>
+                    <h5>Vui lòng đăng nhập hoặc đăng ký để xem giỏ hàng.</h5>
+                    <div class="modal-actions">
+                        <button class="modal-btn" id="login-btn" style="color: #fff;">Đăng nhập</button>
+                        <button class="modal-btn" id="register-btn" style="color: #fff;">Đăng ký</button>
+                    </div>
+                </div>
+            </div>            
+            <div class="icon-item">
+                <a href="javascript:void(0);" class="active">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- ĐĂNG NHẬP -->
+    <div class="form-login">
+        <form id="form" action="" onsubmit="func(); return false;" class="form" >
+            <img src="../image/logo.png">
+            <h1>Đăng nhập</h1>
+
+            <div class="input-box">
+                <h3><strong>Tên đăng nhập: </strong></h3>
+                <input type="text"id="username" placeholder="Tên đăng nhập">
+                <i class="fa-solid fa-user"></i>
+                <span id="username_error"></span>
+            </div>
+
+            <div class="input-box">
+                <h3><strong>Mật khẩu: </strong></h3>
+                <input type="password" id="password" placeholder="Mật khẩu">
+                <i class="fa-solid fa-eye hide"></i>
+                <i class="fa-solid fa-eye-slash "></i>
+                <span id="password_error"></span>
+            </div>    
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Ghi nhớ mật khẩu</label>
+                <a href="#">Quên mật khẩu?</a>
+            </div>    
+            <button type="submit" class="button">Đăng nhập</button>        
+            <div class="register-link">
+                <p>Bạn mới biết đến Highlands? <a href="../user/signup_user.html">Đăng ký</a></p>
+            </div>        
+        </form>
+    </div>
+    <div class="modalSuccess">
+        <div class="modal-inner">
+            <div class="modal-header">
+                <div class="icon-success">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <h4>Chúc mừng</h4>
+                <p>Bạn đã đăng nhập thành công</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-success" onclick="document.querySelector('.modalSuccess').classList.remove('active');">
+                    <a href="../login-user/index_user.html">Khám phá nào</a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modalFail">
+        <div class="modal-innerFail">
+            <div class="modal-headerFail">
+                <div class="iconFail">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+            </div>
+            <div class="modal-bodyFail">
+                <h4>Xin lỗi</h4>
+                <p>Bạn đã nhập sai mật khẩu</p>
+            </div>
+            <div class="modal-footerFail">
+                <button class="btn-fail">
+                    <a href="../user/login_user.html" onclick="document.querySelector('.modalFail').classList.remove('activefail');">Mời bạn đăng nhập lại</a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modalNoExist">
+        <div class="modal-innerNoExist">
+            <div class="modal-headerNoExist">
+                <div class="iconNoExist">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+            </div>
+            <div class="modal-bodyNoExist">
+                <h4>Xin lỗi</h4>
+                <p>Tài khoản của bạn không tồn tại</p>
+            </div>
+            <div class="modal-footerNoExist">
+                <button class="btn-NoExist" onclick="document.querySelector('.modalNoExist').classList.remove('activeNoExist');">
+                    <a href="../user/signup_user.html">Đăng ký ngay</a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Về chúng tôi</h2>
+                <p>Chúng tôi cung cấp các loại đồ uống chất lượng, phục vụ với sự tận tâm và chuyên nghiệp.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Liên kết</h2>
+                <ul>
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="../user/menu/allmenu.html">Thực đơn</a></li>
+                    <li><a href="../user/news.html">Tin tức</a></li>
+                    <li><a href="../user/introduce.html">Giới thiệu</a></li>
+                    <li><a href="../user/contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h2>Kết nối với chúng tôi</h2>
+                <a href="https://web.facebook.com/highlandscoffeevietnam" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/highlandscoffeevietnam/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <div class="footer-section members">
+                <h2>Thành viên</h2>
+                <ul>
+                    <li><a href="#">Lê Thị Thủy Tiên</a></li>
+                    <li><a href="#">Võ Thị Thu Luyện</a></li>
+                    <li><a href="#">Nguyễn Thị Ngọc Tú</a></li>
+                    <li><a href="#">Trần Thị Xuân Thanh</a></li>
+                    <li><a href="#">Nguyễn Huỳnh Yến Linh</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <hr>
+            &copy; Highlands Coffee | Thiết kế bởi Nhóm A07
+        </div>
+    </footer>
+    <!-- TOP -->
+    <div id="scrollToTopBtn">
+        <a href="#home"><i class="fas fa-arrow-up"></i></a>
+    </div>
+    
+    <script src="../js/nav.js"></script>
+    <script src="../js/loginUser.js"></script>
+    <script src="../js/show_hide_pass.js"></script>
+</body>
+</html>

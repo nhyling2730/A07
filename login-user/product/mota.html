@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Phin Sữa Đá</title>
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="../../css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../css/fontawesome-free-6.6.0-web/css/all.min.css">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="../../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/index.css"/>
+    <link rel="stylesheet" href="../../css/product-detail.css"/>
+</head>
+<body>
+    <header>
+        <div class="toggle">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <a href="../index_user.html" class="logo">
+            <img src="../../image/logo.png">
+        </a>
+        <nav class="nav-menu" id="home">
+            <ul>
+                <li style="line-height: 1.7;"><a href="../index_user.html"><i class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
+                <li style="line-height: 1.7;" class="dropdown active">
+                    <a href="#" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
+                    <ul class="sub-menu" >
+                        <li><a href="../menu/phin-menu.html"><span>Cà phê phin</span></a></li>
+                        <li><a href="../menu/phindi-menu.html"><span>Phindi</span></a></li>
+                        <li><a href="../menu/freeze-menu.html"><span>Freeze</span></a></li>
+                        <li><a href="../menu/tra-menu.html"><span>Trà</span></a></li>
+                    </ul>
+                </li>
+                <li style="line-height: 1.7;"><a href="../news.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                <li style="line-height: 1.7;"><a href="../introduce.html"><i class="fa-solid fa-users-line"></i>Giới thiệu</a></li>
+                <li style="line-height: 1.7;"><a href="../contact.html"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
+            </ul>
+        </nav>
+        <!-- SEARCH -->
+        <div class="icon">
+            <div class="searchToggle">
+                <i class="fa-solid fa-x cancel"></i>
+                <i class="fa-solid fa-magnifying-glass search"></i>
+            </div>
+            <div class="searchBox">
+                <form class="search-form" action="../search.html" method="get">
+                    <ul class="search-bar">
+                        <li class="dropdown-bar1">
+                            <div id="drop-text" class="dropdown-text">
+                                <span id="span">Tất cả</span>
+                                <i id="icon" class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <ul id="list" class="dropdown-list">
+                                <li class="dropdown-list-item">Tất cả</li>
+                                <li class="dropdown-list-item">Cà phê phin</li>
+                                <li class="dropdown-list-item">Phindi</li>
+                                <li class="dropdown-list-item">Freeze</li>
+                                <li class="dropdown-list-item">Trà</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-bar2">
+                            <div id="price-drop-text" class="dropdown-text">                                
+                                <span id="price-span">Khoảng giá</span>
+                                <i id="price-icon" class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <ul id="price-list" class="dropdown-list">
+                                <li class="dropdown-list-item">Khoảng giá</li>
+                                <li class="dropdown-list-item">Dưới 40.000 VNĐ</li>
+                                <li class="dropdown-list-item">40.000 - 50.000 VNĐ</li>
+                                <li class="dropdown-list-item">Trên 50.000 VNĐ</li>
+                            </ul>
+                        </li>
+                        <li class="search-box">
+                            <input type="text" id="search-input" placeholder="Tìm kiếm..." required/>
+                            <button type="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="icon-item">
+                <a href="./cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </div>             
+            <div class="icon-item">
+                <a href="javascript:void(0);">
+                    <img src="../../image/khác/user.png">
+                    <ul class="dropdown-user1">
+                        <li><a href="../profile.html">Thông tin cá nhân</a></li>
+                        <li><a href="/A07_Lasttime/login-user/profile.html?openHistory=true">Đơn đã mua</a></li>
+                        <li><a href="../index.html">Đăng xuất</a></li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- PRODUCT -->
+    <main style="margin-top: 80px;" class="product">
+        <section class="product_details my-3 container">
+            <div class="product_details_content row">
+                <div class="col-6 product-gallery">
+                    <div id="galleryCarousel" class="carousel slide carousel-fade">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../../image/phin/phinsuada.png" class="d-block w-100" alt="Phin Sữa Đá">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thumbnails d-flex justify-content-center mt-3">
+                        <img src="../../image/phin/phisuanda_nho.png" class="thumbnail-img" alt="Thumbnail 1">
+                        <img src="../../image/phin/phinsuada.png" class="thumbnail-img" alt="Thumbnail 2">
+                    </div>
+                </div>                            
+                <div class="col-6 product_details_info">
+                    <h3><b>Phin sữa đá</b></h3>
+                    <p class="availability">Tình trạng: <b>Còn hàng</b></p>
+                    <span class="price">35.000 VNĐ</span>
+                    <div class="product-options">
+                        <label>Kích cỡ:</label>
+                        <div class="size-options">
+                            <button class="size-btn active" data-size="S">S</button>
+                            <button class="size-btn" data-size="M">M</button>
+                            <button class="size-btn" data-size="L">L</button>
+                        </div>
+                        <label>Số lượng:</label>
+                        <div class="quantity">
+                            <button type="button" class="quantity-btn1" id="decrease">-</button>
+                            <input type="number" id="quantity-value" value="1" min="1" max="100" />
+                            <button type="button" class="quantity-btn2" id="increase">+</button>
+                        </div>
+                    </div>
+                    <div class="btn-oders">
+                        <button class="btn-add-to-cart">Thêm vào giỏ</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- BREADCRUMB -->
+        <section class="breadcrumb_section container">
+            <nav aria-label="breadcrumb">
+                <hr>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../../index.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="../menu/allmenu.html">Thực đơn</a></li>
+                    <li class="breadcrumb-item" id="breadcum-category"><a href="../menu/phin-menu.html">Cà phê phin</a></li>
+                    <li class="breadcrumb-item active" id="breadcum-product" aria-current="page">Phin sữa đá</li>
+                </ol>
+            </nav>
+            <div class="product_tag" id="#readmore" >
+                <h4>
+                    Thông tin chi tiết
+                </h4>
+                <div class="product_tag-read">
+                    <p>
+                        Hương vị cà phê Việt Naprnm đích thực! Từng hạt cà phê hảo hạng được chọn bằng tay, phối trộn
+                        độc đáo giữa
+                        hạt Robusta từ cao nguyên Việt Nam, thêm Arabica thơm lừng. Cà phê được pha từ Phin truyền
+                        thống, hoà cùng
+                        sữa đặc sánh và thêm vào chút đá tạo nên ly Phin Sữa Đá - Đậm Đà Chất Phin.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>   
+    <!-- ĐỀ XUẤT -->
+    <section class="propose">
+        <div class="container">
+            <div class="tilte">Các thức uống khác</div>
+            <div class="product-grid">
+                <!-- Sản phẩm -->
+            </div>
+        </div>
+        <ul class="pagination">
+            <li class="page1"><i class="fa-solid fa-angles-left"></i></li>
+            <li class="active">1</li>
+            <li>2</li>
+            <li class="page2"><i class="fa-solid fa-angles-right"></i></li>
+        </ul> 
+        <!-- Modal Thông báo Đặt mua -->
+        <div class="custom-modal" id="custom-order-modal">
+            <div class="custom-modal-content">
+                <span class="custom-close-btn" id="custom-close-order-modal">&times;</span>
+                <h3><b>Thông báo</b></h3>
+                <p>Đã thêm sản phẩm vào giỏ hàng!</p>
+                <div class="custom-modal-actions">
+                    <button class="custom-modal-btn" id="custom-continue-shopping-btn">Tiếp tục lựa chọn</button>
+                    <button class="custom-modal-btn" id="custom-go-to-cart-btn">Đi đến giỏ hàng</button>
+                </div>
+            </div>
+        </div>   
+    </section> 
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Về chúng tôi</h2>
+                <p>Chúng tôi cung cấp các loại đồ uống chất lượng, phục vụ với sự tận tâm và chuyên nghiệp.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Liên kết</h2>
+                <ul >
+                    <li><a href="../index_user.html">Trang chủ</a></li>
+                    <li><a href="../menu/allmenu.html">Thực đơn</a></li>
+                    <li><a href="../news.html">Tin tức</a></li>
+                    <li><a href="../introduce.html">Giới thiệu</a></li>
+                    <li><a href="../contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h2>Kết nối với chúng tôi</h2>
+                <a href="https://web.facebook.com/highlandscoffeevietnam" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/highlandscoffeevietnam/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <div class="footer-section members">
+                <h2>Thành viên</h2>
+                <ul>
+                    <li><a href="#">Lê Thị Thủy Tiên</a></li>
+                    <li><a href="#">Võ Thị Thu Luyện</a></li>
+                    <li><a href="#">Nguyễn Thị Ngọc Tú</a></li>
+                    <li><a href="#">Trần Thị Xuân Thanh</a></li>
+                    <li><a href="#">Nguyễn Huỳnh Yến Linh</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <hr>
+            &copy; Highlands Coffee | Thiết kế bởi Nhóm A07
+        </div>
+    </footer>
+    <!-- TOP -->
+    <div id="scrollToTopBtn">
+        <a href="#home"><i class="fas fa-arrow-up"></i></a>
+    </div> 
+    <script src="../../js/nav.js"></script>
+    <script src="../../js/tbmota.js"></script>
+    <!-- BOOSTRAP JS  -->
+    <script src="../../bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartQuantityElement = document.getElementById("cartQuantity");
+
+            const cartQuantity = localStorage.getItem("cart");
+            const count =  JSON.parse(cartQuantity).length;
+            
+            cartQuantityElement.textContent = count || 0;
+        });
+    </script>
+</body>
+</html>

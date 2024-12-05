@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/allproduct.css">
+        <link rel="stylesheet" href="../css/user.css">
+        <!------------------------------------------------------------------------------------------>
+        
+        <link rel="stylesheet" href="../../css/fontawesome-free-6.6.0-web/css/all.min.css">
+        <title>Quản lý người dùng | Admin Highlands</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <a href="#">
+                        <img src="../../image/logo.png">
+                        <h3>Admin Highlands</h3>
+                    </a>
+                </div>
+                <ul class="list-unstyled-component">
+                    <li>
+                        <a href="../admin.html"><i class="fa-regular fa-hourglass-half"></i><span> Bảng tin</span></a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="toggleSubMenu('productSubMenu')">
+                            <i class="fa-solid fa-box"></i><span> Sản phẩm</span><i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <div class="submenu" id="productSubMenu">
+                            <ul>
+                                <li><a href="allproduct.html">Tất cả sản phẩm</a></li>
+                                <li><a href="addproduct.html">Thêm sản phẩm</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="order.html">
+                            <i class="fa-solid fa-cart-shopping"></i><span> Quản lý đơn hàng</span>
+                        </a>
+                    </li>
+                    <li id="new"><a href="user.html"><i class="fa-solid fa-users"></i><span> Quản lý người dùng</span></a></li>
+                    <li><a href="thongke.html"><i class="fa-solid fa-chart-line"></i><span> Thống kê</span></a></li>
+                    <li><a href="../login_admin.html"><i class="fa-solid fa-right-from-bracket"></i><span> Đăng xuất</span></a></li>
+                </ul>
+            </nav>
+
+
+            <nav class="main">
+                <div class="top-bar">
+                    <div class="search">
+                        <input type="text" id="searchInput" placeholder="Tìm kiếm tại đây">
+                        <label for="Tìm kiếm" id="searchButton"><i class="fas fa-search"></i></label>
+                    </div>
+                    
+
+                    <div class="bell-icon ">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">5</span>
+                        <div class="notification">
+                            <div class="new-notification">
+                                <div class="notification-row" id="new-feedback">
+                                    <span>5 phản hồi mới</span>
+                                    <span>1 ngày trước</span>
+                                </div>
+                                <div class="view-all" id="view-all">
+                                    <a href="#">Xem tất cả thông báo</a>
+                                </div>
+                            </div>
+                        </div>  
+                    </div> 
+                    
+                    
+                    <div class="user">
+                        <img src="../../image/logo1.png" alt="">
+                    </div>
+                </div>
+
+
+                <div class="content">
+                    <h1>Danh sách người dùng</h1>
+                </div>
+
+                <div class="selects">
+                    <div class="select add" id="addCustomerButton">
+                        <a href="#"><i class="fa-solid fa-plus"></i>Thêm khách hàng</a>
+                    </div>
+                    <div class="select delete">
+                        <a href="#"><i class="fa-solid fa-xmark"></i>Xoá tất cả</a>
+                    </div>
+                    <div class="select download">
+                        <a href="#"><i class="fa-solid fa-download"></i>Tải từ file</a>
+                    </div>
+                    <div class="select print">
+                        <a href="#"><i class="fa-solid fa-print"></i>In dữ liệu</a>
+                    </div>
+                    <div class="select copy">
+                        <a href="#"><i class="fa-solid fa-copy"></i>Sao chép</a>
+                    </div>
+                    <div class="select excel">
+                        <a href="#"><i class="fa-solid fa-file-excel"></i>Xuất excel</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="chill">
+                        <span>Hiện</span>
+                        <select class="form-select" aria-label="Default select">
+                            <option selected>6</option>
+                            <option value="1">10</option>
+                            <option value="2">12</option>
+                            <option value="3">18</option>
+                        </select>
+                        <span>sản phẩm</span>
+                    </div>
+
+                    <div class="fill">
+                        <span>Tìm kiếm:</span>
+                        <input type="search" placeholder="tìm kiếm">
+                    </div>
+                </div>
+
+                <div class="tables-container">
+                    <table class="tables" id="sampleTable">
+                        <thead>
+                            <tr>
+                                <th>Mã khách hàng</th>
+                                <th>Tên người dùng</th>
+                                <th>Họ và Tên</th>
+                                <th>Địa chỉ</th>
+                                <th>Số điện thoại</th>
+                                <th>Vai trò</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="customerTableBody">
+                            <tr class="customer-item">
+                                <td>H001</td>
+                                <td>teamHighlands</td>
+                                <td>Admin_Highlands</td>
+                                <td style="font-size: 14px;">273 An Dương Vương, phường 3, Quận 5, TPHCM</td>
+                                <td>0798765432</td>
+                                <td>Quản lí
+                                    <i class="fa-solid fa-user-gear" style="margin-left: 5px; color: green;"></i>
+                                    <i class="fas fa-lock lock-icon" style="display: none; color: rgba(255, 200, 2, 0.9); margin-left: 8px;"></i>
+                                </td>
+                                <td><button class="delete" type="button" title="Xóa">
+                                    <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" >
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="lock" type="button" title="Khóa" id="lock">
+                                        <i class="fa-solid fa-lock block"></i>
+                                        <i class="fa-solid fa-lock-open" style="display: none;"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="customer-item">
+                                <td>H002</td>
+                                <td>Linh123</td>
+                                <td>Nguyễn Huỳnh Yến Linh</td>
+                                <td style="font-size: 14px;">273 An Dương Vương, phường 3, Quận 5, TPHCM</td>
+                                <td>0782468100</td>
+                                <td>
+                                    Khách hàng 
+                                    <i class="fas fa-lock lock-icon" style="display: none; color: rgba(255, 200, 2, 0.9); margin-left: 8px;"></i>
+                                </td>
+                                <td><button class="delete" type="button" title="Xóa">
+                                    <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="lock" type="button" title="Khóa" id="lock">
+                                        <i class="fa-solid fa-lock block"></i>
+                                        <i class="fa-solid fa-lock-open" style="display: none;"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="customer-item">
+                                <td>H003</td>
+                                <td>Luyen123</td>
+                                <td>Võ Thị Thu Luyện</td>
+                                <td style="font-size: 14px;">273 An Dương Vương, phường 3, Quận 5, TPHCM</td>
+                                <td>0793579111</td>
+                                <td>
+                                    Khách hàng 
+                                    <i class="fa-solid fa-lock lock-icon" style="display: none; color: #F5D310;"></i>
+                                </td>
+                                <td><button class="delete" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" >
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="lock" type="button" title="Khóa" id="lock">
+                                        <i class="fa-solid fa-lock block"></i>
+                                        <i class="fa-solid fa-lock-open" style="display: none;"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="customer-item">
+                                <td>H004</td>
+                                <td>Thanh123</td>
+                                <td>Trần Thị Xuân Thanh</td>
+                                <td style="font-size: 14px;">273 An Dương Vương, phường 3, Quận 5, TPHCM</td>
+                                <td>0791234567</td>
+                                <td>
+                                    Khách hàng 
+                                    <i class="fa-solid fa-lock lock-icon" style="display: none; color: #F5D310;"></i>
+                                </td>
+                                <td><button class="delete" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="lock" type="button" title="Khóa" id="lock">
+                                        <i class="fa-solid fa-lock block"></i>
+                                        <i class="fa-solid fa-lock-open" style="display: none;"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="customer-item">
+                                <td>H005</td>
+                                <td>NTu123</td>
+                                <td>Nguyễn Thị Ngọc Tú</td>
+                                <td style="font-size: 14px;">273 An Dương Vương, phường 3, Quận 5, TPHCM</td>
+                                <td>0797654321</td>
+                                <td>
+                                    Khách hàng 
+                                    <i class="fa-solid fa-lock lock-icon" style="display: none; color: #F5D310;"></i>
+                                </td>
+                                <td><button class="delete" type="button" title="Xóa">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>                                
+                                <button class="edit" type="button" title="Sửa">
+                                    <i class="fas fa-edit"></i>
+                                </button>                                
+                                <button class="lock" type="button" title="Khóa" id="lock">
+                                    <i class="fa-solid fa-lock block"></i>
+                                    <i class="fa-solid fa-lock-open" style="display: none;"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="customer-item">
+                                <td>H006</td>
+                                <td>thuytien123</td>
+                                <td>Lê Thị Thuỷ Tiên</td>
+                                <td style="font-size: 14px;">273 An Dương Vương, phường 3, Quận 5, TPHCM</td>
+                                <td>0795101520</td>
+                                <td>
+                                    Khách hàng 
+                                    <i class="fa-solid fa-lock lock-icon" style="display: none; color: #F5D310;"></i>
+                                </td>
+                                <td><button class="delete" type="button" title="Xóa">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="edit" type="button" title="Sửa" >
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="lock" type="button" title="Khóa" id="lock">
+                                        <i class="fa-solid fa-lock block"></i>
+                                        <i class="fa-solid fa-lock-open" style="display: none;"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <button id="prevPage" class="pagination-btn">&lt;&lt;</button>
+                        <button id="page1" class="pagination-btn active">1</button>
+                        <!-- <button id="page2" class="pagination-btn">2</button> -->
+                        <button id="nextPage" class="pagination-btn">&gt;&gt;</button>
+                    </div>
+                </div>
+<!----------------------------------------Them Khach Hang------------------------------------------------------->
+                <div id="addCustomerModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Thêm khách hàng</h2>
+                            <span class="close">&times;</span>
+                        </div>
+                        <div class="modal-body">
+                            <label for="newCustomerCode">Mã khách hàng:</label>
+                            <input type="text" id="newCustomerCode" placeholder="Nhập mã khách hàng" required>
+                            <label for="newCustomerUsername">Tên đăng nhập:</label>
+                            <input type="text" id="newCustomerUsername" placeholder="Nhập tên đăng nhập" required>
+                            <label for="newCustomerName">Tên khách hàng:</label>
+                            <input type="text" id="newCustomerName" placeholder="Nhập tên khách hàng" required>
+                            <label for="newCustomerPhone">Số điện thoại:</label>
+                            <input type="text" id="newCustomerPhone" placeholder="Nhập số điện thoại" required>
+                            <label for="newCustomerAddress">Địa chỉ:</label>
+                            <input type="text" id="newCustomerAddress" placeholder="Nhập địa chỉ">
+                        </div>
+                        <div class="modal-footer">
+                            <button id="cancelCustomerButton" class="btn btn-secondary">Hủy</button>
+                            <button id="saveCustomerButton" class="btn btn-danger">Lưu</button>
+                        </div>
+                    </div>
+                </div>
+<!----------------------------------- Modal Xác nhận Xóa -------------------------------------->
+                <div class="modal" id="ModalDelete"> 
+                    <div class="modal-content"> 
+                        <div class="modal-header"> 
+                            <h3 class="modal-title" style="font-size: 40px;">Cảnh báo</h3> 
+                            <span class="close">&times;</span> 
+                        </div>
+                        <div class="modal-body"> Bạn có chắc chắn muốn <strong>xóa</strong> khách hàng này không? </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" id="cancelDeleteButton">Hủy bỏ</button> 
+                            <button type="button" id="confirmDeleteButton" class="btn btn-danger">Đồng ý</button> 
+                        </div> 
+                    </div> 
+                </div>
+<!----------------------------------- Modal Xác nhận chinh sua -------------------------------------->
+                <div class="modal" id="ModalEdit"> 
+                    <div class="modal-content"> 
+                        <div class="modal-header"> 
+                            <h5 class="modal-title">Chỉnh sửa</h5> 
+                            <span class="close">&times;</span> 
+                        </div>
+                        <div class="modal-body"> 
+                            <form id="editForm"> 
+                                <label for="customerCode">Mã khách hàng:</label> 
+                                <input type="text" id="customerCode" name="customerCode" required><br>                                
+                                <label for="customerUserame">Tên người dùng:</label> 
+                                <input type="text" id="customerUserame" name="customerUserame" required> <br>                                
+                                <label for="customerName">Họ và tên:</label> 
+                                <input type="text" id="customerName" name="customerName" required><br>                            
+                                <label for="customerAddress">Địa chỉ:</label> 
+                                <input type="text" id="customerAddress" name="customerAddress" required> <br>                                
+                                <label for="customerPhone">Số điện thoại:</label> 
+                                <input type="text" id="customerPhone" name="customerPhone" required> <br>                                
+                                <label for="Role">Vai trò:</label> 
+                                <input type="text" id="Role" name="Role"> 
+                            </form> 
+                        </div> 
+                        <div class="modal-footer"> 
+                            <button type="button" class="btn btn-secondary" id="cancelEditButton">Hủy</button> 
+                            <button type="button" id="saveEditButton" class="btn btn-primary">Lưu</button> 
+                        </div> 
+                    </div>
+                </div>
+<!---------------------------------------KHOA NGUOI DUNG----------------------------------------------------------------->
+                <div class="modal" id="ModalLock"> 
+                    <div class="modal-content"> 
+                        <div class="modal-header"> 
+                            <h3 class="modal-title" style="font-size: 40px;">Cảnh báo</h3> 
+                        </div>
+                        <div class="modal-body"> Bạn có chắc chắn muốn <strong>khóa</strong> khách hàng này không? </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" id="cancelLockButton">Hủy bỏ</button> 
+                            <button type="button" id="confirmLockButton" class="btn btn-danger">Đồng ý</button> 
+                        </div> 
+                    </div> 
+                </div>
+<!---------------------------------------MO KHOA NGUOI DUNG----------------------------------------------------------------->
+                <div class="modal" id="ModalUnlock"> 
+                    <div class="modal-content"> 
+                        <div class="modal-header"> 
+                            <h3 class="modal-title" style="font-size: 40px;">Cảnh báo</h3> 
+                        </div>
+                        <div class="modal-body"> Bạn có chắc chắn muốn <strong>mở khóa</strong> người dùng này không? </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" id="cancelUnlockButton">Hủy bỏ</button> 
+                            <button type="button" id="confirmUnlockButton" class="btn btn-success">Đồng ý</button> 
+                        </div> 
+                    </div> 
+                </div>
+            </nav>
+        </div>        
+        <script src="../js/user.js"></script>
+    </body>
+</html>

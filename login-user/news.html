@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <title>Tin Tức</title>
+</head>
+<body>
+    <header>
+        <div class="toggle">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <a href="./index_user.html" class="logo">
+            <img src="../image/logo.png">
+        </a>
+        <nav class="nav-menu" id="home">
+            <ul>
+                <li><a href="./index_user.html"><i class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="./menu/allmenu.html" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
+                    <ul class="sub-menu">
+                        <li><a href="./menu/phin-menu.html"><span>Cà phê phin</span></a></li>
+                        <li><a href="./menu/phindi-menu.html"><span>Phindi</span></a></li>
+                        <li><a href="./menu/freeze-menu.html"><span>Freeze</span></a></li>
+                        <li><a href="./menu/tra-menu.html"><span>Trà</span></a></li>
+                    </ul>
+                </li>
+                <li class="active"><a href="#"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                <li><a href="./introduce.html"><i class="fa-solid fa-users-line"></i>Giới thiệu</a></li>
+                <li><a href="./contact.html"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
+            </ul>
+        </nav>
+        <!-- SEARCH -->
+        <div class="icon">
+            <div class="searchToggle">
+                <i class="fa-solid fa-x cancel"></i>
+                <i class="fa-solid fa-magnifying-glass search"></i>
+            </div>
+            <div class="searchBox">
+                <form class="search-form" action="./search.html" method="get">
+                <ul class="search-bar">
+                    <li class="dropdown-bar1">
+                        <div id="drop-text" class="dropdown-text">
+                            <span id="span">Tất cả</span>
+                            <i id="icon" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <ul id="list" class="dropdown-list">
+                            <li class="dropdown-list-item">Tất cả</li>
+                            <li class="dropdown-list-item">Cà phê phin</li>
+                            <li class="dropdown-list-item">Phindi</li>
+                            <li class="dropdown-list-item">Freeze</li>
+                            <li class="dropdown-list-item">Trà</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-bar2">
+                        <div id="price-drop-text" class="dropdown-text">                                
+                            <span id="price-span">Khoảng giá</span>
+                            <i id="price-icon" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <ul id="price-list" class="dropdown-list">
+                            <li class="dropdown-list-item">Khoảng giá</li>
+                            <li class="dropdown-list-item">Dưới 40.000 VNĐ</li>
+                            <li class="dropdown-list-item">40.000 - 50.000 VNĐ</li>
+                            <li class="dropdown-list-item">Trên 50.000 VNĐ</li>
+                        </ul>
+                    </li>
+                    <li class="search-box">
+                        <input type="text" id="search-input" placeholder="Tìm kiếm..." required/>
+                        <button type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </li>
+                </ul>
+            </form>
+            </div>
+            <div class="icon-item">
+                <a href="./cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </div>
+            <div class="icon-item">
+                <a href="javascript:void(0);">
+                    <img src="../image/khác/user.png">
+                    <ul class="dropdown-user1">
+                        <li><a href="./profile.html">Thông tin cá nhân</a></li>
+                        <li><a href="./profile.html?openHistory=true">Đơn đã mua</a></li>
+                        <li><a href="../index.html">Đăng xuất</a></li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- NEWS -->
+    <main style="padding-top: 80px;"> 
+        <section class="news"> 
+            <div class="container"> 
+                <h1>Tin tức mới nhất</h1> 
+                <div class="divider"></div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-4"> 
+                        <div class="news-item"> 
+                            <img src="../image/news/khuyenmai.png" alt="News 1"> 
+                            <h2>Chương trình khuyến mãi</h2> 
+                            <p>Highlands Coffee mang đến cho bạn những ưu đãi không thể bỏ qua! Đến và thưởng thức các món yêu thích với giá ưu đãi hấp dẫn cho mọi khách hàng!</p> 
+                            <a href="https://promo.highlandscoffee.com.vn/uudai4/lay-ma-thanh-cong" target="_blank">Đọc thêm</a> 
+                        </div> 
+                    </div> 
+                    <div class="col-md-4"> 
+                        <div class="news-item"> 
+                            <img src="../image/news/monmoi.png" alt="News 2"> 
+                            <h2>Khám phá thức uống mới</h2> 
+                            <p>Highlands Coffee hân hạnh mang đến bạn thức uống mới với hương vị độc đáo, sẵn sàng chinh phục vị giác của mọi khách hàng!</p> 
+                            <a href="https://www.highlandscoffee.com.vn/vn/thom-qua-mong-ngot-anh-dao-bo-doi-tra.html" target="_blank">Đọc thêm</a> 
+                        </div> 
+                    </div> 
+                    <div class="col-md-4"> 
+                        <div class="news-item"> 
+                            <img src="../image/news/workshop.png" alt="News 3"> 
+                            <h2>Hành trình xanh</h2> 
+                            <p>Cùng Highlands Coffee bảo vệ môi trường bằng cách đổi ly nhựa cũ lấy quà. Tham gia ngay và lan tỏa thông điệp sống xanh đến mọi người!</p> 
+                            <a href="https://web.facebook.com/highlandscoffeevietnam/posts/ti%E1%BA%BFp-n%E1%BB%91i-nh%E1%BB%AFng-c%C3%A1nh-tay-xanh-highlands-coffee-t%E1%BB%B1-h%C3%A0o-mang-%C4%91%E1%BA%BFn-b%E1%BA%A1n-th%E1%BB%AD-th%C3%A1ch-30-n/2491014664312696/?_rdc=1&_rdr" target="_blank">Đọc thêm</a> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+        </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Về chúng tôi</h2>
+                <p>Chúng tôi cung cấp các loại đồ uống chất lượng, phục vụ với sự tận tâm và chuyên nghiệp.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Liên kết</h2>
+                <ul>
+                    <li><a href="./index_user.html">Trang chủ</a></li>
+                    <li><a href="./menu/allmenu.html">Thực đơn</a></li>
+                    <li><a href="./news.html">Tin tức</a></li>
+                    <li><a href="./introduce.html">Giới thiệu</a></li>
+                    <li><a href="./contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h2>Kết nối với chúng tôi</h2>
+                <a href="https://web.facebook.com/highlandscoffeevietnam" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/highlandscoffeevietnam/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <div class="footer-section members">
+                <h2>Thành viên</h2>
+                <ul>
+                    <li><a href="#">Lê Thị Thủy Tiên</a></li>
+                    <li><a href="#">Võ Thị Thu Luyện</a></li>
+                    <li><a href="#">Nguyễn Thị Ngọc Tú</a></li>
+                    <li><a href="#">Trần Thị Xuân Thanh</a></li>
+                    <li><a href="#">Nguyễn Huỳnh Yến Linh</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <hr>
+            &copy; Highlands Coffee | Thiết kế bởi Nhóm A07
+        </div>
+    </footer>
+    <!-- TOP -->
+    <div id="scrollToTopBtn">
+        <a href="#home"><i class="fas fa-arrow-up"></i></a>
+    </div>
+    <script src="../js/nav.js"></script>
+</body>
+</html>

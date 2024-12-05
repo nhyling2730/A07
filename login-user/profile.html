@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <title>Thông Tin Cá Nhân</title>
+</head>
+<body>
+    <header>
+        <div class="toggle">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <a href="./index_user.html" class="logo">
+            <img src="../image/logo.png">
+        </a>
+        <nav class="nav-menu" id="home">
+            <ul>
+                <li><a href="./index_user.html"><i class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="./menu/allmenu.html" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
+                    <ul class="sub-menu">
+                        <li><a href="./menu/phin-menu.html"><span>Cà phê phin</span></a></li>
+                        <li><a href="./menu/phindi-menu.html"><span>Phindi</span></a></li>
+                        <li><a href="./menu/freeze-menu.html"><span>Freeze</span></a></li>
+                        <li><a href="./menu/tra-menu.html"><span>Trà</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="./news.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                <li><a href="./introduce.html"><i class="fa-solid fa-users-line"></i>Giới thiệu</a></li>
+                <li><a href="./contact.html"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
+            </ul>
+        </nav>
+        <!-- SEARCH -->
+        <div class="icon">
+            <div class="searchToggle">
+                <i class="fa-solid fa-x cancel"></i>
+                <i class="fa-solid fa-magnifying-glass search"></i>
+            </div>
+            <div class="searchBox">
+                <form class="search-form" action="./search.html" method="get">
+                <ul class="search-bar">
+                    <li class="dropdown-bar1">
+                        <div id="drop-text" class="dropdown-text">
+                            <span id="span">Tất cả</span>
+                            <i id="icon" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <ul id="list" class="dropdown-list">
+                            <li class="dropdown-list-item">Tất cả</li>
+                            <li class="dropdown-list-item">Cà phê phin</li>
+                            <li class="dropdown-list-item">Phindi</li>
+                            <li class="dropdown-list-item">Freeze</li>
+                            <li class="dropdown-list-item">Trà</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-bar2">
+                        <div id="price-drop-text" class="dropdown-text">                                
+                            <span id="price-span">Khoảng giá</span>
+                            <i id="price-icon" class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <ul id="price-list" class="dropdown-list">
+                            <li class="dropdown-list-item">Khoảng giá</li>
+                            <li class="dropdown-list-item">Dưới 40.000 VNĐ</li>
+                            <li class="dropdown-list-item">40.000 - 50.000 VNĐ</li>
+                            <li class="dropdown-list-item">Trên 50.000 VNĐ</li>
+                        </ul>
+                    </li>
+                    <li class="search-box">
+                        <input type="text" id="search-input" placeholder="Tìm kiếm..." required/>
+                        <button type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </li>
+                </ul>
+            </form>
+            </div>
+            <div class="icon-item">
+                <a href="./cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </div>
+            <div class="icon-item">
+                <a href="javascript:void(0);">
+                    <img src="../image/khác/user.png">
+                    <ul class="dropdown-user1">
+                        <li><a href="#">Thông tin cá nhân</a></li>
+                        <li onclick="showOrderHistory()"><a href="#">Đơn đã mua</a></li>
+                        <li><a href="../index.html">Đăng xuất</a></li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- PROFILE -->
+    <main style="padding-top: 80px;">
+        <div class="profile-container">
+            <div class="profile-sidebar">
+                <div class="sidebar-item"><i class="fa-solid fa-user"></i>Tài Khoản Của Tôi</div>
+                <div id="account-menu" class="sidebar-dropdown">
+                    <div class="sidebar-item active" id="profile" onclick="showProfile()"><i class="fa-solid fa-file"></i>Hồ Sơ</div>
+                    <div class="sidebar-item" id="address" onclick="showAddress()"><i class="fa-solid fa-location-dot"></i>Địa Chỉ</div>
+                    <div class="sidebar-item" id="changePassword" onclick="showChangePassword()"><i class="fa-solid fa-key"></i>Đổi Mật Khẩu</div>
+                </div>
+                <div class="sidebar-item" id="order-history" onclick="showOrderHistory()"><i class="fa-solid fa-bag-shopping"></i>Đơn đã mua</div>
+                <div class="sidebar-item" onclick="showOtherOption()"><i class="fa-solid fa-gear"></i>Cài Đặt Khác</div>
+            </div>                                             
+            <div class="profile-details" id="profile-details">
+                <!-- Các thông tin cá nhân -->
+                <div class="info-details">
+                    <div class="avatar-container">
+                        <img id="profile-img" src="../image/khác/user.png" alt="Ảnh đại diện">
+                        <label for="file-upload" class="file-upload-label">Chọn ảnh</label>
+                        <input type="file" id="file-upload" class="file-upload" accept="image/*" style="display: none;" />
+                    </div> 
+                    <div class="form-group">
+                        <label for="username">Tên đăng nhập:</label>
+                        <input type="text" id="username" value="nhomA07" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Tên:</label>
+                        <input type="text" id="name" value="A07">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" value="nhomA07@gmail.com">
+                        <button class="btn-edit">Thêm</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Số điện thoại:</label>
+                        <input type="text" id="phone" value="**********17" disabled>
+                        <button class="btn-edit">Thay đổi</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Giới tính:</label>
+                        <div class="gender-options">
+                            <label for="male"><input type="radio" id="male" name="gender" value="male"> Nam</label>
+                            <label for="female"><input type="radio" id="female" name="gender" value="female" checked> Nữ</label>
+                            <label for="other"><input type="radio" id="other" name="gender" value="other"> Khác</label>
+                        </div>                        
+                    </div>
+                    <div class="form-group">
+                        <label for="birthdate">Ngày sinh:</label>
+                        <input type="date" id="birthdate" value="2005-12-01">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn-save">Lưu</button>
+                    </div>
+                </div>
+            </div>            
+            <!-- Phần Địa Chỉ -->
+            <div class="profile-details" id="address-details" style="display: none;">
+                <div class="address-header">
+                    <h2>Địa chỉ của tôi</h2>
+                    <button class="btn-add-new" id="updateBtn">+ Thêm địa chỉ mới</button>
+                </div>
+                <div class="address-list">
+                    <!-- Địa chỉ 1 -->
+                    <div class="address-item">
+                        <div class="address-info">
+                            <p><strong>A07</strong></p>
+                            <p>(+84) 865 172 517</p>
+                            <p>273 Đ. An Dương Vương, Phường 3, Quận 5, TP. Hồ Chí Minh</p>
+                            <p class="btn-set-default">Mặc định</p>
+                        </div>
+                        <div class="address-actions">
+                            <button class="btn-edit">Cập nhật</button>
+                            <button class="btn-delete">Xóa</button>
+                            <button class="btn-default-setting" style="cursor: not-allowed;">Thiết lặp mặc định</button>
+                        </div>
+                    </div>        
+                    <!-- Địa chỉ 2 -->
+                    <div class="address-item">
+                        <div class="address-info">
+                            <p><strong>Võ Thị Thu Luyện</strong></p>
+                            <p>(+84) 865 172 517</p>
+                            <p>4 Đ. Nguyễn Trãi, Phường 3, Quận 5, TP. Hồ Chí Minh</p>
+                        </div>
+                        <div class="address-actions">
+                            <button class="btn-edit">Cập nhật</button>
+                            <button class="btn-delete">Xóa</button>
+                            <button class="btn-default-setting">Thiết lặp mặc định</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Xác nhận Xóa -->
+                <div id="deleteConfirmationPopup" class="custom-modal-container" style="display: none;">
+                    <div class="custom-modal-box">
+                        <h2>Xác nhận xóa</h2>
+                        <p>Bạn có chắc chắn muốn <b>xóa</b> địa chỉ này không?</p>
+                        <div class="custom-modal-x">
+                            <button type="button" id="confirmDeleteAction">Đồng ý</button>
+                            <button type="button" id="cancelDeleteAction">Hủy bỏ</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="addressModalPopup" class="modal-container">
+                    <div class="modal-box">
+                        <h2>Địa chỉ</h2>
+                        <form>
+                            <input type="text" id="fullName" placeholder="Họ và tên">
+                            <input type="text" id="phoneNumber" placeholder="Số điện thoại">                
+                            <select id="region">
+                                <option value="" disabled selected>Tỉnh/Thành phố, Quận/Huyện, Phường/Xã</option>                                <option value="Hà Nội">Hà Nội</option>
+                                <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                                <option value="An Giang">An Giang</option>
+                                <option value="Bà Rịa-Vũng Tàu">Bà Rịa-Vũng Tàu</option>
+                                <option value="Bắc Giang">Bắc Giang</option>
+                                <option value="Bắc Kạn">Bắc Kạn</option>
+                                <option value="Bạc Liêu">Bạc Liêu</option>
+                                <option value="Bắc Ninh">Bắc Ninh</option>
+                                <option value="Bến Tre">Bến Tre</option>
+                                <option value="Bình Dương">Bình Dương</option>
+                                <option value="Bình Phước">Bình Phước</option>
+                                <option value="Bình Thuận">Bình Thuận</option>
+                                <option value="Cà Mau">Cà Mau</option>
+                                <option value="Cao Bằng">Cao Bằng</option>
+                                <option value="Đắk Lắk">Đắk Lắk</option>
+                                <option value="Đắk Nông">Đắk Nông</option>
+                                <option value="Điện Biên">Điện Biên</option>
+                                <option value="Đồng Nai">Đồng Nai</option>
+                                <option value="Đồng Tháp">Đồng Tháp</option>
+                                <option value="Gia Lai">Gia Lai</option>
+                                <option value="Hà Giang">Hà Giang</option>
+                                <option value="Hà Nam">Hà Nam</option>
+                                <option value="Hà Tĩnh">Hà Tĩnh</option>
+                                <option value="Hải Dương">Hải Dương</option>
+                                <option value="Hải Phòng">Hải Phòng</option>
+                                <option value="Hậu Giang">Hậu Giang</option>
+                                <option value="Hòa Bình">Hòa Bình</option>
+                                <option value="Hưng Yên">Hưng Yên</option>
+                                <option value="Khánh Hòa">Khánh Hòa</option>
+                                <option value="Kiên Giang">Kiên Giang</option>
+                                <option value="Kon Tum">Kon Tum</option>
+                                <option value="Lai Châu">Lai Châu</option>
+                                <option value="Lâm Đồng">Lâm Đồng</option>
+                                <option value="Lạng Sơn">Lạng Sơn</option>
+                                <option value="Lào Cai">Lào Cai</option>
+                                <option value="Long An">Long An</option>
+                                <option value="Nam Định">Nam Định</option>
+                                <option value="Nghệ An">Nghệ An</option>
+                                <option value="Ninh Bình">Ninh Bình</option>
+                                <option value="Ninh Thuận">Ninh Thuận</option>
+                                <option value="Phú Thọ">Phú Thọ</option>
+                                <option value="Phú Yên">Phú Yên</option>
+                                <option value="Quảng Bình">Quảng Bình</option>
+                                <option value="Quảng Nam">Quảng Nam</option>
+                                <option value="Quảng Ngãi">Quảng Ngãi</option>
+                                <option value="Quảng Ninh">Quảng Ninh</option>
+                                <option value="Quảng Trị">Quảng Trị</option>
+                                <option value="Sóc Trăng">Sóc Trăng</option>
+                                <option value="Sơn La">Sơn La</option>
+                                <option value="Tây Ninh">Tây Ninh</option>
+                                <option value="Thái Bình">Thái Bình</option>
+                                <option value="Thái Nguyên">Thái Nguyên</option>
+                                <option value="Thanh Hóa">Thanh Hóa</option>
+                                <option value="Thừa Thiên-Huế">Thừa Thiên-Huế</option>
+                                <option value="Tiền Giang">Tiền Giang</option>
+                                <option value="Trà Vinh">Trà Vinh</option>
+                                <option value="Tuyên Quang">Tuyên Quang</option>
+                                <option value="Vĩnh Long">Vĩnh Long</option>
+                                <option value="Vĩnh Phúc">Vĩnh Phúc</option>
+                                <option value="Yên Bái">Yên Bái</option>
+                            </select>                            
+                            <input type="text" id="detailedAddress" placeholder="Địa chỉ cụ thể">                               
+                            <label>Loại địa chỉ:</label>
+                            <div class="address-category">
+                                <button type="button" class="address-type-btn" data-type="Nhà Riêng">Nhà Riêng</button>
+                                <button type="button" class="address-type-btn" data-type="Văn Phòng">Văn Phòng</button>
+                            </div>                                                                       
+                            <div class="set-default">
+                                <input type="checkbox" id="setDefaultAddress">
+                                <label for="setDefaultAddress">Đặt làm địa chỉ mặc định</label>
+                            </div>                
+                            <div class="modal-actions">
+                                <button type="button" id="cancelBtn">Trở Lại</button>
+                                <button type="submit" id="saveBtn">Hoàn thành</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>                
+            </div>
+            <!-- Đổi Mật Khẩu -->
+            <div class="profile-details" id="change-password-details" style="display: none;">
+                <div class="change-password-header">
+                    <h2>Đổi Mật Khẩu</h2>
+                </div>
+                <div class="change-password-form">
+                    <div class="form-group">
+                        <label for="current-password">Mật khẩu hiện tại:</label>
+                        <input type="password" id="current-password" placeholder="Nhập mật khẩu hiện tại" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">Mật khẩu mới:</label>
+                        <input type="password" id="new-password" placeholder="Nhập mật khẩu mới" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Xác nhận mật khẩu mới:</label>
+                        <input type="password" id="confirm-password" placeholder="Nhập lại mật khẩu mới" required>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn-save" onclick="changePassword()">Lưu thay đổi</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Đơn mua -->
+            <div class="profile-details" id="order-history-details" style="display: none;">
+                <div class="order-container">
+                    <div class="order-tabs">
+                        <button class="tab active">Tất cả</button>
+                        <button class="tab">Chờ thanh toán</button>
+                        <button class="tab">Vận chuyển</button>
+                        <button class="tab">Chờ giao hàng</button>
+                        <button class="tab">Hoàn thành</button>
+                        <button class="tab">Đã hủy</button>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-item" data-status="completed">
+                            <div class="order-header">
+                                <span class="order-status-wait">Đang vận chuyển </span>|
+                                <a href="#" class="status-link"> VẬN CHUYỂN</a>
+                            </div>
+                            <div class="order-product">
+                                <div class="product-image">
+                                    <img src="../image/phin/phisuanda_nho.png" alt="Product Image">
+                                </div>
+                                <div class="product-details">
+                                    <p class="product-name">Phin sữa đá</p>
+                                    <p class="product-type">S</p>
+                                    <p class="product-quantity">x5</p>
+                                </div>
+                                <p class="product-price">175.000 VNĐ</p>
+                            </div>
+                            <div class="order-total">
+                                <p>Thành tiền:<strong> 185.000 VNĐ</strong></p>
+                            </div>
+                            <div class="order-actions">
+                                <button class="reorder-btn">Mua lại</button>
+                                <button class="contact-seller-btn">Liên hệ</button>
+                                <button class="review-btn">Xem đánh giá</button>
+                            </div>
+                            <div class="order-details-table" style="display: none;">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Sản phẩm</th>
+                                            <th>Số lượng</th>
+                                            <th>Giá</th>
+                                            <th>Phí vận chuyển</th>
+                                            <th>Tổng</th>
+                                            <th>Phương thức Thanh toán</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Phin sữa đá</td>
+                                            <td>5</td>
+                                            <td>35.000 VNĐ</td>
+                                            <td></td>
+                                            <td>175.000 VNĐ</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Tổng cộng</strong></td>
+                                            <td colspan="2"></td>
+                                            <td>10.000 VNĐ</td>
+                                            <td><strong>185.000 VNĐ</strong></td>
+                                            <td>Tài khoản ngân hàng</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="order-item" data-status="completed">
+                            <div class="order-header">
+                                <span class="order-status-finish">Giao hàng thành công </span>|
+                                <a href="#" class="status-link"> HOÀN THÀNH</a>
+                            </div>
+                            <div class="order-product">
+                                <div class="product-image">
+                                    <img src="../image/phin/phindenda_nho.png" alt="Product Image">
+                                </div>
+                                <div class="product-details">
+                                    <p class="product-name">Phin đen đá</p>
+                                    <p class="product-type">S</p>
+                                    <p class="product-quantity">x3</p>
+                                </div>
+                                <p class="product-price">96.000 VNĐ</p>
+                            </div>
+                            <div class="order-product">
+                                <div class="product-image">
+                                    <img src="../image/phindi/phindihanhnhan_nho.png" alt="Product Image">
+                                </div>
+                                <div class="product-details">
+                                    <p class="product-name">Phindi hạnh nhân</p>
+                                    <p class="product-type">S</p>
+                                    <p class="product-quantity">x5</p>
+                                </div>
+                                <p class="product-price">275.000 VNĐ</p>
+                            </div>
+                            <div class="order-product">
+                                <div class="product-image">
+                                    <img src="../image/trà/trasenvang(sen)_nho.png" alt="Product Image">
+                                </div>
+                                <div class="product-details">
+                                    <p class="product-name">Trà sen vàng (sen)</p>
+                                    <p class="product-type">S</p>
+                                    <p class="product-quantity">x2</p>
+                                </div>
+                                <p class="product-price">90.000 VNĐ</p>
+                            </div>
+                            <div class="order-total">
+                                <p>Thành tiền: <strong> 489.000 VNĐ</strong></p>
+                            </div>
+                            <div class="order-actions">
+                                <button class="reorder-btn">Mua lại</button>
+                                <button class="contact-seller-btn">Liên hệ</button>
+                                <button class="review-btn">Xem đánh giá</button>
+                            </div>
+                            <div class="order-details-table" style="display: none;">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Sản phẩm</th>
+                                            <th>Số lượng</th>
+                                            <th>Giá</th>
+                                            <th>Phí vận chuyển</th>
+                                            <th>Tổng</th>
+                                            <th>Phương thức Thanh toán</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Phin đen đá</td>
+                                            <td>3</td>
+                                            <td>32.000 VNĐ</td>
+                                            <td></td>
+                                            <td>96.000 VNĐ</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phindi hạnh nhân</td>
+                                            <td>5</td>
+                                            <td>55.000 VNĐ</td>
+                                            <td></td>
+                                            <td>275.000 VNĐ</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Trà sen vàng (sen)</td>
+                                            <td>2</td>
+                                            <td>45.000 VNĐ</td>
+                                            <td></td>
+                                            <td>90.000 VNĐ</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Tổng cộng</strong></td>
+                                            <td colspan="2"></td>
+                                            <td>28.000 VNĐ</td>
+                                            <td><strong>489.000 VNĐ</strong></td>
+                                            <td>Tài khoản ngân hàng</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </main>    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Về chúng tôi</h2>
+                <p>Chúng tôi cung cấp các loại đồ uống chất lượng, phục vụ với sự tận tâm và chuyên nghiệp.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Liên kết</h2>
+                <ul>
+                    <li><a href="./index_user.html">Trang chủ</a></li>
+                    <li><a href="./menu/allmenu.html">Thực đơn</a></li>
+                    <li><a href="./news.html">Tin tức</a></li>
+                    <li><a href="./introduce.html">Giới thiệu</a></li>
+                    <li><a href="./contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h2>Kết nối với chúng tôi</h2>
+                <a href="https://web.facebook.com/highlandscoffeevietnam" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/highlandscoffeevietnam/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <div class="footer-section members">
+                <h2>Thành viên</h2>
+                <ul>
+                    <li><a href="#">Lê Thị Thủy Tiên</a></li>
+                    <li><a href="#">Võ Thị Thu Luyện</a></li>
+                    <li><a href="#">Nguyễn Thị Ngọc Tú</a></li>
+                    <li><a href="#">Trần Thị Xuân Thanh</a></li>
+                    <li><a href="#">Nguyễn Huỳnh Yến Linh</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <hr>
+            &copy; Highlands Coffee | Thiết kế bởi Nhóm A07
+        </div>
+    </footer>
+    <!-- TOP -->
+    <div id="scrollToTopBtn">
+        <a href="#home"><i class="fas fa-arrow-up"></i></a>
+    </div>
+    <script src="../js/nav.js"></script>
+    <script src="../js/profile.js"></script>
+</body>
+</html>
