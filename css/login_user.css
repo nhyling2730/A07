@@ -256,8 +256,8 @@ span {
 }
 
 .modal-inner {
-    width: 450px;
-    height: 400px;
+    width: 420px;
+    height: 350px;
     position: relative;
     top: 50%;
     left: 50%;
@@ -268,6 +268,7 @@ span {
 }
 
 .modal-header {
+    margin: 0 auto;
     width: auto;
     height: 150px;
     display: flex;
@@ -283,7 +284,10 @@ span {
     margin: 0 auto;
     font-size: 100px;
     color: #11be45;
-    margin-bottom: -25px;
+    margin-bottom: -20px;
+}
+.modal-body{
+    margin-top: -40px;
 }
 
 .modal-body h4 {
@@ -298,13 +302,14 @@ span {
 .modal-body p {
     text-align: center;
     font-size: 20px;
-    margin: 10px 0;
+    margin:  0;
     color: rgb(58, 56, 56);
     font-family: 'Tahoma', sans-serif;
     font-weight: bold;
 }
 
 .modal-footer {
+    padding: auto;
     width: auto;
     height: 100px;
     text-align: center;
@@ -402,6 +407,7 @@ span {
 }
 
 .modal-footerFail {
+    padding: auto;
     width: auto;
     height: 100px;
     text-align: center;
@@ -441,7 +447,7 @@ span {
 
 /*------------------------------------MODAL NO EXIST--------------------------------------------*/
 .modalNoExist {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
