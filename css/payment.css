@@ -483,9 +483,12 @@ header .logo img {
 }
 
 /* BREADCRUMD */
+
 .breadcrumb_section .breadcrumb {
     margin-top: 40px;
+    margin-bottom: -10px;
     padding: 10px 0;
+    margin-left: 0;
     position: relative; top: 20px;
 }
 
@@ -509,12 +512,17 @@ header .logo img {
 
 
 /* PAYMENT  */
+.payment-container{
+    padding: 0 80px;
+    margin: 0 30px;
+}
+
 .payment__content__left,.h2{
-    
     font-weight: 700;
     color: #333f48;
     margin-bottom: 20px;
     text-transform: capitalize;
+
 }
 
 .payment__content__left label ,.payment__content__right label {
@@ -536,6 +544,7 @@ header .logo img {
     border: 1px solid #ccc;
     border-radius: 3px;
 }
+
 
 .payment__content__left label[for=payment--defaul] {
     display: inline-block;
@@ -562,6 +571,7 @@ header .logo img {
     bottom: -20px;
     color: black;
 }
+
 
 .payment__content__left label[for=payment--defaul] i:hover .more-info {
     display: block;
@@ -633,71 +643,157 @@ header .logo img {
     background-color: rgb(70, 31, 31);
     color: #fff;
 }
-.payment__content__right{
+.payment__content__right {
     position: relative;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-#payment__method{
+
+#payment__method {
     position: unset;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 25px;
+    margin-top: 15px;
 }
-#payment__method .btn{
+
+#payment__method .btn {
+    margin: -15px 0 0 15px;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-#payment__method label:not(.active)+.payment__method--visa,#payment__method label:not(.active)+.payment__method--master,#payment__method label:not(.active)+.payment__method--money,#payment__method label:not(.active)+.payment__method--bank {
+
+#payment__method .btn:hover {
+    background-color: #f0f0f0;
+    border-color: #bbb;
+}
+
+#payment__method .btn img {
+    height: 20px;
+    width: 40px;
+}
+
+#payment_method .btn img> napas{
+    height: 10px;
+    
+}
+
+
+
+
+
+#payment__method label:not(.active)+.payment__method--visa,
+#payment__method label:not(.active)+.payment__method--master,
+#payment__method label:not(.active)+.payment__method--money,
+#payment__method label:not(.active)+.payment__method--bank {
     display: none;
 }
-#payment__method .payment__method{
+
+#payment__method .payment__method {
     width: 100%;
     position: absolute;
     top: 125px;
     left: 0;
-    padding: 0 12px;
+    padding: 15px 12px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-#payment__method .payment__method p{
-    background-color: #EEEEEE;
+
+#payment__method .payment__method p {
+    background-color: #eeeeee;
     padding: 12px;
     border-radius: 3px;
     font-size: 1rem;
+    color: #333;
 }
-#payment__method .payment__method p span{
-    color:rgb(70, 31, 31);
+
+#payment__method .payment__method p span {
+    color: rgb(70, 31, 31);
     font-weight: bold;
 }
-/* Ẩn các cửa sổ mặc định */
+
+.user--payment h3, .pay h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.orders__submit--total {
+    margin-bottom: 20px;
+}
+
+.orders__submit--total p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.orders__submit--total .into--money {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Ẩn các bảng thông tin mặc định */
 .hidden {
     display: none;
-  }
-  
-  /* Phong cách biểu mẫu thanh toán */
-  #visaPayment {
+}
+
+/* Hiển thị bảng khi được kích hoạt */
+.visible {
+    display: block;
+}
+
+/* Đặt bảng bên dưới */
+.payment__method div {
     margin-top: 15px;
     padding: 15px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 5px;
-  }
-  
-  #visaPayment label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  #visaPayment input {
-    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Cải thiện giao diện radio */
+.payment__method label {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
     padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  .cash-notice {
-    margin-top: 10px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #d9534f;
-  }
+    transition: background-color 0.3s ease;
+}
+
+.payment__method label:hover {
+    background-color: #f9f9f9;
+}
+
+.payment__method input[type="radio"] {
+    display: none;
+}
+
+.payment__method input[type="radio"]:checked + label {
+    background-color: #e6f7ff;
+    border: 1px solid #007bff;
+}
+
   
 .footer {
     margin-top: 30px;
@@ -1071,4 +1167,192 @@ header .logo img {
     justify-content: center;
     align-items: center;
     transform: translateX(3px);
+}
+
+
+/* Người dùng. Đặt mua */
+.custom-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.custom-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+.custom-close-btn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+}
+
+.custom-modal-actions button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    width: 70%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-modal-actions #custom-no {
+    background-color: #e1e0e0;
+}
+
+.custom-modal-actions #custom-yes {
+    background-color: #009900;
+    color: white;
+}
+/* Tiêu đề modal */
+.visaForm{
+    display: flex;
+    width: 100%;
+}
+.visaForm h4 {
+    padding-top: 20px;
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(70, 31, 31);
+}
+
+/* Form các input */
+.hidden {
+    display: none !important;
+}
+.form-group label{
+    margin-bottom: auto;
+}
+
+.form-group input[type="text"]{
+    width: 100%;
+    padding: 5px 150px 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-group input[type="month"] {
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    padding: 5px 5px 5px 10px;
+
+}
+
+.modal-box input[type="text"]::placeholder, input[type="month"]::placeholder {
+    padding-left: px;
+    color: #aaa;
+}
+
+.form-group{
+    padding: 0 15px;
+    padding-bottom: 15px;
+}
+/* Nhóm nút loại địa chỉ */
+.address-category {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.address-type-btn {
+    flex: 1;
+    margin-top: 5px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.address-type-btn.selected {
+    border-color: #e00909;
+    color: #e00909;
+    background: #fff;
+}
+
+/* Checkbox đặt mặc định */
+.set-default {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: rgb(70, 31, 31);
+}
+
+.set-default input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.set-default label {
+    font-size: 14px;
+    color: rgb(70, 31, 31);
+}
+
+/* Nhóm nút hành động */
+.modal-actions {
+    padding-right: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: right;
+}
+
+.modal-actions button {
+    margin-left: 0 50px;
+    right: 0;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: rgb(70, 31, 31);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#cancelBtn {
+    background: #ddddddb7;
+    color: rgb(70, 31, 31);
+}
+
+#cancelBtn:hover {
+    background: #ddd;
+}
+
+#saveBtn {
+    background: #28a745;
+    color: #fff;
+}
+
+#saveBtn:hover {
+    background: #28a745;
+}
+
+.change-password-header h2 {
+    color: rgb(70, 31, 31);
+}
+
+.change-password-form .form-group {
+    width: 50%;
 }

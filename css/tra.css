@@ -135,8 +135,7 @@
 .custom-products {
     display: grid;
     gap: 20px; /* Space between grid items */
-    grid-template-columns: repeat(auto-fit, minmax(250px, max-content)); /* Adjust column size */
-    justify-content: start; /* Center align the grid when items are fewer */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     list-style: none;
     padding: 0;
     margin: 0;

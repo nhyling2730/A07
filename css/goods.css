@@ -1,0 +1,39 @@
+/* BREADCRUMD */
+
+.breadcrumb_section .breadcrumb {
+    margin-top: 40px;
+    padding: 10px 0;
+    margin-left: 0;
+    position: relative; top: 20px;
+}
+
+.breadcrumb_section .breadcrumb .breadcrumb-item a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    position: relative; 
+    top: 0;
+}
+
+.breadcrumb .breadcrumb-item::before{
+    top: 15px;
+}
+
+.breadcrumb_section .breadcrumb .breadcrumb-item.active {
+    color: #B87333;
+    position: relative; 
+    /* top: 10px; */
+}
+
+.goods-container{
+    padding: 0 80px;
+    margin: 0 30px;
+}
+
+.goods__content__left,.h2{
+    padding-left: 70px;
+    font-weight: 700;
+    color: #333f48;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
