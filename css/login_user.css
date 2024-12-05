@@ -4,7 +4,7 @@ html, body {
     overflow-x: hidden;
 }
 
-header, .form-signup, .footer {
+header, .form-login, .footer {
     max-width: 100%;
 }
 

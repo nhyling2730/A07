@@ -1,4 +1,4 @@
-* , body{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -781,11 +781,6 @@ header .logo img {
 }
 
 .footer {
-    max-width: 100%;
-    left: 0;
-    right: 0;
-    margin: 0;
-    width: 100%;
     position: relative;
     margin-top: 30px;
     padding: 20px 0;
