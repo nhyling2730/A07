@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,30 +8,33 @@
     <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <title>Thanh Toán</title>
 </head>
+
 <body>
     <header>
         <div class="toggle">
             <i class="fa-solid fa-bars"></i>
             <i class="fa-solid fa-xmark"></i>
         </div>
-        <a href="../index.html" class="logo">
+        <a href="../login-user/index_user.html" class="logo">
             <img src="../image/logo.png">
         </a>
         <nav class="nav-menu" id="home">
             <ul>
-                <li class="active"><a href="#"><i class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
+                <li class="active"><a href="../login-user/index_user.html"><i
+                            class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
                 <li class="dropdown">
-                    <a href="#" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
+                    <a href="../login-user/menu/allmenu.html" id="menu-toggle"><i
+                            class="fa-solid fa-caret-down"></i>Thực đơn</a>
                     <ul class="sub-menu">
-                        <li><a href="#"><span>Cà phê phin</span></a></li>
-                        <li><a href="#"><span>Phindi</span></a></li>
-                        <li><a href="#"><span>Freeze</span></a></li>
-                        <li><a href="#"><span>Trà</span></a></li>
+                        <li><a href="../login-user/menu/phin-menu.html"><span>Cà phê phin</span></a></li>
+                        <li><a href="../login-user/menu/phindi-menu.html"><span>Phindi</span></a></li>
+                        <li><a href="../login-user/menu/freeze-menu.html"><span>Freeze</span></a></li>
+                        <li><a href="../login-user/menu/tra-menu.html"><span>Trà</span></a></li>
                     </ul>
                 </li>
-                <li><a href="./user/news.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
-                <li><a href="./user/introduce.html"><i class="fa-solid fa-users-line"></i>Giới thiệu</a></li>
-                <li><a href="./user/contact.html"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
+                <li><a href="../login-user/news.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                <li><a href="../login-user/introduce.html"><i class="fa-solid fa-users-line"></i>Giới thiệu</a></li>
+                <li><a href="./contact.html"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
             </ul>
         </nav>
         <!-- SEARCH -->
@@ -41,7 +44,7 @@
                 <i class="fa-solid fa-magnifying-glass search"></i>
             </div>
             <div class="searchBox">
-                <form class="search-form" action="./user/search.html" method="get">
+                <form class="search-form" action="../login-user/search.html" method="get">
                     <ul class="search-bar">
                         <li class="dropdown-bar1">
                             <div id="drop-text" class="dropdown-text">
@@ -77,130 +80,182 @@
                     </ul>
                 </form>
             </div>
-            
+            <div class="icon-item">
+                <a href="../login-user/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                <div class="totalQuantity" id="cartQuantity">0</div>
+            </div>
             <div class="icon-item">
                 <a href="javascript:void(0);">
-                    <img src="../../image/khác/user.png">
+                    <img src=".././image/khác/user.png">
                     <ul class="dropdown-user1">
-                        <li><a href="#">Thông tin cá nhân</a></li>
-                        <li><a href="">Đơn đã mua</a></li>
-                        <li><a href="../index.html">Đăng xuất</a></li>
+                        <li><a href="../login-user/profile.html">Thông tin cá nhân</a></li>
+                        <li><a href="../login-user/goods.html">Đơn đã mua</a></li>
+                        <li><a href="../../index.html">Đăng xuất</a></li>
                     </ul>
                 </a>
             </div>
         </div>
     </header>
-    <!-- Modal -->
-    <div class="modal fade" id="notifyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Thông báo</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Chức năng đang cập nhật!
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- BREADCRUMB -->
     <section class="breadcrumb_section container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../index.html">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="../login-user/index_user.html">Trang chủ</a></li>
                 <li class="breadcrumb-item"><a href="../login-user/cart.html">Giỏ hàng</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><strong>Thanh Toán</strong></li>
             </ol>
         </nav>
     </section>
+
     <!-- PAYMENT  -->
-    <section class="payment container">
-        <div class="payment__content row">
-            <div class="payment__content__left col-6">
-                <h2><strong>Thanh toán</strong></h2>
-                <form class="payment--form" method="post" action="" onsubmit="return thanks()">
-                    <!-- Lựa chọn địa chỉ -->
-                    <div>
-                        <div><input type="radio" id="defaultAddress" name="addressOption" value="default" checked
-                                onclick="toggleAddressInput()">
-                            <label style="display: inline-block;" for="defaultAddress">Sử dụng thông tin mặc
-                                định</label>
+    <section class="payment-container container">
+        <div class="row">
+            <!-- Cột trái: Form thanh toán -->
+            <div class="payment__content__left col-lg-6 col-12 p-4" style="padding-top: 20px;">
+                <h2 class="mb-4" style="margin-left: -15px;"><strong>Thông tin thanh toán</strong></h2>
+                <form class="payment--form" method="post" action="" onsubmit="return validatePaymentMethod()">
+                    <!-- Thông tin mặc định -->
+                    <div class="mb-3">
+                        <input type="radio" id="defaultAddress" name="addressOption" value="default" checked
+                            onclick="toggleAddressInput()">
+                        <label style="display: inline-block;" for="defaultAddress">Sử dụng thông tin mặc định</label>
+                        <div id="defaultAddressFields" class="p-3 border rounded mt-2">
+                            <p><strong>Người nhận:</strong> <span id="defaultReceiver">A07</span></p>
+                            <p><strong>Điện thoại:</strong> <span id="defaultPhone">(+84) 865 172 517</span></p>
+                            <p><strong>Địa chỉ:</strong> <span id="defaultAddressText">273 Đ. An Dương Vương, Quận 5,
+                                    TP. Hồ Chí Minh</span></p>
                         </div>
-                        <div><input type="radio" id="newAddress" name="addressOption" value="new"
-                                onclick="toggleAddressInput()">
-                            <label style="display: inline-block;" for="newAddress">Sử dụng thông tin mới</label>
-                        </div>
-
                     </div>
 
-                    <!-- Thông tin địa chỉ mới -->
-                    <div id="newAddressFields" style="display: none;">
-                        <!-- Họ tên  -->
-                        <label for="payment--receiver"><i class="fas fa-users"></i>Họ tên người nhận: </label>
-                        <input type="text" id="payment--receiver" placeholder="Tên người nhận hàng">
-
-                        <!-- Điện thoại  -->
-                        <label for="payment--phone"><i class="fas fa-phone-volume"></i>Số điện thoại người nhận:</label>
-                        <input type="tel" id="payment--phone" pattern="(84|0[3|5|7|8|9])+([0-9]{8})\b"
-                            placeholder="Số điện thoại người nhận hàng">
-
-                        <!-- Địa chỉ  -->
-                        <label for="payment--adr"><i class="far fa-address-card"></i>Địa chỉ nhận hàng: </label>
-                        <input type="text" id="payment--adr" placeholder="Địa chỉ nhận hàng">
+                    <!-- Thông tin mới -->
+                    <div class="mb-3">
+                        <input type="radio" id="newAddress" name="addressOption" value="new"
+                            onclick="toggleAddressInput()">
+                        <label style="display: inline-block;" for="newAddress">Nhập thông tin mới</label>
+                        <div id="newAddressFields" class="p-3 border rounded mt-2" style="display: none;">
+                            <div class="mb-3">
+                                <label for="payment--receiver"><i class="fas fa-user"></i> Họ tên:</label>
+                                <input type="text" id="payment--receiver" class="form-control"
+                                    placeholder="Tên người nhận">
+                            </div>
+                            <div class="mb-3">
+                                <label for="payment--phone"><i class="fas fa-phone"></i> Số điện thoại:</label>
+                                <input type="tel" id="payment--phone" class="form-control" placeholder="Số điện thoại"
+                                    pattern="(84|0[3|5|7|8|9])+([0-9]{8})\b">
+                            </div>
+                            <div class="mb-3">
+                                <label for="payment--adr"><i class="fas fa-map-marker-alt"></i> Địa chỉ:</label>
+                                <input type="text" id="payment--adr" class="form-control"
+                                    placeholder="Địa chỉ nhận hàng">
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Ghi chú  -->
-                    <label for="payment--note"><i class="far fa-comment"></i>Ghi chú</label>
-                    <textarea type="text" name="user-note" id="payment--note" rows="3"
-                        placeholder="Ghi yêu cầu của bạn tại đây."></textarea>
+                    <!-- Ghi chú -->
+                    <div class="mb-4">
+                        <label for="payment--note"><i class="far fa-comment"></i> Ghi chú:</label>
+                        <textarea id="payment--note" class="form-control" rows="3"
+                            placeholder="Nhập ghi chú"></textarea>
+                    </div>
 
-                    <!-- Button trigger modal -->
-                    <button type="submit" class="payment--button" name="payment--button">Đặt hàng</button>
+                    <!-- Nút đặt hàng -->
+                    <button style="background-color: #28a745;" type="button" id="orderBtn" class="btn btn-success w-100" onclick="window.location.href='./thanks.html';">
+                        Đặt hàng
+                    </button>
                 </form>
             </div>
 
-            <div class="payment__content__right col-6">
-                <h3>Phương thức thanh toán</h3>
-                <label>Chọn phương thức:</label>
-                <div class="btn-group" id="payment__method" role="group" aria-label="Basic radio toggle button group">
-                    <!-- Thanh toán bằng VISA -->
-                    <input type="radio" name="btnradio" id="btnradioVisa" autocomplete="off">
-                    <label class="btn" for="btnradioVisa">
-                        <img src="https://bizweb.dktcdn.net/100/421/124/themes/811860/assets/cart_payment_1.svg?1617678628801"
-                            alt="Thanh toán VISA">
-                    </label>
-                    <div id="visaPayment" class="payment__method hidden">
-                        <h5>Thông tin thẻ</h5>
-                        <form id="visaForm">
-                            <label for="cardNumber">Số thẻ:</label>
-                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
-
-                            <label for="cardHolderName">Tên chủ thẻ:</label>
-                            <input type="text" id="cardHolderName" placeholder="Họ và tên" required>
-
-                            <label for="cvv">CVC:</label>
-                            <input type="text" id="cvv" placeholder="CVC" required>
-
-                            <label for="cardExpiry">Hạn thẻ:</label>
-                            <input type="month" id="cardExpiry" placeholder="MM/YY" required>
-                        </form>
+            <!-- Cột phải: Thông tin đơn hàng -->
+            <div class="payment__content__right col-lg-6 col-12 p-4">
+                <h4 class="mb-4" style="margin-bottom: -10px;">Thông tin đơn hàng</h4>
+                <div class="orders__submit--total mb-4">
+                    <div class="temp--money">
+                        <p>Tạm tính: <span id="subtotal">220.000 VNĐ</span></p>
                     </div>
-
-                    <!-- Thanh toán tiền mặt -->
-                    <input type="radio" name="btnradio" id="btnradioCash" autocomplete="off">
-                    <label class="btn" for="btnradioCash">
-                        <img src="https://bizweb.dktcdn.net/100/421/124/themes/811860/assets/cart_payment_4.svg?1617678628801"
-                            alt="Thanh toán tiền mặt">
-                    </label>
-                    <div id="cashPayment" class="payment__method hidden">
-                        <p class="cash-notice">Bạn cần chuẩn bị đủ số tiền để thanh toán cho nhân viên.</p>
+                    <div class="temp--money">
+                        <p>Phí vận chuyển: <span>10.000 VNĐ</span></p>
+                    </div>
+                    <div class="into--money">
+                        <p><strong>Thành tiền:</strong> <span id="total">230.000 VNĐ</span></p>
                     </div>
                 </div>
-            </div>
 
+                <hr>
+                <!-- Phương thức thanh toán -->
+                <div class="pay">
+                    <h3>Phương thức thanh toán</h3>
+                    <label for="payment__method">Chọn phương thức:</label>
+
+                    <div class="btn-group" id="payment__method" role="group"
+                        aria-label="Basic radio toggle button group">
+                        <!-- VISA -->
+                        <div class="payment-option">
+                            <input type="radio" name="paymentMethod" id="btnradioVisa" onclick="toggleCardForm()" />
+                            <label class="btn" for="btnradioVisa">
+                                <img src="https://bizweb.dktcdn.net/100/421/124/themes/811860/assets/cart_payment_1.svg?1617678628801"
+                                    alt="Thanh toán VISA" width="50">
+                            </label>
+                        </div>
+                        <!-- Napas -->
+                        <div class="payment-option">
+                            <input type="radio" name="paymentMethod" id="btnradioNapas" onclick="toggleCardForm()" />
+                            <label class="btn" for="btnradioNapas">
+                                <img src="https://crop-image-online.com/uploads/StpBIl4s8yfqWDWsTOPsSYQqp5e7N3ICmuYLWHie/crop-image-online.com_1733278127_image-ito8ke5v_lbgvH5CZ.png"
+                                    alt="Thanh toán Napas" width="50">
+                            </label>
+                        </div>
+                        <!-- Cash -->
+                        <div class="payment-option">
+                            <input type="radio" name="paymentMethod" id="btnradioCash" onclick="toggleCardForm()" />
+                            <label class="btn" for="btnradioCash">
+                                <img src="https://bizweb.dktcdn.net/100/421/124/themes/811860/assets/cart_payment_4.svg?1617678628801"
+                                    alt="Thanh toán tiền mặt" width="50">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thông báo khi chọn tiền mặt -->
+                <div id="cashNotice" style="display: none; margin-top: 20px; font-size: 16px; color: #ff0000;">
+                    <i class="fas fa-exclamation-circle"></i> Vui lòng chuẩn bị tiền mặt để thanh toán cho nhân viên
+                    giao hàng!
+                </div>
+
+                <!-- Form thông tin thẻ -->
+                <div class="visaForm" id="visaForm" style="display: none;">
+                    <h4>Thông Tin Thẻ</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="bank">Tên ngân hàng:</label>
+                            <input type="text" id="bank" placeholder="Nhập tên ngân hàng" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardNumber">Số thẻ:</label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardHolderName">Tên chủ thẻ:</label>
+                            <input type="text" id="cardHolderName" placeholder="HO VA TEN" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardExpiry">Hạn thẻ:</label>
+                            <input type="month" id="cardExpiry" placeholder="MM/YY" required />
+                        </div>
+
+                        <div class="modal-actions">
+                            <button type="button" id="cancelBtn">Trở Lại</button>
+                            <button type="submit" id="saveBtn">Xác Nhận</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
+
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -212,11 +267,11 @@
             <div class="footer-section links">
                 <h2>Liên Kết</h2>
                 <ul>
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Thực dơn</a></li>
-                    <li><a href="#">Tin tức</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="../login-user/index_user.html">Trang chủ</a></li>
+                    <li><a href="../login-user/menu/allmenu.html">Thực dơn</a></li>
+                    <li><a href="../login-user/news.html">Tin tức</a></li>
+                    <li><a href="../login-user/introduce.html">Giới thiệu</a></li>
+                    <li><a href="../login-user/contact.html">Liên hệ</a></li>
                 </ul>
             </div>
             <div class="footer-section social">
@@ -247,100 +302,92 @@
     <div id="scrollToTopBtn">
         <a href="#home"><i class="fa-solid fa-chevron-up"></i></a>
     </div>
+    <script src="../js/profile.js"></script>
+    <script src="../js/payment.js"></script>
     <!-- BOOSTRAP JS  -->
     <script src="../../bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        window.onload = function () {
-            if (window.location.hash === "#all-menu-section") {
-                // Delay để đảm bảo trang đã tải xong, sau đó cuộn đến phần breadcrumb
-                setTimeout(function () {
-                    var section = document.getElementById("all-menu-section");
-                    if (section) {
-                        window.scrollTo({
-                            top: section.offsetTop - 70, // Cộng thêm khoảng cách 20px từ trên
-                            behavior: 'smooth' // Cuộn mượt mà
-                        });
-                    }
-                }, 100); // Đảm bảo rằng việc cuộn diễn ra sau khi trang tải xong
+        document.addEventListener("DOMContentLoaded", function () {
+            updateCartQuantity();
+        });
+
+        window.addEventListener("storage", function (event) {
+            if (event.key === "cart") {
+                updateCartQuantity();
+            }
+        });
+
+        function updateCartQuantity() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartQuantityElement = document.getElementById("cartQuantity");
+
+            if (cartQuantityElement) {
+                cartQuantityElement.textContent = totalQuantity;
             }
         }
+
     </script>
-
     <script>
-        function toggleAddressInput() {
-            const newAddressFields = document.getElementById("newAddressFields");
-            const isDefaultAddress = document.getElementById("defaultAddress").checked;
+        function togglePaymentMethod() {
+            const visaForm = document.getElementById("visaForm");
+            const cashNotice = document.getElementById("cashNotice");
 
-            if (isDefaultAddress) {
-                newAddressFields.style.display = "none";
+            // Kiểm tra trạng thái của các radio button
+            const isVisaSelected = document.getElementById("btnradioVisa").checked;
+            const isNapasSelected = document.getElementById("btnradioNapas").checked;
+            const isCashSelected = document.getElementById("btnradioCash").checked;
+
+            if (isVisaSelected || isNapasSelected) {
+                // Hiển thị form thông tin thẻ
+                visaForm.style.display = "block";
+                cashNotice.style.display = "none"; 
+            } else if (isCashSelected) {
+                // Hiển thị thông báo tiền mặt
+                visaForm.style.display = "none";
+                cashNotice.style.display = "block";
             } else {
-                newAddressFields.style.display = "block";
+                // Ẩn tất cả khi không có gì được chọn
+                visaForm.style.display = "none";
+                cashNotice.style.display = "none";
             }
         }
-    </script>
 
+        function hideVisaForm() {
+            const visaForm = document.getElementById("visaForm");
+            const cashNotice = document.getElementById("cashNotice");
+            const cashOption = document.getElementById("btnradioCash");
+
+            // Chọn lại tiền mặt và hiển thị thông báo
+            cashOption.checked = true;
+            visaForm.style.display = "none";
+            cashNotice.style.display = "block";
+        }
+
+    </script>
     <script>
-        // Xử lý hiển thị các phương thức thanh toán
-        document.getElementById('payment__method').addEventListener('change', function (e) {
-            const visaPayment = document.getElementById('visaPayment');
-            const cashPayment = document.getElementById('cashPayment');
+        function toggleCardForm() {
+            const visaForm = document.getElementById("visaForm");
+            const isVisaSelected = document.getElementById("btnradioVisa").checked;
+            const isNapasSelected = document.getElementById("btnradioNapas").checked;
 
-            // Xử lý khi chọn VISA
-            if (e.target.id === 'btnradioVisa') {
-                visaPayment.classList.remove('hidden');
-                cashPayment.classList.add('hidden');
+            if (isVisaSelected || isNapasSelected) {
+                visaForm.style.display = "block";
+            } else {
+                visaForm.style.display = "none";
             }
+        }
 
-            // Xử lý khi chọn Tiền mặt
-            else if (e.target.id === 'btnradioCash') {
-                visaPayment.classList.add('hidden');
-                cashPayment.classList.remove('hidden');
-            }
+        document.getElementById("cancelBtn").addEventListener("click", function () {
+            const visaForm = document.getElementById("visaForm");
+            const cashOption = document.getElementById("btnradioCash");
+
+            visaForm.style.display = "none";
+            cashOption.checked = true;
         });
 
     </script>
-
-<script>
-    /* nav mav-menu khi thu nhỏ */
-    document.querySelector('.toggle').addEventListener('click', function () {
-        const navMenu = document.querySelector('.nav-menu');
-        const faBars = document.querySelector('.fa-bars');
-        const faXmark = document.querySelector('.fa-xmark');
-
-        navMenu.classList.toggle('show');
-        this.classList.toggle('active');
-
-        if (this.classList.contains('active')) {
-            faBars.style.opacity = '0';
-            faXmark.style.opacity = '1';
-        } else {
-            faBars.style.opacity = '1';
-            faXmark.style.opacity = '0';
-        }
-    });
-
-    function setActiveMenu(menuItem) {
-        document.querySelectorAll('.nav-menu li').forEach(item => {
-            item.classList.remove('active');
-        });
-        menuItem.classList.add('active');
-    }
-
-    document.querySelectorAll('.nav-menu .dropdown > a').forEach(item => {
-        item.addEventListener('click', function (event) {
-            event.preventDefault();
-            const subMenuId = item.nextElementSibling.id;
-            toggleSubMenu(subMenuId);
-        });
-    });
-
-    document.querySelectorAll('.nav-menu li a').forEach(item => {
-        item.addEventListener('click', function () {
-            setActiveMenu(item.parentElement);
-        });
-    });
-</script>
-
+    
 </body>
 
 </html>

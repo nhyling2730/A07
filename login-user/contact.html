@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <title>Liên Hệ</title>
+    
 </head>
 <body>
     <header>
@@ -80,7 +81,7 @@
             <div class="icon-item">
                 <a href="./cart.html">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <span id="cart-count">0</span>
+                    <div class="totalQuantity" id="cartQuantity">0</div>
                 </a>
             </div>
             <div class="icon-item">
@@ -88,7 +89,7 @@
                     <img src="../image/khác/user.png">
                     <ul class="dropdown-user1">
                         <li><a href="./profile.html">Thông tin cá nhân</a></li>
-                        <li><a href="./profile.html?openHistory=true">Đơn đã mua</a></li>
+                        <li><a href="./goods.html">Đơn đã mua</a></li>
                         <li><a href="../index.html">Đăng xuất</a></li>
                     </ul>
                 </a>
@@ -174,6 +175,16 @@
     <div id="scrollToTopBtn">
         <a href="#home"><i class="fas fa-arrow-up"></i></a>
     </div>
-    <script src="../js/nav.js"></script>
+    <script src="../../js/nav.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartQuantityElement = document.getElementById("cartQuantity");
+
+            const cartQuantity = localStorage.getItem("cart");
+            const count = JSON.parse(cartQuantity).length;
+
+            cartQuantityElement.textContent = count || 0;
+        });
+    </script>
 </body>
 </html>

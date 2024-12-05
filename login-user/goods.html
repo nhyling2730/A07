@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/goods.css">
+    <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <title>Đơn hàng</title>
+</head>
+
+<body>
+    <header>
+        <div class="toggle">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <a href="./index_user.html" class="logo">
+            <img src="../image/logo.png">
+        </a>
+        <nav class="nav-menu" id="home">
+            <ul>
+                <li><a href="./index_user.html"><i class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="./menu/allmenu.html" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
+                    <ul class="sub-menu">
+                        <li><a href="./menu/phin-menu.html"><span>Cà phê phin</span></a></li>
+                        <li><a href="./menu/phindi-menu.html"><span>Phindi</span></a></li>
+                        <li><a href="./menu/freeze-menu.html"><span>Freeze</span></a></li>
+                        <li><a href="./menu/tra-menu.html"><span>Trà</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="./news.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                <li><a href="./introduce.html"><i class="fa-solid fa-users-line"></i>Giới thiệu</a></li>
+                <li><a href="./contact.html"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
+            </ul>
+        </nav>
+        <!-- SEARCH -->
+        <div class="icon">
+            <div class="searchToggle">
+                <i class="fa-solid fa-x cancel"></i>
+                <i class="fa-solid fa-magnifying-glass search"></i>
+            </div>
+            <div class="searchBox">
+                <form class="search-form" action="./search.html" method="get">
+                    <ul class="search-bar">
+                        <li class="dropdown-bar1">
+                            <div id="drop-text" class="dropdown-text">
+                                <span id="span">Tất cả</span>
+                                <i id="icon" class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <ul id="list" class="dropdown-list">
+                                <li class="dropdown-list-item">Tất cả</li>
+                                <li class="dropdown-list-item">Cà phê phin</li>
+                                <li class="dropdown-list-item">Phindi</li>
+                                <li class="dropdown-list-item">Freeze</li>
+                                <li class="dropdown-list-item">Trà</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-bar2">
+                            <div id="price-drop-text" class="dropdown-text">
+                                <span id="price-span">Khoảng giá</span>
+                                <i id="price-icon" class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <ul id="price-list" class="dropdown-list">
+                                <li class="dropdown-list-item">Khoảng giá</li>
+                                <li class="dropdown-list-item">Dưới 40.000 VNĐ</li>
+                                <li class="dropdown-list-item">40.000 - 50.000 VNĐ</li>
+                                <li class="dropdown-list-item">Trên 50.000 VNĐ</li>
+                            </ul>
+                        </li>
+                        <li class="search-box">
+                            <input type="text" id="search-input" placeholder="Tìm kiếm..." required />
+                            <button type="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="icon-item">
+                <a href="./cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <div class="totalQuantity" id="cartQuantity">0</div>
+                </a>
+            </div>
+            <div class="icon-item">
+                <a href="javascript:void(0);">
+                    <img src="../image/khác/user.png">
+                    <ul class="dropdown-user1">
+                        <li><a href="../login-user/profile.html">Thông tin cá nhân</a></li>
+                        <li onclick="showOrderHistory()"><a href="./goods.html">Đơn đã mua</a></li>
+                        <li><a href="../index.html">Đăng xuất</a></li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- BREADCRUMB -->
+    <section class="breadcrumb_section container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../login-user/index_user.html">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="../login-user/cart.html">Giỏ hàng</a></li>
+                <li class="breadcrumb-item"><a href="../login-user/payment.html">Thanh toán</a></li>
+                <li class="breadcrumb-item"><a href="../login-user/thanks.html">Cảm ơn</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><strong>Đơn hàng</strong></li>
+
+            </ol>
+        </nav>
+    </section>
+    <!-- PROFILE -->
+    <div class="goods__content row">
+        <div class="goods__content__left col-6">
+            <h2 style="padding-left: 110px;"><strong>Tóm tắt đơn hàng</strong></h2>
+        </div>
+    </div>
+            <main>
+                <div class="profile-container">
+                    <div class="order-details">
+                        <div class="order-item" data-status="completed">
+                            <div class="order-header">
+                                <h4>Giao đến</h4>
+                                <span class="order-status-wait">A07 </span>|
+                                <span class="status-link">(+84) 865 172 517</span>
+                                <p class="diachinhan"> 273 Đ. An Dương Vương, Phường 3, Quận 5, TP. Hồ Chí Minh</p>
+                                <div style="display: flex; justify-content: center;">
+                                <button class="" id="show-details" style="
+                                line-height: 1.3; 
+                                background-color: #007bff; 
+                                color: white; 
+                                padding: 10px 20px; 
+                                border: none; 
+                                border-radius: 5px; 
+                                cursor: pointer;
+                                font-size: 16px;                            
+                            ">Hiển thị chi tiết hóa đơn</button></div>
+                                <div class="order-details-table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Sản phẩm</th>
+                                                <th>Số lượng</th>
+                                                <th>Kích cỡ</th>
+                                                <th>Giá</th>
+                                                <th>Phí vận chuyển</th>
+                                                <th>Tổng</th>
+                                                <th>Phương thức Thanh toán</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Trà Thanh Đào</td>
+                                                <td>1</td>
+                                                <td>S</td>
+                                                <td>45.000 VNĐ</td>
+                                                <td></td>
+                                                <td>45.000 VNĐ</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Freeze Trà Xanh</td>
+                                                <td>2</td>
+                                                <td>M</td>
+                                                <td>55.000 VNĐ</td>
+                                                <td></td>
+                                                <td>110.000 VNĐ</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Phindi Hạnh Nhân</td>
+                                                <td>1</td>
+                                                <td>L</td>
+                                                <td>65.000 VNĐ</td>
+                                                <td></td>
+                                                <td>65.000 VNĐ</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Tổng cộng</strong></td>
+                                                <td colspan="3"></td>
+                                                <td>10.000 VNĐ</td>
+                                                <td><strong>230.000 VNĐ</strong></td>
+                                                <td>Tài khoản ngân hàng</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Về chúng tôi</h2>
+                <p>Chúng tôi cung cấp các loại đồ uống chất lượng, phục vụ với sự tận tâm và chuyên nghiệp.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Liên kết</h2>
+                <ul>
+                    <li><a href="./index_user.html">Trang chủ</a></li>
+                    <li><a href="./menu/allmenu.html">Thực đơn</a></li>
+                    <li><a href="./news.html">Tin tức</a></li>
+                    <li><a href="./introduce.html">Giới thiệu</a></li>
+                    <li><a href="./contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h2>Kết nối với chúng tôi</h2>
+                <a href="https://web.facebook.com/highlandscoffeevietnam" target="_blank"><i
+                        class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/highlandscoffeevietnam/" target="_blank"><i
+                        class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <div class="footer-section members">
+                <h2>Thành viên</h2>
+                <ul>
+                    <li><a href="#">Lê Thị Thủy Tiên</a></li>
+                    <li><a href="#">Võ Thị Thu Luyện</a></li>
+                    <li><a href="#">Nguyễn Thị Ngọc Tú</a></li>
+                    <li><a href="#">Trần Thị Xuân Thanh</a></li>
+                    <li><a href="#">Nguyễn Huỳnh Yến Linh</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <hr>
+            &copy; Highlands Coffee | Thiết kế bởi Nhóm A07
+        </div>
+    </footer>
+    <!-- TOP -->
+    <div id="scrollToTopBtn">
+        <a href="#home"><i class="fas fa-arrow-up"></i></a>
+    </div>
+    <script src="../js/nav.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            updateCartQuantity();
+        });
+
+        window.addEventListener("storage", function (event) {
+            if (event.key === "cart") {
+                updateCartQuantity();
+            }
+        });
+
+        function updateCartQuantity() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartQuantityElement = document.getElementById("cartQuantity");
+
+            if (cartQuantityElement) {
+                cartQuantityElement.textContent = totalQuantity;
+            }
+        }
+
+    </script>
+
+    <script>
+        document.getElementById('show-details').addEventListener('click', function () {
+            const table = document.querySelector('.order-details-table');
+            table.style.display = 'block';
+            table.style.opacity = '1';
+            table.style.visibility = 'visible';
+        });
+
+        document.getElementById('show-details').addEventListener('click', function () {
+            const table = document.querySelector('.order-details-table');
+            table.classList.add('show');
+        });
+
+
+    </script>
+
+</body>
+
+</html>
